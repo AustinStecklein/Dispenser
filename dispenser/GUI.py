@@ -12,7 +12,11 @@ class GUI(threading.Thread):
     #Call back for when user closes window to handle stopping the thread
     def callback(self):
         self.root.quit()
-        self.handler.quit()
+        self.handler.regEvent(Event.FULL_STOP)
+    
+    def killAll(self):
+        self.handler.regEvent(Event.FULL_STOP)
+        self.root.quit()
 
     #Create window
     def run(self):
@@ -28,7 +32,7 @@ class GUI(threading.Thread):
         ttk.Button(frm, text="Slow", command=lambda: self.handler.regEvent(Event.MANUAL_SLOW)).grid(column=0, row=0)
         ttk.Button(frm, text="Medium", command=lambda: self.handler.regEvent(Event.MANUAL_MED)).grid(column=0, row=1)
         ttk.Button(frm, text="Fast", command=lambda: self.handler.regEvent(Event.MANUAL_FAST)).grid(column=0, row=2)
-        ttk.Button(frm, text="Quit", command=self.root.destroy).grid(column=0, row=3)
+        ttk.Button(frm, text="Quit", command=lambda: self.killAll() ).grid(column=0, row=3)
         
         #Start main thread
         self.root.mainloop()

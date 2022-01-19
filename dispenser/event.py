@@ -9,4 +9,5 @@ class Event(Enum):
     MANUAL_ANGLE_CHANGE = 6,
     GET_WEIGHT = 7,
     SAVE_DATA = 8,
+    FULL_STOP = 9
     
