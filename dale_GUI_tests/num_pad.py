@@ -26,7 +26,7 @@ class NumPad(Frame):
         for button in button_list:
             self.btn =  Button(self, 
                                 text=button,
-                                bg='red',
+                                bg='#c62b24',
                                 fg='white',
                                 width=6, 
                                 height=2, 
