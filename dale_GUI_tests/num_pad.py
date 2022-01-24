@@ -8,9 +8,12 @@ def button_press(btn):
     print(btn)
 
 class NumPad(Frame):
-    def __init__(self, window):
+    def __init__(self, window, c_root, r_root):
         super().__init__(window)
+        self.c_root = c_root
+        self.r_root = r_root
         self.grid()
+        
         self.create_buttons()
 
     def create_buttons(self):
@@ -20,8 +23,8 @@ class NumPad(Frame):
                         '1',    '2',    '3',
                         'Back', '0',    'Enter']
 
-        r = 0
-        c = 0
+        r_count = 0
+        c_count = 0
         button_font = font.Font(family='Arial Unicode MS', size=18, weight='bold')
         for button in button_list:
             self.btn =  Button(self, 
@@ -32,8 +35,8 @@ class NumPad(Frame):
                                 height=2, 
                                 command=lambda txt=button:button_press(txt)) 
             self.btn['font'] = button_font
-            self.btn.grid(row=r, column=c)
+            self.btn.grid(row=(r_count + self.r_root), column=c_count + self.c_root)
             
-            c = (c + 1) % 3
-            if c == 0:
-                r += 1
+            c_count = (c_count + 1) % 3
+            if c_count == 0:
+                r_count += 1

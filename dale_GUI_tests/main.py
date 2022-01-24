@@ -8,7 +8,7 @@ window.geometry("800x480")
 window.configure(background="black")
 
 
-num_pad = NumPad(window)
+num_pad = NumPad(window, 0, 0) # column 0, row 0
 
 
 window.mainloop()
