@@ -21,7 +21,7 @@ class NumPad(Frame):
                         '7',    '8',    '9',
                         '4',    '5',    '6',
                         '1',    '2',    '3',
-                        'Back', '0',    'Enter']
+                        'Back', '0',    '.']
 
         r_count = 0
         c_count = 0
