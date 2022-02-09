@@ -51,42 +51,45 @@ def main():
     power_button.place(x = 795, y = 5, anchor = 'ne')
 
 
-    def Numpad_menu():
+
+    def settings_menu():
         app_container.destroy()
 
+        settings_container = Canvas(height = 480, width = 800)
+        settings_container.grid()
+
+        def Return():
+            settings_container.destroy()
+            main()
+
+        return_button = Button(text = "Return", bg = "#c62b24", width = '10', height = '2', font = main_font, command = Return)
+        return_button.place(x = 795, y = 475, anchor = 'se')
+
+        def power_off():
+            settings_container.destroy()
+            Power_off()
+
+        power_button = Button(text = "Power", fg = 'white', bg = "#c62b24", width = '10', height = '2', font = main_font, command = power_off)
+        power_button.place(x = 795, y = 5, anchor = 'ne')
+
+    settings_button = Button(app_container, text = "Settings", fg = "white", bg = "#c62b24", width="20", height="4", command = settings_menu)
+    settings_button.place(x = 600, y = 240, anchor = 'center')
+    
+    def numpad_menu():
+        app_container.destroy()
+
+        #Holds all the Things
         numpad_container = Canvas(height = 480, width = 800, bg = "white")
         numpad_container.grid()
-
-        target_weight = Label(numpad_container, text ="TARGET WEIGHT", bg = "#FFFFFF", font = main_font)
-        #target_weight.place(x = 123, y = 123)
 
         def power_off():
             numpad_container.destroy()
 
             Power_off()
 
-        power_button = Button(numpad_container, text = "Power", fg = '#FFFFFF', bg = "#c62b24", width = '10', height = '2', font = main_font, command = power_off)
-        power_button.place(x = 795, y = 5, anchor = 'ne')
-
-
-        number_container = Canvas(numpad_container, width = 250, height = 250)
-        number_container.place(x = 400, y = 300, anchor = 'center')
-
-        scale_container = Canvas(numpad_container, width = 250, height = 200)
-        scale_container.place(x = 400, y = 100, anchor = 'center')
-
-
-        target_weight = Label(scale_container, text ="TARGET WEIGHT:", bg = "#FFFFFF", font = main_font)
-        target_weight.grid(row = 0, column = 0, padx = 10, pady = 5)
-
-        test_weight1 = Label(scale_container, text ="987654321", bg = "#FFFFFF", font = main_font)
-        test_weight1.grid(row = 1, column = 1, padx = 10, pady = 5)
-
-        test_weight2 = Label(scale_container, text ="123456789", bg = "#FFFFFF", font = main_font)
-        test_weight2.grid(row = 0, column = 1, padx = 10, pady = 5)
-
-        scale_weight = Label(scale_container, text ="SCALE WEIGHT:", bg = "#FFFFFF", font = main_font)
-        scale_weight.grid(row = 1, column = 0, padx = 10, pady = 5)
+        def Return():
+            numpad_container.destroy()
+            main()
 
         def load_menu():
             numpad_container.destroy()
@@ -97,7 +100,7 @@ def main():
 
             def Return():
                 load_container.destroy()
-                Numpad_menu()
+                numpad_menu()
 
             return_button = Button(text = "Return", bg = "#c62b24", width = '10', height = '2', font = main_font, command = Return)
             return_button.place(x = 795, y = 475, anchor = 'se')
@@ -109,10 +112,17 @@ def main():
             power_button = Button(text = "Power", fg = '#FFFFFF', bg = "#c62b24", width = '10', height = '2', font = main_font, command = power_off)
             power_button.place(x = 795, y = 5, anchor = 'ne')
 
+
+        #THE BUTTONS
+        power_button = Button(numpad_container, text = "Power", fg = '#FFFFFF', bg = "#c62b24", width = '10', height = '2', font = main_font, command = power_off)
+        power_button.place(x = 795, y = 5, anchor = 'ne')
+
+        return_button = Button(text = "Return", bg = "#c62b24", width = '10', height = '2', font = main_font, command = Return)
+        return_button.place(x = 795, y = 475, anchor = 'se')
+
         load_button = Button(numpad_container, text = "Load", fg = "white", bg = "#c62b24", width="10", height="2", command = load_menu)
         load_button.place(x = 5, y = 200, anchor = 'w')
 
-  
 
         settings_container = Canvas(height = 480, width = 800)
         settings_container.grid()
@@ -132,11 +142,6 @@ def main():
         power_button.place(x = 795, y = 5, anchor = 'ne')
 
 
-    def settings_menu():
-        pass
-
-    settings_button = Button(app_container, text = "Settings", fg = "white", bg = "#c62b24", width="20", height="4", command = settings_menu)
-    settings_button.place(x = 600, y = 240, anchor = 'center')
 
 
 #Call the Main function to start the program
