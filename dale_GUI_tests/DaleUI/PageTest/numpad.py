@@ -3,11 +3,14 @@
 from tkinter import *
 import tkinter.font as font
 
+import backend
+
 # Used this guide:
 # https://www.pythontutorial.net/tkinter/tkinter-object-oriented-frame/
 
 def button_press(btn):
     print(btn)
+    backend.add_target_digit(btn)
 
 class NumPad(Frame):
     def __init__(self, window):

@@ -1,6 +1,7 @@
 import tkinter as tk
 from page import Page
 from numpad import *
+import backend
 
 def coarse_feed():
     print('coarse feed')
@@ -41,12 +42,27 @@ class HomePage(Page):
         target_weight = Label(target_weight_frame, text ="Target Weight: 0.00", bg = "light gray")
         target_weight.pack(side = "bottom", pady = 5, anchor = 's')
 
+        def get_target_weight():
+            target_value = backend.get_target()
+            target_weight.config(text = "Target Weight: " + target_value)
+            self.after(10, get_target_weight)
+        
+        get_target_weight()
+
         # Scale Weight
+
         scale_weight_frame = tk.Frame(self)
         scale_weight_frame.pack(side = 'bottom', expand = False, anchor = 's', padx = 2)
 
         scale_weight = Label(scale_weight_frame, text ="Scale Weight: 0.00", bg = "light gray")
         scale_weight.pack(side = "bottom", pady = 5, anchor = 's')
+
+        def get_scale_reading():
+            scale_reading = backend.read_scale()
+            scale_weight.config(text = "Scale Weight: " + scale_reading)
+            self.after(10, get_scale_reading)
+        
+        get_scale_reading()
 
         # Adjustments
         adjustments_frame = tk.Frame(self)
