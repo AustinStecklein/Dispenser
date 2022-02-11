@@ -1,7 +1,6 @@
-# numpad.py
-
 from tkinter import *
 import tkinter.font as font
+import backend
 
 import backend
 
@@ -10,12 +9,17 @@ import backend
 
 def button_press(btn):
     print(btn)
-    backend.add_target_digit(btn)
+    if btn == 'Clear':
+        backend.numpad_clear()
+    elif btn == '.':
+        if '.' not in backend.get_target():
+            backend.add_target_digit(btn)
+    else:
+        backend.add_target_digit(btn)
 
 class NumPad(Frame):
     def __init__(self, window):
         super().__init__(window)
-        # self.grid()
         self.create_buttons()
 
     def create_buttons(self):
@@ -23,7 +27,7 @@ class NumPad(Frame):
                         '7',    '8',    '9',
                         '4',    '5',    '6',
                         '1',    '2',    '3',
-                        'Back', '0',    'Enter']
+                        'Clear', '0',    '.']
 
         r = 0
         c = 0
