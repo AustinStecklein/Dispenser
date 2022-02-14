@@ -80,7 +80,7 @@ class HomePage(Page):
         def get_tilt():
             tilt_value = backend.get_trickler_tilt()
             tilt_display_value.config(text = tilt_value + '°')
-            self.after(10, get_speed)
+            self.after(10, get_tilt)
         
         get_tilt()
         

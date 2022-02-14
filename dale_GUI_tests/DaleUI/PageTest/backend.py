@@ -3,6 +3,8 @@ import datetime
 # Placeholders for backend functions
 
 target = ""
+tilt = 0
+speed = 50
 
 def read_scale():
     return str(datetime.datetime.now())
@@ -36,19 +38,25 @@ def power_off():
     print('Power off')
 
 def increase_tilt():
-    print('increase tilt')
+    global tilt
+    tilt += 1
     
 def decrease_tilt():
-    print('decrease tilt')
+    global tilt
+    tilt -= 1
     
 def increase_speed():
-    print('increase speed')
+    global speed
+    speed += 1
     
 def decrease_speed():
-    print('decrease speed')
+    global speed
+    speed -= 1
 
 def get_trickler_speed():
-    return "95"
+    global speed
+    return str(speed)
     
 def get_trickler_tilt():
-    return "5"
+    global tilt
+    return str(tilt)
