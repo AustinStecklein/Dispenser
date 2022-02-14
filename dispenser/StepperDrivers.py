@@ -12,3 +12,11 @@ class StepperDriver:
 
     def stop (self):
         pass #define full stop
+    
+    def bumpBarrel(self, speed):
+        sleep(5)
+    def autorun(self, targetWeight):
+        sleep(5)
+    def stopBarrel(self):
+        sleep(5)
+        
