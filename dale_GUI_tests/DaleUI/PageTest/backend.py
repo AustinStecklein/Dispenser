@@ -1,10 +1,12 @@
 import datetime
+from json import load
 
 # Placeholders for backend functions
 
 target = ""
 tilt = 0
 speed = 50
+load_list = ['load1', 'load2', 'load3']
 
 def read_scale():
     return str(datetime.datetime.now())
@@ -60,3 +62,10 @@ def get_trickler_speed():
 def get_trickler_tilt():
     global tilt
     return str(tilt)
+
+def get_load_list():
+    global load_list
+    return load_list
+
+def load_preset(load_string):
+    print(f'Loading {load_string}')
