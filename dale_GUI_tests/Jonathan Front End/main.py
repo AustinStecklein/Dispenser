@@ -25,31 +25,40 @@ main_font = font.Font(family = "Bahnschrift", size = 12)
 power_off_text = font.Font(family = "Bahnschrift", size = 50)
 
 #logo for UI
-logo = PhotoImage(file = 'dale_GUI_tests\Jonathan Front End\logo.png')
-other = PhotoImage(file = 'dale_GUI_tests\Jonathan Front End\Signature.png')
+banner = PhotoImage(file = 'dale_GUI_tests\Jonathan Front End\\banner.png')
+logo = PhotoImage(file = 'dale_GUI_tests\Jonathan Front End\\logo.png')
+mini = PhotoImage(file = 'dale_GUI_tests\Jonathan Front End\mini.png')
+other = PhotoImage(file = 'dale_GUI_tests\Jonathan Front End\other.png')
 
 def main():
     app_container = Canvas(height = 480, width = 800, bg = "white")
     app_container.grid()
 
-    image_container = Canvas(app_container, height=55, width=55, bg="#FFFFFF")
-    image_container.create_image(0,0, anchor = NW, image = logo)
+    image_container = Canvas(app_container, height=75, width=500, bg="#FFFFFF")
+    image_container.create_image(0,0, anchor = NW, image = banner)
     image_container.place(x= 5, y = 5)
 
     def test_function():
-        auto_button.config(relief = SUNKEN, state = tk.DISABLED, background="red")
-        test_button.config(relief = RAISED, state = tk.ACTIVE, background="yellow")
+        test_button.config(relief = RAISED, state = tk.ACTIVE)
+        other_button.config(relief=RAISED, state = tk.ACTIVE)
 
-    auto_button = Button(app_container, image = logo, background = "black", width = "75", height = "60", borderwidth = 0, command = test_function)
-    auto_button.place(x = 200, y = 450, anchor = "center")
+    auto_button = Button(app_container, image = logo,  width = "80", height = "80", borderwidth = 0, command = test_function, background="white")
+    auto_button.place(x = 250, y = 240, anchor = "center")
 
     def test_function1():
-        test_button.config(relief = SUNKEN, state = tk.DISABLED, background="blue")
-        auto_button.config(relief = RAISED, state = tk.ACTIVE, background="Green")
+        test_button.config(relief = SUNKEN, state = tk.DISABLED)
 
 
-    test_button = Button(app_container, image = other, background = "black", width = 400, height = 200, borderwidth=0, command = test_function1)
-    test_button.place(x = 300, y = 200, anchor = W)
+    test_button = Button(app_container, image = mini, width = 80, height = 80, borderwidth=0, command = test_function1)
+    test_button.place(x = 400, y = 240, anchor = "center")
+
+    def test_function2():
+        other_button.config(relief = SUNKEN, state = tk.DISABLED)
+
+
+    other_button = Button(app_container, image = other, width = 80, height = 80, borderwidth=0, command = test_function2)
+    other_button.place(x = 550, y = 240, anchor = "center")
+
 
     def power_off():
         app_container.destroy()
