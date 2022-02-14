@@ -7,6 +7,7 @@ import tkinter.font as font
 from numpad import NumPad
 from power_off import Power_off
 from load import Load
+import datetime
 
 
 #Start of App
@@ -24,20 +25,31 @@ main_font = font.Font(family = "Bahnschrift", size = 12)
 power_off_text = font.Font(family = "Bahnschrift", size = 50)
 
 #logo for UI
-logo = PhotoImage(file = 'logo.png')
-
+logo = PhotoImage(file = 'dale_GUI_tests\Jonathan Front End\logo.png')
+other = PhotoImage(file = 'dale_GUI_tests\Jonathan Front End\Signature.png')
 
 def main():
     app_container = Canvas(height = 480, width = 800, bg = "white")
     app_container.grid()
 
-    image_container = Canvas(app_container, height=70, width=600, bg="#FFFFFF")
+    image_container = Canvas(app_container, height=55, width=55, bg="#FFFFFF")
     image_container.create_image(0,0, anchor = NW, image = logo)
     image_container.place(x= 5, y = 5)
 
+    def test_function():
+        auto_button.config(relief = SUNKEN, state = tk.DISABLED, background="red")
+        test_button.config(relief = RAISED, state = tk.ACTIVE, background="yellow")
 
-    auto_button = Button(app_container, text = "Auto", fg = 'white', bg = "#c62b24", width = "20", height = "4")
-    auto_button.place(x = 200, y = 240, anchor = "center")
+    auto_button = Button(app_container, image = logo, background = "black", width = "75", height = "60", borderwidth = 0, command = test_function)
+    auto_button.place(x = 200, y = 450, anchor = "center")
+
+    def test_function1():
+        test_button.config(relief = SUNKEN, state = tk.DISABLED, background="blue")
+        auto_button.config(relief = RAISED, state = tk.ACTIVE, background="Green")
+
+
+    test_button = Button(app_container, image = other, background = "black", width = 400, height = 200, borderwidth=0, command = test_function1)
+    test_button.place(x = 300, y = 200, anchor = W)
 
     def power_off():
         app_container.destroy()
@@ -137,8 +149,8 @@ def main():
 
 
 
-    settings_button = Button(app_container, text = "Settings", fg = "white", bg = "#c62b24", width="20", height="4", command = settings_menu)
-    settings_button.place(x = 600, y = 240, anchor = 'center')
+    #settings_button = Button(app_container, text = "Settings", fg = "white", bg = "#c62b24", width="20", height="4", command = settings_menu)
+    #settings_button.place(x = 600, y = 240, anchor = 'center')
 
 
 #Call the Main function to start the program
