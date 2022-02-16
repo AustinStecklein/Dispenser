@@ -1,5 +1,4 @@
 import datetime
-from json import load
 
 # Placeholders for backend functions
 
@@ -9,7 +8,7 @@ speed = 50
 load_list = ['load1', 'load2', 'load3']
 
 def read_scale():
-    return str(datetime.datetime.now())
+    return str(datetime.date.today().strftime('%m.%d'))
 
 def set_target(new_target):
     global target

@@ -1,6 +1,6 @@
 import tkinter as tk
-from page import Page
-import backend
+from pages.page import Page
+import modules.backend as backend
 
 # TODO: handle more load presets than the screen can display - scrolling list or such
 # TODO: self.lower returns to previous page, not Home
