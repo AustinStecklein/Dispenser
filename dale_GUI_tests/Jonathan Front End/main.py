@@ -1,6 +1,9 @@
 # main.py
 
+from cProfile import label
 from calendar import c
+from pickle import FRAME
+import re
 import tkinter as tk
 from tkinter import *
 import tkinter.font as font
@@ -28,50 +31,70 @@ logo = PhotoImage(file = 'power.png')
 mini = PhotoImage(file = 'home.png')
 other = PhotoImage(file = 'right_arrow.png')
 power = PhotoImage(file = 'power.png')
+home = PhotoImage(file = 'home.png')
+left_arrow = PhotoImage(file = 'left_arrow.png')
+right_arrow = PhotoImage(file = 'right_arrow.png')
 
 def main():
     app_container = Canvas(height = 480, width = 800, bg = "white")
     app_container.grid()
 
-    image_container = Canvas(app_container, height=75, width=500, bg="#FFFFFF")
-    image_container.create_image(0,0, anchor = NW, image = banner)
-    image_container.place(x= 5, y = 5)
+    banner_container = Frame(app_container, height=75, width=500, bg="#FFFFFF")
+    banner_container.place(x= 0, y = 0, anchor = NW)
+
+    banner_label = Label(banner_container, image = banner, bg="#FFFFFF")
+    banner_label.grid(row = 0, column=0)
+
+
 
     def test_function():
-        test_button.config(relief = RAISED, state = tk.ACTIVE)
-        other_button.config(relief=RAISED, state = tk.ACTIVE)
+            auto_button.config(relief=SUNKEN, background="green")
+            test_button.config(relief = RAISED, background="red")
+            other_button.config(relief=RAISED, background="red")
 
-    auto_button = Button(app_container, image = logo,  width = "80", height = "80", borderwidth = 0, command = test_function, background="white")
-    auto_button.place(x = 250, y = 240, anchor = "center")
+    auto_button = Button(app_container, text = "AUTO", background= "red", borderwidth = 5, foreground = "white", command = test_function, font = main_font)
+    auto_button.place(x = 250, y = 240, width = 100, height = 70, anchor = "center")
 
     def test_function1():
-        test_button.config(relief = SUNKEN, state = tk.DISABLED)
+        auto_button.config(relief = RAISED, background="red")
+        test_button.config(relief = SUNKEN, background="green")
 
 
-    test_button = Button(app_container, image = mini, width = 80, height = 80, borderwidth=0, command = test_function1)
-    test_button.place(x = 400, y = 240, anchor = "center")
+    test_button = Button(app_container, text = "MANUAL", background= "red", borderwidth = 7, foreground = "white", command = test_function1, font = main_font)
+    test_button.place(x = 400, y = 240, width = 100, height = 70, anchor = "center")
 
     def test_function2():
-        other_button.config(relief = SUNKEN, state = tk.DISABLED)
+        other_button.config(relief = SUNKEN, background="green")
 
-
-    other_button = Button(app_container, image = other, width = 80, height = 80, borderwidth=0, command = test_function2)
-    other_button.place(x = 550, y = 240, anchor = "center")
-
-    power_button = Button(app_container, image = power, width = 80, height = 80, borderwidth=0, command = test_function2)
-    power_button.place(x = 700, y = 240, anchor = "se")
-
-    menu_buttons = Frame(app_container, width = 300, height= 100)
-    menu_buttons.place(x = 795, y = 475, anchor = "se")
-
-    power_button1 = Button(menu_buttons, image = power, width = 80, height = 80, borderwidth=0, command = test_function2)
-    power_button1.grid(row = 0, column = 3)
-
-
-
+    def home_menu():
+        app_container.destroy()
+        main()
 
     def power_off():
         app_container.destroy()
+
+
+    other_button = Button(app_container, text = "SETTINGS", background= "red", borderwidth = 10, foreground = "white", command = test_function2, font = main_font)
+    other_button.place(x = 550, y = 240, width = 100, height = 70, anchor = "center")
+
+    
+
+    menu_buttons = Canvas(app_container, width = 300, height= 100, background = "black")
+    menu_buttons.place(x = 800, y = 480, anchor = "se")
+
+
+
+    power_button = Button(menu_buttons, image = power, width = 80, height = 80, background = "black", borderwidth=0, command = power_off)
+    power_button.grid(row = 0, column = 3)
+
+    home_button = Button(menu_buttons, image = home, width = 80, height = 80, background = "black", borderwidth=0, command = home_menu)
+    home_button.grid(row = 0, column = 2)
+
+    right_arrow_button = Button(menu_buttons, image = right_arrow, width = 80, height = 80, background = "black", borderwidth=0, command = test_function2)
+    right_arrow_button.grid(row = 0, column = 1)
+
+    left_arrow_button = Button(menu_buttons, image = left_arrow, width = 80, height = 80, background = "black", borderwidth=0, command = test_function2)
+    left_arrow_button.grid(row = 0, column = 0)
 
         
 
