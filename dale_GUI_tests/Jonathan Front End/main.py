@@ -5,8 +5,6 @@ import tkinter as tk
 from tkinter import *
 import tkinter.font as font
 from numpad import NumPad
-from power_off import Power_off
-from load import Load
 import datetime
 
 
@@ -25,10 +23,10 @@ main_font = font.Font(family = "Bahnschrift", size = 12)
 power_off_text = font.Font(family = "Bahnschrift", size = 50)
 
 #logo for UI
-banner = PhotoImage(file = 'dale_GUI_tests\Jonathan Front End\\banner.png')
-logo = PhotoImage(file = 'dale_GUI_tests\Jonathan Front End\\logo.png')
-mini = PhotoImage(file = 'dale_GUI_tests\Jonathan Front End\mini.png')
-other = PhotoImage(file = 'dale_GUI_tests\Jonathan Front End\other.png')
+banner = PhotoImage(file = 'banner.png')
+logo = PhotoImage(file = 'logo.png')
+mini = PhotoImage(file = 'mini.png')
+other = PhotoImage(file = 'other.png')
 
 def main():
     app_container = Canvas(height = 480, width = 800, bg = "white")
@@ -63,7 +61,7 @@ def main():
     def power_off():
         app_container.destroy()
 
-        Power_off()
+        
 
     def numpad_menu():
         app_container.destroy()
@@ -75,7 +73,7 @@ def main():
         def power_off():
             numpad_container.destroy()
 
-            Power_off()
+            
 
         def Return():
             numpad_container.destroy()
@@ -97,7 +95,7 @@ def main():
 
             def power_off():
                 load_container.destroy()
-                Power_off()
+                
 
             power_button = Button(text = "Power", fg = '#FFFFFF', bg = "#c62b24", width = '10', height = '2', font = main_font, command = power_off)
             power_button.place(x = 795, y = 5, anchor = 'ne')
@@ -117,7 +115,7 @@ def main():
 
             def power_off():
                 settings_container.destroy()
-                Power_off()
+                
 
             power_button = Button(text = "Power", fg = 'white', bg = "#c62b24", width = '10', height = '2', font = main_font, command = power_off)
             power_button.place(x = 795, y = 5, anchor = 'ne')   
@@ -150,7 +148,7 @@ def main():
 
         def power_off():
             settings_container.destroy()
-            Power_off()
+            
 
         power_button = Button(text = "Power", fg = 'white', bg = "#c62b24", width = '10', height = '2', font = main_font, command = power_off)
         power_button.place(x = 795, y = 5, anchor = 'ne')
