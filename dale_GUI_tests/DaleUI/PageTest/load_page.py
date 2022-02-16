@@ -3,7 +3,6 @@ from page import Page
 import backend
 
 # TODO: handle more load presets than the screen can display - scrolling list or such
-# TODO: self.lower returns to previous page, not Home
 class LoadPage(Page):
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)
