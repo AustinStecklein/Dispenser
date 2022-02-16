@@ -3,27 +3,35 @@ import tkinter as tk
 from pages.page import Page
 from modules.numpad import *
 import modules.backend as backend
+from pages.load_page      import *
 
 class HomePage(Page):
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)
 
+        # Initialize other pages
+        self.load_page = LoadPage(self)
+        self.load_page .place(in_=self, x=0, y=0, relwidth=1, relheight=1)
+
+        home_page = tk.Frame(self)
+        home_page .place(in_=self, x=0, y=0, relwidth=1, relheight=1)
+
         ## Num Pad
-        numpad_frame = tk.Frame(self)
+        numpad_frame = tk.Frame(home_page)
         numpad_frame.pack(side = 'left', padx = 4)
 
         numpad = NumPad(numpad_frame)
         numpad.pack()
 
         ## load / save / view
-        right_frame = tk.Frame(self)
+        right_frame = tk.Frame(home_page)
         right_frame.pack(side = 'right', expand = True)
 
         top_buttons_frame = tk.Frame(right_frame)
         top_buttons_frame.pack(side = 'top', pady = 4)
 
         load_button = tk.Button(top_buttons_frame, text = "Load", fg = "white", bg = "#c62b24", 
-                                width="10", height="2", command = backend.power_off)
+                                width="10", height="2", command = self.load_page.show)
         save_button = tk.Button(top_buttons_frame, text = "Save", fg = "white", bg = "#c62b24", 
                                 width="10", height="2", command = backend.power_off)
         view_button = tk.Button(top_buttons_frame, text = "View", fg = "white", bg = "#c62b24", 
@@ -53,7 +61,7 @@ class HomePage(Page):
         def get_scale_reading():
             scale_reading = backend.read_scale()
             scale_weight.config(text = scale_reading)
-            self.after(10, get_scale_reading)
+            home_page.after(10, get_scale_reading)
         
         get_scale_reading()
 
@@ -70,7 +78,7 @@ class HomePage(Page):
         def get_target_weight():
             target_value = backend.get_target()
             target_weight.config(text = "Target Weight: " + target_value)
-            self.after(10, get_target_weight)
+            home_page.after(10, get_target_weight)
         
         get_target_weight()
 
@@ -87,7 +95,7 @@ class HomePage(Page):
         def get_speed():
             speed_value = backend.get_trickler_speed()
             speed_display_value.config(text = speed_value + '%')
-            self.after(10, get_speed)
+            home_page.after(10, get_speed)
         
         get_speed()
 
@@ -124,3 +132,5 @@ class HomePage(Page):
         calibrate_button.pack(side = 'left', expand = False, padx = 8)
         settings_button .pack(side = 'left', expand = False, padx = 8)
 
+    def go_home(self):
+        self.load_page.lower()
