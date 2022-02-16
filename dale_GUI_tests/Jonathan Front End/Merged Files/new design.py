@@ -6,10 +6,14 @@ class MainView(tk.Frame):
         tk.Frame.__init__(self, *args, **kwargs)
 
         #Declare Image Objects
-        number1 = tk.PhotoImage(file = 'home.gif')
+        number1 = tk.PhotoImage(file = 'home.png')
 
         #App Container
-        number_frame = tk.LabelFrame(self)
+        app_frame = tk.Frame(self, width = 800, height=480)
+        app_frame.grid()
+
+        
+        number_frame = tk.LabelFrame(app_frame)
         number_frame.place(x = 795, y = 475, anchor = "se", width = 250, height=100)
 
 
@@ -17,10 +21,12 @@ class MainView(tk.Frame):
         number1_button = tk.Button(number_frame, 
                                     #text = "number1", 
                                     image = number1,
-                                    background="Red", 
+                                    #background="Red", 
                                     width = 50, 
                                     height = 50)
-        number1_button.pack(anchor = "se")
+        number1_button.pack(#x = 795, 
+                             #y = 475, 
+                             anchor = "se")
 
 
 

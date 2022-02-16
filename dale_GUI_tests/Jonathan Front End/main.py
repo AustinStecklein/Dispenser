@@ -26,7 +26,7 @@ power_off_text = font.Font(family = "Bahnschrift", size = 50)
 banner = PhotoImage(file = 'banner.png')
 logo = PhotoImage(file = 'logo.png')
 mini = PhotoImage(file = 'mini.png')
-other = PhotoImage(file = 'other.png')
+other = PhotoImage(file = 'home.png')
 
 def main():
     app_container = Canvas(height = 480, width = 800, bg = "white")
