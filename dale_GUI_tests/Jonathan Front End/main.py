@@ -24,9 +24,10 @@ power_off_text = font.Font(family = "Bahnschrift", size = 50)
 
 #logo for UI
 banner = PhotoImage(file = 'banner.png')
-logo = PhotoImage(file = 'logo.png')
-mini = PhotoImage(file = 'mini.png')
-other = PhotoImage(file = 'home.png')
+logo = PhotoImage(file = 'power.png')
+mini = PhotoImage(file = 'home.png')
+other = PhotoImage(file = 'right_arrow.png')
+power = PhotoImage(file = 'power.png')
 
 def main():
     app_container = Canvas(height = 480, width = 800, bg = "white")
@@ -56,6 +57,17 @@ def main():
 
     other_button = Button(app_container, image = other, width = 80, height = 80, borderwidth=0, command = test_function2)
     other_button.place(x = 550, y = 240, anchor = "center")
+
+    power_button = Button(app_container, image = power, width = 80, height = 80, borderwidth=0, command = test_function2)
+    power_button.place(x = 700, y = 240, anchor = "se")
+
+    menu_buttons = Frame(app_container, width = 300, height= 100)
+    menu_buttons.place(x = 795, y = 475, anchor = "se")
+
+    power_button1 = Button(menu_buttons, image = power, width = 80, height = 80, borderwidth=0, command = test_function2)
+    power_button1.grid(row = 0, column = 3)
+
+
 
 
     def power_off():
