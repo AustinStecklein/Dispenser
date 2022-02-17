@@ -79,7 +79,7 @@ def main():
 
     
 
-    menu_buttons = Canvas(app_container, width = 300, height= 100, background = "black")
+    menu_buttons = Frame(app_container, width = 300, height= 100, background = "black")
     menu_buttons.place(x = 800, y = 480, anchor = "se")
 
 

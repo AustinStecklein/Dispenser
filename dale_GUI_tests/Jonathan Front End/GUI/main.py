@@ -21,7 +21,7 @@ class MainView(tk.Frame):
         power_off_page  = PowerOffPage(self)
 
         # Image Declarations
-        home = tk.PhotoImage("home.png")
+        #home = tk.PhotoImage("home.png")
 
         
         # Page Buttons
@@ -29,12 +29,20 @@ class MainView(tk.Frame):
         button_frame.pack(side="bottom", expand=False, anchor="se")
         
         # Power Button
-        power_button = tk.Button(button_frame, text = "Power", fg = '#FFFFFF', bg = "#c62b24", width = '10', height = '2', command = power_off_page.show)
+        power_button = tk.Button(button_frame, image = power, width = 80, height = 80, background = "black", command = power_off_page.show)
         power_button.pack(side = 'right', expand = False, anchor = 'w', padx = 2)
 
         # Home Button
-        home_button = tk.Button(button_frame, image = home,        fg = "white", bg = "#c62b24", width="10", height="2", command = home_page.go_home)
+        home_button = tk.Button(button_frame, image = home, width = 80, height = 80, background = "black", command = home_page.go_home)
         home_button.pack(side = "right", anchor = "w", pady = 4)
+
+        # Power Button
+        right_arrow_button = tk.Button(button_frame, image = power, width = 80, height = 80, background = "black", command = power_off_page.show)
+        right_arrow_button.pack(side = 'right', expand = False, anchor = 'w', padx = 2)
+
+        # Home Button
+        left_arrow_button = tk.Button(button_frame, image = home, width = 80, height = 80, background = "black", command = home_page.go_home)
+        left_arrow_button.pack(side = "right", anchor = "w", pady = 4)
 
         page_frame = tk.Frame(self)
         page_frame.pack(side="right", fill="both", expand=True)
@@ -49,6 +57,13 @@ class MainView(tk.Frame):
 
 if __name__ == "__main__":
     root = tk.Tk()
+
+
+    home = PhotoImage(file = 'home.png')
+    power = PhotoImage(file = 'power.png')
+    
+    
+
     main = MainView(root)
     main.pack(side="top", fill="both", expand=True)
     root.wm_geometry("800x480")
