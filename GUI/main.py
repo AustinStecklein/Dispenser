@@ -30,7 +30,7 @@ class MainView(tk.Frame):
         power_button.pack(side = 'right', expand = False, anchor = 'w', padx = 2)
 
         # Home Button
-        home_button = tk.Button(button_frame, text = "Home",        fg = "white", bg = "#c62b24", width="10", height="2", command = home_page.go_home)
+        home_button = tk.Button(button_frame, image = "home.png",        fg = "white", bg = "#c62b24", width="10", height="2", command = home_page.go_home)
         home_button.pack(side = "right", anchor = "w", pady = 4)
 
         page_frame = tk.Frame(self)

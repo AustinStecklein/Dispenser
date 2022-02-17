@@ -42,7 +42,7 @@ main_font = font.Font(family = "Bahnschrift", size = 12)
 power_off_text = font.Font(family = "Bahnschrift", size = 50)
 
 #logo for UI
-logo = PhotoImage(file = 'Jonathan\logo.png')  
+logo = PhotoImage(file = 'logo.png')  
 
 #Call the Main function to start the program
 main = MainFrame(root)
