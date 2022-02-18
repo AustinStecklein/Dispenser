@@ -25,24 +25,24 @@ class MainView(tk.Frame):
 
         
         # Page Buttons
-        button_frame = tk.Frame(self)
+        button_frame = tk.Frame(self, background="black")
         button_frame.pack(side="bottom", expand=False, anchor="se")
         
         # Power Button
-        power_button = tk.Button(button_frame, image = power, width = 80, height = 80, background = "black", command = power_off_page.show)
-        power_button.pack(side = 'right', expand = False, anchor = 'w', padx = 2)
+        power_button = tk.Button(button_frame, image = power, background = "black", borderwidth = 0, command = power_off_page.show)
+        power_button.pack(side = 'right', expand = False, anchor = 'w')
 
         # Home Button
-        home_button = tk.Button(button_frame, image = home, width = 80, height = 80, background = "black", command = home_page.go_home)
-        home_button.pack(side = "right", anchor = "w", pady = 4)
+        home_button = tk.Button(button_frame, image = home, width = 80, height = 80, background = "black", borderwidth = 0,command = home_page.go_home)
+        home_button.pack(side = "right", anchor = "w")
 
         # Power Button
-        right_arrow_button = tk.Button(button_frame, image = power, width = 80, height = 80, background = "black", command = power_off_page.show)
-        right_arrow_button.pack(side = 'right', expand = False, anchor = 'w', padx = 2)
+        right_arrow_button = tk.Button(button_frame, image = right_arrow, width = 80, height = 80, background = "black", borderwidth = 0,)
+        right_arrow_button.pack(side = 'right', expand = False, anchor = 'w')
 
         # Home Button
-        left_arrow_button = tk.Button(button_frame, image = home, width = 80, height = 80, background = "black", command = home_page.go_home)
-        left_arrow_button.pack(side = "right", anchor = "w", pady = 4)
+        left_arrow_button = tk.Button(button_frame, image = left_arrow, background = "black", borderwidth = 0,)
+        left_arrow_button.pack(side = "right", anchor = "w")
 
         page_frame = tk.Frame(self)
         page_frame.pack(side="right", fill="both", expand=True)
@@ -58,10 +58,12 @@ class MainView(tk.Frame):
 if __name__ == "__main__":
     root = tk.Tk()
 
+    #Define Menu Image Variables
 
-    home = PhotoImage(file = 'home.png')
-    power = PhotoImage(file = 'power.png')
-    
+    home =        PhotoImage(file = 'home.png')
+    power =       PhotoImage(file = 'power.png')
+    left_arrow =  PhotoImage(file = 'left_arrow.png')
+    right_arrow = PhotoImage(file = 'right_arrow.png')
     
 
     main = MainView(root)

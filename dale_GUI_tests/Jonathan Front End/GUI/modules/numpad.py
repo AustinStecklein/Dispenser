@@ -1,6 +1,8 @@
+from fileinput import filename
 from tkinter import *
 import tkinter.font as font
-import cv2
+from PIL import ImageTk, Image
+
 #import modules.backend as backend
 
 # Used this guide:
@@ -20,27 +22,35 @@ class NumPad(Frame):
 
     def create_buttons(self):
 
-        number1 = PhotoImage("power.png")
-        number2 = PhotoImage("home.png")   
+        number_frame = Frame()
+
+        number1 = ImageTk.PhotoImage(Image.open("power.png"))
+
+        number2 = PhotoImage("home.png")
 
         button_list = [ 
-                        number2,    number2,    number1,
                         number1,    number1,    number1,
-                        number2,    number2,    number1,
-                        number1]
+                        number1,    number1,    number1,
+                        number2,    number2,    number2,
+                        number2]
 
         r = 0
         c = 0
-        button_font = font.Font(family='Bahnschrift', size=12, weight='bold')
+        
         for button in button_list:
-            self.btn =  Button(self, image = button, width = 5, height = 2, background = "black", foreground="white") 
 
-            self.btn['font'] = button_font
+            self.btn = Label(number_frame, image = button, width = 80, height = 80, background = "black", foreground = "white") 
+
             self.btn.grid(row = r, column = c, padx = 2, pady = 2)
+
+            test_button = Button(number_frame, image = number2, width = 80, height = 80, background = "black",)
+            test_button.grid(row = r, column = c)
             
             c = (c + 1) % 3
             if c == 0:
                 r += 1
+
+        button_font = font.Font(family='Bahnschrift', size=12, weight='bold')
 
         dispense_button = Button(self,
                                 text = "Dispense",
