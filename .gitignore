@@ -128,3 +128,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 GUI/pages/__pycache__/load_page.cpython-39.pyc
+*.pyc
+*.pyc
+*.pyc
+GUI/pages/__pycache__/power_off_page.cpython-39.pyc
+GUI/pages/__pycache__/calibrate_page.cpython-39.pyc
+GUI/modules/__pycache__/backend.cpython-39.pyc
