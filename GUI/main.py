@@ -1,10 +1,7 @@
 import tkinter as tk
 
 from pages.page           import *
-from pages.settings_page  import *
-from pages.calibrate_page import *
 from pages.home_page      import *
-from pages.save_page      import *
 from pages.power_off_page import *
 
 import modules.backend
@@ -15,9 +12,6 @@ class MainView(tk.Frame):
 
         # Page Frames
         home_page       = HomePage(self)
-        settings_page   = SettingsPage(self)
-        calibrate_page  = CalibratePage(self)
-        save_page       = SavePage(self)
         power_off_page  = PowerOffPage(self)
 
         # Image Declarations
@@ -33,16 +27,13 @@ class MainView(tk.Frame):
         power_button.pack(side = 'right', expand = False, anchor = 'w', padx = 2)
 
         # Home Button
-        home_button = tk.Button(button_frame, image = home,        fg = "white", bg = "#c62b24", width="10", height="2", command = home_page.go_home)
+        home_button = tk.Button(button_frame, text = "Home", fg = "white", bg = "#c62b24", width="10", height="2", command = home_page.go_home)
         home_button.pack(side = "right", anchor = "w", pady = 4)
 
         page_frame = tk.Frame(self)
         page_frame.pack(side="right", fill="both", expand=True)
 
         home_page       .place(in_=page_frame, x=0, y=0, relwidth=1, relheight=1)
-        save_page       .place(in_=page_frame, x=0, y=0, relwidth=1, relheight=1)
-        calibrate_page  .place(in_=page_frame, x=0, y=0, relwidth=1, relheight=1)
-        settings_page   .place(in_=page_frame, x=0, y=0, relwidth=1, relheight=1)
         power_off_page  .place(in_=page_frame, x=0, y=0, relwidth=1, relheight=1)
         
         home_page.show()

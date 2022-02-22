@@ -4,14 +4,24 @@ from pages.page import Page
 from modules.numpad import *
 import modules.backend as backend
 from pages.load_page      import *
+from pages.settings_page  import *
+from pages.calibrate_page import *
+from pages.save_page      import *
 
 class HomePage(Page):
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)
 
         # Initialize other pages
-        self.load_page = LoadPage(self)
-        self.load_page .place(in_=self, x=0, y=0, relwidth=1, relheight=1)
+        self.load_page      = LoadPage(self)
+        self.settings_page  = SettingsPage(self)
+        self.calibrate_page = CalibratePage(self)
+        self.save_page      = SavePage(self)
+        
+        self.load_page      .place(in_=self, x=0, y=0, relwidth=1, relheight=1)
+        self.save_page      .place(in_=self, x=0, y=0, relwidth=1, relheight=1)
+        self.calibrate_page .place(in_=self, x=0, y=0, relwidth=1, relheight=1)
+        self.settings_page  .place(in_=self, x=0, y=0, relwidth=1, relheight=1)
 
         home_page = tk.Frame(self)
         home_page .place(in_=self, x=0, y=0, relwidth=1, relheight=1)
@@ -33,7 +43,7 @@ class HomePage(Page):
         load_button = tk.Button(top_buttons_frame, text = "Load", fg = "white", bg = "#c62b24", 
                                 width="10", height="2", command = self.load_page.show)
         save_button = tk.Button(top_buttons_frame, text = "Save", fg = "white", bg = "#c62b24", 
-                                width="10", height="2", command = backend.power_off)
+                                width="10", height="2", command = self.save_page.show)
         view_button = tk.Button(top_buttons_frame, text = "View", fg = "white", bg = "#c62b24", 
                                 width="10", height="2", command = backend.power_off)
 
@@ -124,9 +134,9 @@ class HomePage(Page):
         clear_button = tk.Button(bottom_buttons_frame, text = "CLEAR", fg = "white", bg = "#c62b24", 
                                     width="10", height="2", command = backend.numpad_clear)
         calibrate_button = tk.Button(bottom_buttons_frame, text = "Calibrate", fg = "white", bg = "#c62b24", 
-                                    width="10", height="2", command = backend.power_off)
+                                    width="10", height="2", command = self.calibrate_page.show)
         settings_button = tk.Button(bottom_buttons_frame, text = "Settings", fg = "white", bg = "#c62b24", 
-                                    width="10", height="2", command = backend.power_off)
+                                    width="10", height="2", command = self.settings_page.show)
                                 
         clear_button    .pack(side = 'left', expand = False, padx = 8)
         calibrate_button.pack(side = 'left', expand = False, padx = 8)
@@ -134,3 +144,6 @@ class HomePage(Page):
 
     def go_home(self):
         self.load_page.lower()
+        self.save_page.lower()
+        self.settings_page.lower()
+        self.calibrate_page.lower()
