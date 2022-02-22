@@ -6,6 +6,7 @@ from pages.calibrate_page import *
 from pages.home_page      import *
 from pages.save_page      import *
 from pages.power_off_page import *
+import Images
 
 import modules.backend
 
@@ -44,6 +45,8 @@ class MainView(tk.Frame):
         left_arrow_button = tk.Button(button_frame, image = left_arrow, background = "black", borderwidth = 0,)
         left_arrow_button.pack(side = "right", anchor = "w")
 
+        # Home Button
+
         page_frame = tk.Frame(self)
         page_frame.pack(side="right", fill="both", expand=True)
 
@@ -53,20 +56,31 @@ class MainView(tk.Frame):
         settings_page   .place(in_=page_frame, x=0, y=0, relwidth=1, relheight=1)
         power_off_page  .place(in_=page_frame, x=0, y=0, relwidth=1, relheight=1)
         
+        home_page.load_image = PhotoImage(file = 'load_Button.png')
+
         home_page.show()
+
 
 if __name__ == "__main__":
     root = tk.Tk()
+    root.title('Dispenser')
 
     #Define Menu Image Variables
 
     home =        PhotoImage(file = 'home.png')
+    home_small = home.subsample(2, 2)
+
     power =       PhotoImage(file = 'power.png')
     left_arrow =  PhotoImage(file = 'left_arrow.png')
     right_arrow = PhotoImage(file = 'right_arrow.png')
+    load_button =   PhotoImage(file = 'load_Button.png')
+    home_small = load_button.subsample(2, 2)
+
+    load_image = PhotoImage(file = 'load_Button.png')
     
 
     main = MainView(root)
+    
     main.pack(side="top", fill="both", expand=True)
     root.wm_geometry("800x480")
     root.resizable(height=False, width=False)

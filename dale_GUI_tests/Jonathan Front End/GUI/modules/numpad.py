@@ -1,7 +1,7 @@
-from fileinput import filename
 from tkinter import *
 import tkinter.font as font
 from PIL import ImageTk, Image
+import Images
 
 #import modules.backend as backend
 
@@ -22,11 +22,10 @@ class NumPad(Frame):
 
     def create_buttons(self):
 
-        number_frame = Frame()
+        number1 = Images.get('load')
 
-        number1 = ImageTk.PhotoImage(Image.open("power.png"))
 
-        number2 = PhotoImage("home.png")
+        number2 = Images.get('save')
 
         button_list = [ 
                         number1,    number1,    number1,
@@ -39,16 +38,21 @@ class NumPad(Frame):
         
         for button in button_list:
 
-            self.btn = Label(number_frame, image = button, width = 80, height = 80, background = "black", foreground = "white") 
+            
+
+
+            self.btn = Button(self, image = button, width = 80, height = 80, background = "black",)
 
             self.btn.grid(row = r, column = c, padx = 2, pady = 2)
 
-            test_button = Button(number_frame, image = number2, width = 80, height = 80, background = "black",)
-            test_button.grid(row = r, column = c)
+            #test_button = Button(self, image = number2, width = 80, height = 80, background = "black",)
+            #test_button.grid(row = r, column = c)
             
             c = (c + 1) % 3
             if c == 0:
                 r += 1
+
+
 
         button_font = font.Font(family='Bahnschrift', size=12, weight='bold')
 
@@ -61,6 +65,12 @@ class NumPad(Frame):
                                 )    
         
         dispense_button['font'] = button_font
-        dispense_button.grid(columnspan = 2, row = r, column = c, padx = 2, pady = 2)        
+        dispense_button.grid(columnspan = 2, row = r, column = c, padx = 2, pady = 2)    
+
+    if __name__ == "__numpad__":
+
+        home =        PhotoImage(file = 'home.png')
+        power =       PhotoImage(file = 'power.png')       
+
 
           
