@@ -2,8 +2,7 @@ import tkinter as tk
 from pages.page import Page
 import modules.backend as backend
 
-# TODO: handle more load presets than the screen can display - scrolling list or such
-# TODO: self.lower returns to previous page, not Home
+# TODO: up / down arrow buttons show a few at a time
 class LoadPage(Page):
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)
