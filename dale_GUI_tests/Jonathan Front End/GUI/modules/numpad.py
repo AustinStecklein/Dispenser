@@ -1,6 +1,6 @@
 from tkinter import *
+import tkinter as tk
 import tkinter.font as font
-from PIL import ImageTk, Image
 import Images
 
 #import modules.backend as backend
@@ -22,55 +22,46 @@ class NumPad(Frame):
 
     def create_buttons(self):
 
-        number1 = Images.get('load')
+        number1 = Images.get('1')
+        number2 = Images.get('2')
+        number3 = Images.get('3')
+        number4 = Images.get('4')
+        number5 = Images.get('5')
+        number6 = Images.get('6')
+        number7 = Images.get('7')
+        number8 = Images.get('8')
+        number9 = Images.get('9')
+        number0 = Images.get('0')
+        dispense = Images.get('dispense')
 
-
-        number2 = Images.get('save')
 
         button_list = [ 
-                        number1,    number1,    number1,
-                        number1,    number1,    number1,
-                        number2,    number2,    number2,
-                        number2]
+                        number1,    number2,    number3,
+                        number4,    number5,    number6,
+                        number7,    number8,    number9,
+                        number0]
 
         r = 0
         c = 0
         
         for button in button_list:
 
-            
-
-
-            self.btn = Button(self, image = button, width = 80, height = 80, background = "black",)
+            self.btn = Button(self, image = button, width = 90, height = 90, borderwidth="0")
 
             self.btn.grid(row = r, column = c, padx = 2, pady = 2)
-
-            #test_button = Button(self, image = number2, width = 80, height = 80, background = "black",)
-            #test_button.grid(row = r, column = c)
             
             c = (c + 1) % 3
             if c == 0:
                 r += 1
 
-
-
-        button_font = font.Font(family='Bahnschrift', size=12, weight='bold')
-
         dispense_button = Button(self,
-                                text = "Dispense",
-                                bg = '#c62b24',
-                                fg = 'white',
-                                width = 22, 
-                                height = 4,
+                                image = dispense,
+                                borderwidth="0",
+                                width = 275, 
+                                height = 100,
                                 )    
         
-        dispense_button['font'] = button_font
         dispense_button.grid(columnspan = 2, row = r, column = c, padx = 2, pady = 2)    
-
-    if __name__ == "__numpad__":
-
-        home =        PhotoImage(file = 'home.png')
-        power =       PhotoImage(file = 'power.png')       
 
 
           

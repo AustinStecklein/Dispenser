@@ -52,10 +52,9 @@ class HomePage(Page):
         top_buttons_frame.pack(side = 'top', pady = 4)
 
 
-        load_button = tk.Button(top_buttons_frame, command = self.load_page.show, width = 150, height= 45, image = Images.get('load'))
-        save_button = tk.Button(top_buttons_frame, command = self.load_page.show, width = 150, height= 45, image = Images.get('save'))
-        view_button = tk.Button(top_buttons_frame, text = "View", fg = "white", bg = "#c62b24", 
-                                width="10", height="2", command = backend.power_off)
+        load_button = tk.Button(top_buttons_frame, command = self.load_page.show, width = 125, height= 35, image = Images.get('load'))
+        save_button = tk.Button(top_buttons_frame, command = self.load_page.show, width = 125, height= 35, image = Images.get('save'))
+        view_button = tk.Button(top_buttons_frame, image = Images.get('view'), width="125", height="35", command = backend.power_off)
 
         save_button.pack(side = 'left', expand = False, padx = 8)
         load_button.pack(side = 'left', expand = False, padx = 8)
@@ -123,12 +122,12 @@ class HomePage(Page):
         feed_button_frame = tk.Frame(right_frame)
         feed_button_frame.pack(side = 'top', expand = False, anchor = 's', pady = 4)
 
-        coarse_feed_button = tk.Button( feed_button_frame, text = "Coarse Feed", fg = "white", bg = "#c62b24", 
-                                        width="10", height="2", command = backend.coarse_feed)
-        fine_feed_button = tk.Button(   feed_button_frame, text = "Fine Feed", fg = "white", bg = "#c62b24", 
-                                        width="10", height="2", command = backend.fine_feed)
-        bump_feed_button = tk.Button(   feed_button_frame, text = "Bump", fg = "white", bg = "#c62b24", 
-                                        width="10", height="2", command = backend.bump_feed)
+        coarse_feed_button = tk.Button( feed_button_frame, image = Images.get('coarse'), 
+                                        width="100", height="40", command = backend.coarse_feed)
+        fine_feed_button = tk.Button(   feed_button_frame, image = Images.get('fine'), 
+                                        width="100", height="40", command = backend.fine_feed)
+        bump_feed_button = tk.Button(   feed_button_frame, image = Images.get('bump'), 
+                                        width="100", height="40", command = backend.bump_feed)
         
         bump_feed_button.pack(  side = 'right', expand = False, anchor = 's', padx = 8)
         fine_feed_button.pack(  side = 'right', expand = False, anchor = 's', padx = 8)
@@ -141,12 +140,12 @@ class HomePage(Page):
         bottom_buttons_frame = tk.Frame(right_frame)
         bottom_buttons_frame.pack(side = 'top', anchor = 's', pady = 4)
 
-        clear_button = tk.Button(bottom_buttons_frame, text = "CLEAR", fg = "white", bg = "#c62b24", 
-                                    width="10", height="2", command = backend.numpad_clear)
-        calibrate_button = tk.Button(bottom_buttons_frame, text = "Calibrate", fg = "white", bg = "#c62b24", 
-                                    width="10", height="2", command = backend.power_off)
-        settings_button = tk.Button(bottom_buttons_frame, text = "Settings", fg = "white", bg = "#c62b24", 
-                                    width="10", height="2", command = backend.power_off)
+        clear_button = tk.Button(bottom_buttons_frame, image = Images.get('clear'), 
+                                    width="100", height="40", command = backend.numpad_clear)
+        calibrate_button = tk.Button(bottom_buttons_frame, image = Images.get('calibrate'), 
+                                    width="100", height="40", command = backend.power_off)
+        settings_button = tk.Button(bottom_buttons_frame, image = Images.get('settings'), 
+                                    width="100", height="40", command = backend.power_off)
                                 
         clear_button    .pack(side = 'left', expand = False, padx = 8)
         calibrate_button.pack(side = 'left', expand = False, padx = 8)

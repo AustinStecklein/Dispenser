@@ -37,15 +37,13 @@ class MainView(tk.Frame):
         home_button = tk.Button(button_frame, image = home, width = 80, height = 80, background = "black", borderwidth = 0,command = home_page.go_home)
         home_button.pack(side = "right", anchor = "w")
 
-        # Power Button
+        # Right Arrow Button
         right_arrow_button = tk.Button(button_frame, image = right_arrow, width = 80, height = 80, background = "black", borderwidth = 0,)
         right_arrow_button.pack(side = 'right', expand = False, anchor = 'w')
 
-        # Home Button
+        # Left Arrow Button
         left_arrow_button = tk.Button(button_frame, image = left_arrow, background = "black", borderwidth = 0,)
         left_arrow_button.pack(side = "right", anchor = "w")
-
-        # Home Button
 
         page_frame = tk.Frame(self)
         page_frame.pack(side="right", fill="both", expand=True)
@@ -68,12 +66,11 @@ if __name__ == "__main__":
     #Define Menu Image Variables
 
     home =        PhotoImage(file = 'home.png')
-    home_small = home.subsample(2, 2)
-
     power =       PhotoImage(file = 'power.png')
     left_arrow =  PhotoImage(file = 'left_arrow.png')
     right_arrow = PhotoImage(file = 'right_arrow.png')
-    load_button =   PhotoImage(file = 'load_Button.png')
+    load_button = Images.get('load')
+
     home_small = load_button.subsample(2, 2)
 
     load_image = PhotoImage(file = 'load_Button.png')
