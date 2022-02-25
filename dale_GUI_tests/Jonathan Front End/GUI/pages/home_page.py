@@ -4,28 +4,12 @@ from pages.page import Page
 from modules.numpad import *
 import modules.backend as backend
 from pages.load_page      import *
+from pages.save_page      import *
 from PIL import ImageTk, Image
 from tkinter import *
 import Images
 
 class HomePage(Page):
-
-
-    
-
-    def get(name):
-
-        imagelist = {
-        'food_0001': ['load_Button.png', None],
-        'food_0002': ['load_Button.png', None],
-        }
-
-        if name in imagelist:
-            if imagelist[name][1] is None:
-                print('loading image:', name)
-                imagelist[name][1] = PhotoImage(file=imagelist[name][0])
-            return imagelist[name][1]
-        return None
 
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)
@@ -33,6 +17,9 @@ class HomePage(Page):
         # Initialize other pages
         self.load_page = LoadPage(self)
         self.load_page .place(in_=self, x=0, y=0, relwidth=1, relheight=1)
+
+        self.save_page = SavePage(self)
+        self.save_page .place(in_=self, x=0, y=0, relwidth=1, relheight=1)
 
         home_page = tk.Frame(self)
         home_page .place(in_=self, x=0, y=0, relwidth=1, relheight=1)
@@ -53,7 +40,7 @@ class HomePage(Page):
 
 
         load_button = tk.Button(top_buttons_frame, command = self.load_page.show, width = 125, height= 35, image = Images.get('load'))
-        save_button = tk.Button(top_buttons_frame, command = self.load_page.show, width = 125, height= 35, image = Images.get('save'))
+        save_button = tk.Button(top_buttons_frame, command = self.save_page.show, width = 125, height= 35, image = Images.get('save'))
         view_button = tk.Button(top_buttons_frame, image = Images.get('view'), width="125", height="35", command = backend.power_off)
 
         save_button.pack(side = 'left', expand = False, padx = 8)

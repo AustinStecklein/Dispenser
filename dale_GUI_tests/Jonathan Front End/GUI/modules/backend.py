@@ -5,7 +5,9 @@ import datetime
 target = ""
 tilt = 0
 speed = 50
-load_list = ['load1', 'load2', 'load3']
+load_list =  ['load1', 'load2', 'load3']
+save_list =  ['Cartridge: ', 'Bullet: ', 'Powder: ', "Charge Weight: ", 'C.O.A.L.: ']
+save_list1 = ['Cartridge: ', 'Bullet: ', 'Powder: ', "Charge Weight: ", 'C.O.A.L.: ']
 
 def read_scale():
     return str(datetime.date.today().strftime('%m.%d'))
@@ -65,6 +67,14 @@ def get_trickler_tilt():
 def get_load_list():
     global load_list
     return load_list
+
+def get_save_list():
+    global save_list
+    return save_list
+
+def get_save_list1():
+    global save_list1
+    return save_list1
 
 def load_preset(load_string):
     print(f'Loading {load_string}')
