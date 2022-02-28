@@ -23,18 +23,18 @@ class HomePage(Page):
         self.calibrate_page .place(in_=self, x=0, y=0, relwidth=1, relheight=1)
         self.settings_page  .place(in_=self, x=0, y=0, relwidth=1, relheight=1)
 
-        home_page = tk.Frame(self)
-        home_page .place(in_=self, x=0, y=0, relwidth=1, relheight=1)
+        home_frame = tk.Frame(self)
+        home_frame .place(in_=self, x=0, y=0, relwidth=1, relheight=1)
 
         ## Num Pad
-        numpad_frame = tk.Frame(home_page)
+        numpad_frame = tk.Frame(home_frame)
         numpad_frame.pack(side = 'left', padx = 4)
 
         numpad = NumPad(numpad_frame)
         numpad.pack()
 
         ## load / save / view
-        right_frame = tk.Frame(home_page)
+        right_frame = tk.Frame(home_frame)
         right_frame.pack(side = 'right', expand = True)
 
         top_buttons_frame = tk.Frame(right_frame)
@@ -71,7 +71,7 @@ class HomePage(Page):
         def get_scale_reading():
             scale_reading = backend.read_scale()
             scale_weight.config(text = scale_reading)
-            home_page.after(10, get_scale_reading)
+            home_frame.after(10, get_scale_reading)
         
         get_scale_reading()
 
@@ -88,7 +88,7 @@ class HomePage(Page):
         def get_target_weight():
             target_value = backend.get_target()
             target_weight.config(text = "Target Weight: " + target_value)
-            home_page.after(10, get_target_weight)
+            home_frame.after(10, get_target_weight)
         
         get_target_weight()
 
@@ -105,7 +105,7 @@ class HomePage(Page):
         def get_speed():
             speed_value = backend.get_trickler_speed()
             speed_display_value.config(text = speed_value + '%')
-            home_page.after(10, get_speed)
+            home_frame.after(10, get_speed)
         
         get_speed()
 
