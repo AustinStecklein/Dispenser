@@ -25,10 +25,10 @@ class BrightnessSoundPage(Page):
         bottom_frame .pack(side = 'top', expand = True)
 
         left_frame = tk.Frame(bottom_frame)
-        left_frame .pack(side = 'left', expand = True)
+        left_frame .pack(side = 'left', expand = True, padx = 10)
 
         right_frame = tk.Frame(bottom_frame)
-        right_frame .pack(side = 'left', expand = True)
+        right_frame .pack(side = 'left', expand = True, padx = 10)
 
         backlight_slider = tk.Scale(left_frame, from_ = 0, to_ = 100, orient = tk.HORIZONTAL)
         backlight_slider .pack(side = 'top')

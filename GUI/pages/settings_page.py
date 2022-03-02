@@ -4,6 +4,7 @@ import modules.backend as backend
 from pages.adjust_feeds_page        import *
 from pages.brightness_sound_page    import * 
 from pages.scale_config_page        import *
+from pages.default_settings_page    import *
 
 class SettingsPage(Page):
     def __init__(self, *args, **kwargs):
@@ -13,10 +14,12 @@ class SettingsPage(Page):
         self.scale_config_page      = ScaleConfigPage(self)
         self.brightness_sound_page  = BrightnessSoundPage(self)
         self.adjust_feeds_page      = AdjustFeedsPage(self)
+        self.default_page           = DefaultSettingsPage(self)
 
         self.scale_config_page      .place(in_ = self, x = 0, y = 0, relwidth = 1, relheight = 1)
         self.brightness_sound_page  .place(in_ = self, x = 0, y = 0, relwidth = 1, relheight = 1)
         self.adjust_feeds_page      .place(in_ = self, x = 0, y = 0, relwidth = 1, relheight = 1)
+        self.default_page           .place(in_ = self, x = 0, y = 0, relwidth = 1, relheight = 1)
 
         settings_frame = tk.Frame(self)
         settings_frame .place(in_ = self, x = 0, y = 0, relwidth = 1, relheight = 1)
@@ -40,7 +43,7 @@ class SettingsPage(Page):
         brightness_sound_button = tk.Button(right_buttons_frame, text = "Brightness & Sounds", fg = "white", bg = "#c62b24",
                                             width="30", height="2", command = self.brightness_sound_page.show)
         defaults_button         = tk.Button(right_buttons_frame, text = "Restore to Defaults", fg = "white", bg = "#c62b24",
-                                            width="30", height="2", command = backend.power_off)
+                                            width="30", height="2", command = self.default_page.show)
 
 
         brightness_sound_button .pack(side = 'top', expand = False, padx = 50, pady = 20)

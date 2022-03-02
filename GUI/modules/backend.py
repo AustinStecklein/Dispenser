@@ -5,7 +5,22 @@ import datetime
 target = ""
 tilt = 0
 speed = 50
-load_list = ['load1', 'load2', 'load3']
+load_list = ['load1', 'load2', 'load3', 'load4', 'load5']
+load_page = 1
+
+def next_page():
+    global load_page
+    load_page += 1
+    print('>')
+
+def prev_page():
+    global load_page
+    load_page -= 1
+    print('<')
+
+def get_page():
+    global load_page
+    return str(load_page)
 
 def read_scale():
     return str(datetime.date.today().strftime('%m.%d'))
