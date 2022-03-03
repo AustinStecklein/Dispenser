@@ -6,6 +6,7 @@ imagelist = {
   'home': ['home.png', None],
   'right': ['right_arrow.png', None],
   'left': ['left_arrow.png', None],
+  'menu_bar': ['Bottom Bar.png', None],
 
   # NumPad
   '1': ['1_button.png', None],
