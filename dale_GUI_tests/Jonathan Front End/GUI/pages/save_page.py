@@ -1,46 +1,108 @@
+from ctypes import alignment
 import tkinter as tk
+from turtle import left
 from pages.page import Page
 import modules.backend as backend
 import tkinter.font as font
+from pages.home_page      import *
+import Images
 
 class SavePage(Page):
    def __init__(self, *args, **kwargs):
        Page.__init__(self, *args, **kwargs)
+
+       main_font = font.Font(family = "Bahnschrift", size = 25)
+       scale_font = font.Font(family='Bahnschrift', size=26, weight='bold')
+
+       test_name = backend.get_test_name()
+
+
+       def popup_test():
+            popup = tk.Toplevel()
+            popup.geometry('800x480')
+            popup.resizable(height=False, width=False)
+
+            nonlocal test_name
+
+            #test_name = input("Please Input Filename: ")
+
+            test_label = tk.Label(popup, text = "Filename: " + test_name, width = 25, font = scale_font)
+            test_label.pack()
+
+            def close():
+                 nonlocal test_name
+                 test_name = "NUMBER 31"
+                 popup.destroy()
+
+            def update():
+                 nonlocal test_name
+                 test_name = "NUMBER 31"
+                 save_page.after(10, update)
+
+            update()
+               
+            test_button = tk.Button(popup, text = "FINISH", width = 15, command = close, background = 'red')
+            test_button.pack(side = 'bottom', anchor = 'e')
+
+            test_button1 = tk.Button(popup, text = "UPDATE", width = 15, command = update, background = 'red')
+            test_button1.pack(side = 'bottom', anchor = 'e')
+            
+            keyboard = tk.Label(popup, image = Images.get('keyboard'))
+            keyboard.pack(side = 'bottom')
+
+            
 
        # Initialize Page
 
        save_page = tk.Frame(self)
        save_page .place(in_=self, x=0, y=0, relwidth=1, relheight=1)
 
-       top_bar = tk.Frame(save_page, border = "3", borderwidth=2, bg = "Black", width = 100)
+       top_bar = tk.Frame(save_page, borderwidth=0, width = 800, background="light gray")
        top_bar.pack(side = 'top', expand = False,  fill = 'x', anchor = 'w', pady = 2)
 
-       label = tk.Button(top_bar, text="Save Card", width = '25')
-       label.pack(side="left", expand=False, fill = "both", anchor = 'w')
+       save_button = tk.Button(top_bar, image = Images.get('save_card'), width = '225', borderwidth=0)
+       save_button.pack(side="left", expand=False, fill = "both", anchor = 'w')
 
-       label = tk.Button(top_bar, text="Filename", width = '50')
-       label.pack(side="right", expand=False, fill = "both", anchor = 'e')
+       filename_label = tk.Button(top_bar, text="Filename: ", width = '10', font = scale_font, command = popup_test, borderwidth=0, background = "light gray")
+       filename_label.pack(side="left", expand=False, fill = "both", anchor = 'w')
+
+       name_label = tk.Label(top_bar, text=test_name, width = '20', font = scale_font, borderwidth=0, background = "light gray", anchor = 'w')
+       name_label.pack(side="left", expand=False, anchor = 'w')
 
        load_list = backend.get_save_list()
        load_list1 = backend.get_save_list1()
 
-       scale_font = font.Font(family='Bahnschrift', size=20, weight='bold')
+       
 
-       info_section = tk.Frame(save_page, border = "3", borderwidth=2, bg = "Black", width = 50)
+       info_section = tk.Frame(save_page)
        info_section.pack(side = 'top', expand = False, pady = 2)
 
-       for load_string in load_list:
-            load_frame = tk.Frame(info_section, width = 45)
-            load_frame.pack(side = 'top', expand = False, pady = 2, fill = 'x')
+       left_side = tk.Canvas(info_section, width = 250)
+       left_side.grid(row = 0, column = 0, sticky = 'nw', ipadx = "25")
 
-            load_label = tk.Label(load_frame, text = load_string, bg = 'light gray', font = scale_font, width = '20',  anchor = 'w', pady = 2)
+       right_side = tk.Canvas(info_section, width = 350)
+       right_side.grid(row = 0, column = 1, sticky = 'nw')
+
+       for load_string in load_list:
+            load_frame = tk.Frame(left_side)
+            load_frame.pack(side = 'top', expand = False, pady = 3, fill = 'x', anchor = 'w')
+
+            load_label = tk.Label(load_frame, text = load_string, bg = 'light gray', font = scale_font, width = '20',  anchor = 'w', pady = 4)
             load_label.pack(side = 'left', expand = False)
 
        for load_string in load_list1:
-            load_frame = tk.Frame(info_section, width = 45)
-            load_frame.pack(side = 'top', expand = False, pady = 2, fill = 'x')
+            if (load_string == "Notes: "):
+               load_frame = tk.Frame(right_side)
+               load_frame.pack(side = 'top', expand = False, pady = 25, fill = 'x')
 
-            load_label = tk.Label(load_frame, text = load_string, bg = 'light gray', font = scale_font, width = '20',  anchor = 'w', pady = 2)
-            load_label.pack(side = 'right', expand = False)
+               load_label = tk.Label(load_frame, text = load_string, bg = 'light gray', font = scale_font, width = '20', height = "4", pady = 2, anchor = "nw")
+               load_label.pack(side = 'right', expand = False)
+
+            else:
+                load_frame = tk.Frame(right_side)
+                load_frame.pack(side = 'top', expand = False, pady = 3, fill = 'x', anchor = 'w')
+
+                load_label = tk.Label(load_frame, text = load_string, bg = 'light gray', font = scale_font, width = '20',  anchor = 'w', pady = 4)
+                load_label.pack(side = 'right', expand = False)
 
         

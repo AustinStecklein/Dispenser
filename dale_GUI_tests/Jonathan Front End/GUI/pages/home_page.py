@@ -1,4 +1,3 @@
-from cgitb import small
 import tkinter as tk
 from pages.page import Page
 from modules.numpad import *
@@ -39,9 +38,9 @@ class HomePage(Page):
         top_buttons_frame.pack(side = 'top', pady = 4)
 
 
-        load_button = tk.Button(top_buttons_frame, command = self.load_page.show, width = 125, height= 35, image = Images.get('load'))
-        save_button = tk.Button(top_buttons_frame, command = self.save_page.show, width = 125, height= 35, image = Images.get('save'))
-        view_button = tk.Button(top_buttons_frame, image = Images.get('view'), width="125", height="35", command = backend.power_off)
+        load_button = tk.Button(top_buttons_frame, command = self.load_page.show, width = 100, height= 50, image = Images.get('load'), borderwidth=0)
+        save_button = tk.Button(top_buttons_frame, command = self.save_page.show, width = 100, height= 50, image = Images.get('save'), borderwidth=0)
+        view_button = tk.Button(top_buttons_frame, image = Images.get('view'), width="100", height="50", command = backend.power_off, borderwidth=0)
 
         save_button.pack(side = 'left', expand = False, padx = 8)
         load_button.pack(side = 'left', expand = False, padx = 8)
@@ -110,11 +109,11 @@ class HomePage(Page):
         feed_button_frame.pack(side = 'top', expand = False, anchor = 's', pady = 4)
 
         coarse_feed_button = tk.Button( feed_button_frame, image = Images.get('coarse'), 
-                                        width="100", height="40", command = backend.coarse_feed)
+                                        width="100", height="50", command = backend.coarse_feed, borderwidth=0)
         fine_feed_button = tk.Button(   feed_button_frame, image = Images.get('fine'), 
-                                        width="100", height="40", command = backend.fine_feed)
+                                        width="100", height="50", command = backend.fine_feed, borderwidth=0)
         bump_feed_button = tk.Button(   feed_button_frame, image = Images.get('bump'), 
-                                        width="100", height="40", command = backend.bump_feed)
+                                        width="100", height="50", command = backend.bump_feed, borderwidth=0)
         
         bump_feed_button.pack(  side = 'right', expand = False, anchor = 's', padx = 8)
         fine_feed_button.pack(  side = 'right', expand = False, anchor = 's', padx = 8)
@@ -128,11 +127,11 @@ class HomePage(Page):
         bottom_buttons_frame.pack(side = 'top', anchor = 's', pady = 4)
 
         clear_button = tk.Button(bottom_buttons_frame, image = Images.get('clear'), 
-                                    width="100", height="40", command = backend.numpad_clear)
+                                    width="100", height="50", command = backend.numpad_clear, borderwidth=0)
         calibrate_button = tk.Button(bottom_buttons_frame, image = Images.get('calibrate'), 
-                                    width="100", height="40", command = backend.power_off)
+                                    width="100", height="50", command = backend.power_off, borderwidth=0)
         settings_button = tk.Button(bottom_buttons_frame, image = Images.get('settings'), 
-                                    width="100", height="40", command = backend.power_off)
+                                    width="100", height="50", command = backend.power_off, borderwidth=0)
                                 
         clear_button    .pack(side = 'left', expand = False, padx = 8)
         calibrate_button.pack(side = 'left', expand = False, padx = 8)
@@ -140,3 +139,4 @@ class HomePage(Page):
 
     def go_home(self):
         self.load_page.lower()
+        self.save_page.lower()

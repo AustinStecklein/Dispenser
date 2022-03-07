@@ -1,4 +1,5 @@
-import tkinter as tk
+from tkinter import *
+from tkinter.ttk import *
 
 from pages.page           import *
 from pages.settings_page  import *
@@ -26,24 +27,28 @@ class MainView(tk.Frame):
 
         
         # Page Buttons
-        button_frame = tk.Frame(self, background="black")
+        button_frame = tk.Frame(self)
         button_frame.pack(side="bottom", expand=False, anchor="se")
+
+        # Menu Bar
+        menu_bar_image = tk.Label(button_frame, borderwidth = 0, image = menu_bar)
+        menu_bar_image.pack(side = 'bottom', expand = False, anchor = 'se')
         
         # Power Button
-        power_button = tk.Button(button_frame, image = power, background = "black", borderwidth = 0, command = power_off_page.show)
-        power_button.pack(side = 'right', expand = False, anchor = 'w')
+        power_button = tk.Button(menu_bar_image, image = power, borderwidth = 0, command = power_off_page.show)
+        power_button.place(relx = 1, rely = 1, anchor = "se")
 
         # Home Button
-        home_button = tk.Button(button_frame, image = home, width = 80, height = 80, background = "black", borderwidth = 0,command = home_page.go_home)
-        home_button.pack(side = "right", anchor = "w")
+        home_button = tk.Button(menu_bar_image, image = home, borderwidth = 0,command = home_page.go_home)
+        home_button.place(relx = .9, rely = 1, anchor = "se")
 
         # Right Arrow Button
-        right_arrow_button = tk.Button(button_frame, image = right_arrow, width = 80, height = 80, background = "black", borderwidth = 0,)
-        right_arrow_button.pack(side = 'right', expand = False, anchor = 'w')
+        right_arrow_button = tk.Button(menu_bar_image, image = right_arrow, borderwidth = 0,)
+        right_arrow_button.place(relx = .8, rely = 1, anchor = "se")
 
         # Left Arrow Button
-        left_arrow_button = tk.Button(button_frame, image = left_arrow, background = "black", borderwidth = 0,)
-        left_arrow_button.pack(side = "right", anchor = "w")
+        left_arrow_button = tk.Button(menu_bar_image, image = left_arrow, borderwidth = 0,)
+        left_arrow_button.place(relx = .7, rely = 1, anchor = "se")
 
         page_frame = tk.Frame(self)
         page_frame.pack(side="right", fill="both", expand=True)
@@ -69,11 +74,10 @@ if __name__ == "__main__":
     power =       PhotoImage(file = 'power.png')
     left_arrow =  PhotoImage(file = 'left_arrow.png')
     right_arrow = PhotoImage(file = 'right_arrow.png')
+    menu_bar =    PhotoImage(file = 'Bottom Bar.png')
     load_button = Images.get('load')
 
-    home_small = load_button.subsample(2, 2)
-
-    load_image = PhotoImage(file = 'load_Button.png')
+    home_small = power.subsample(3, 3)
     
 
     main = MainView(root)

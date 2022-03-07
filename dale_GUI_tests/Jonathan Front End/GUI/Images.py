@@ -6,6 +6,7 @@ imagelist = {
   'home': ['home.png', None],
   'right': ['right_arrow.png', None],
   'left': ['left_arrow.png', None],
+  'menu_bar': ['Bottom Bar.png', None],
 
   # NumPad
   '1': ['1_button.png', None],
@@ -24,6 +25,7 @@ imagelist = {
   'load': ['load_Button.png', None],
   'save': ['Save_Button.png', None],
   'view': ['viewedit_Button.png', None],
+  
 
   # Middle Bar
   'coarse': ['Coarse_Button.png', None],
@@ -32,6 +34,10 @@ imagelist = {
   'clear': ['Clear_Button.png', None],
   'calibrate': ['Calibrate_Button.png', None],
   'settings': ['Settings_Button.png', None],
+
+  # Save Card
+  'save_card': ['Save_Card.png', None],
+  'keyboard': ['keyboard.png', None],
 
 }
 

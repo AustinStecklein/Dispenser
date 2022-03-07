@@ -7,7 +7,8 @@ tilt = 0
 speed = 50
 load_list =  ['load1', 'load2', 'load3']
 save_list =  ['Cartridge: ', 'Bullet: ', 'Powder: ', "Charge Weight: ", 'C.O.A.L.: ']
-save_list1 = ['Cartridge: ', 'Bullet: ', 'Powder: ', "Charge Weight: ", 'C.O.A.L.: ']
+save_list1 = ['Primer: ', 'Brass: ', 'Notes: ']
+test_name = "NUMBER 13"
 
 def read_scale():
     return str(datetime.date.today().strftime('%m.%d'))
@@ -59,6 +60,10 @@ def decrease_speed():
 def get_trickler_speed():
     global speed
     return str(speed)
+
+def get_test_name():
+    global test_name
+    return str(test_name)
     
 def get_trickler_tilt():
     global tilt
