@@ -6,6 +6,7 @@ import modules.backend as backend
 import tkinter.font as font
 from pages.home_page      import *
 import Images
+from modules.keyboard import *
 
 class SavePage(Page):
    def __init__(self, *args, **kwargs):
@@ -28,27 +29,13 @@ class SavePage(Page):
 
             test_label = tk.Label(popup, text = "Filename: " + test_name, width = 25, font = scale_font)
             test_label.pack()
-
-            def close():
-                 nonlocal test_name
-                 test_name = "NUMBER 31"
-                 popup.destroy()
-
-            def update():
-                 nonlocal test_name
-                 test_name = "NUMBER 31"
-                 save_page.after(10, update)
-
-            update()
-               
-            test_button = tk.Button(popup, text = "FINISH", width = 15, command = close, background = 'red')
-            test_button.pack(side = 'bottom', anchor = 'e')
-
-            test_button1 = tk.Button(popup, text = "UPDATE", width = 15, command = update, background = 'red')
-            test_button1.pack(side = 'bottom', anchor = 'e')
             
-            keyboard = tk.Label(popup, image = Images.get('keyboard'))
-            keyboard.pack(side = 'bottom')
+            ## Num Pad
+            numpad_frame = tk.Frame(popup)
+            numpad_frame.pack(side = 'bottom', padx = 4)
+
+            numpad = Keyboard(numpad_frame)
+            numpad.pack(side = "bottom")
 
             
 

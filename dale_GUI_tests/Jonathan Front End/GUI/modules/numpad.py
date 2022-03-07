@@ -46,7 +46,7 @@ class NumPad(Frame):
         
         for button in button_list:
 
-            self.btn = Button(self, image = button, width = 100, height = 96, borderwidth="0")
+            self.btn = Button(self, image = button, borderwidth="0", anchor = 'center')
 
             self.btn.grid(row = r, column = c, padx = 2, pady = 2)
             
@@ -57,8 +57,6 @@ class NumPad(Frame):
         dispense_button = Button(self,
                                 image = dispense,
                                 borderwidth="0",
-                                width = 250, 
-                                height = 96,
                                 )    
         
         dispense_button.grid(columnspan = 2, row = r, column = c, padx = 2, pady = 2)    

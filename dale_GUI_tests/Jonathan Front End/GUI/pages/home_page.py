@@ -59,7 +59,7 @@ class HomePage(Page):
         scale_weight.pack(side = "left", pady = 5, anchor = 's')
 
         scale_unit_font = font.Font(family='Bahnschrift', size=20, weight='bold')
-        scale_unit = Label(scale_weight_frame, text ="gn", bg = "light gray")
+        scale_unit = Label(scale_weight_frame, text ="gr", bg = "light gray")
         scale_unit['font'] = scale_unit_font
         scale_unit.pack(side = "left", pady = 5, anchor = 'sw')
 
