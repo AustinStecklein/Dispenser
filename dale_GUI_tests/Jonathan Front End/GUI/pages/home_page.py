@@ -4,6 +4,7 @@ from modules.numpad import *
 import modules.backend as backend
 from pages.load_page      import *
 from pages.save_page      import *
+from pages.settings_page      import *
 from PIL import ImageTk, Image
 from tkinter import *
 import Images
@@ -19,6 +20,9 @@ class HomePage(Page):
 
         self.save_page = SavePage(self)
         self.save_page .place(in_=self, x=0, y=0, relwidth=1, relheight=1)
+
+        self.settings_page = SettingsPage(self)
+        self.settings_page .place(in_=self, x=0, y=0, relwidth=1, relheight=1)
 
         home_page = tk.Frame(self)
         home_page .place(in_=self, x=0, y=0, relwidth=1, relheight=1)
@@ -131,7 +135,7 @@ class HomePage(Page):
         calibrate_button = tk.Button(bottom_buttons_frame, image = Images.get('calibrate'), 
                                     width="100", height="50", command = backend.power_off, borderwidth=0)
         settings_button = tk.Button(bottom_buttons_frame, image = Images.get('settings'), 
-                                    width="100", height="50", command = backend.power_off, borderwidth=0)
+                                    width="100", height="50", command = self.settings_page.show, borderwidth=0)
                                 
         clear_button    .pack(side = 'left', expand = False, padx = 8)
         calibrate_button.pack(side = 'left', expand = False, padx = 8)

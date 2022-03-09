@@ -1,14 +1,15 @@
 from tkinter import *
 
 imagelist = {
-  # Menu Bar
+
+  ## Menu Bar
   'power': ['power.png', None],
   'home': ['home.png', None],
   'right': ['right_arrow.png', None],
   'left': ['left_arrow.png', None],
   'menu_bar': ['Bottom Bar.png', None],
 
-  # NumPad
+  ## NumPad
   '1': ['1_button.png', None],
   '2': ['2_Button.png', None],
   '3': ['3_Button.png', None],
@@ -21,12 +22,14 @@ imagelist = {
   '0': ['0_Button.png', None],
   'dispense': ['dispense_Button.png', None],
 
+
+  ## Main Menu
+
   # Top Bar
   'load': ['load_Button.png', None],
   'save': ['Save_Button.png', None],
   'view': ['viewedit_Button.png', None],
   
-
   # Middle Bar
   'coarse': ['Coarse_Button.png', None],
   'fine': ['fine_Button.png', None],
@@ -37,7 +40,6 @@ imagelist = {
 
   # Save Card
   'save_card': ['Save_Card.png', None],
-  'keyboard': ['keyboard.png', None],
 
 
   ##KEYBOARD IMAGES
@@ -82,10 +84,42 @@ imagelist = {
   'Y': ['images/Y.png', None],
   'Z': ['images/Z.png', None],
 
+
+  # Keyboard Buttons: Other
   'BACK': ['images/BACK.png', None],
   'ENTER': ['images/ENTER.png', None],
   'SPACE': ['images/SPACE.png', None],
   'UP_ARROW': ['images/UP_ARROW.png', None],
+
+  # Keyboard Symbols
+  '!': ['images/exclamation_mark.png', None],
+  '@': ['images/at.png', None],
+  '#': ['images/hashtag.png', None],
+  '$': ['images/dollar_sign.png', None],
+  '%': ['images/percent.png', None],
+  '&': ['images/and.png', None],
+  '*': ['images/asterisk.png', None],
+  '(': ['images/left_paren.png', None],
+  ')': ['images/right_paren.png', None],
+  '?': ['images/question_mark.png', None],
+  '+': ['images/plus.png', None],
+  '-': ['images/minus.png', None],
+  '=': ['images/equals.png', None],
+  ',': ['images/comma.png', None],
+  ';': ['images/semicolon.png', None],
+  ':': ['images/colon.png', None],
+  '/': ['images/backslash.png', None],
+  'apostrophe': ['images/apostrophe.png', None],
+  'quotation': ['images/quotation_mark.png', None],
+
+
+  ## Settings Pages
+
+  # First Screen
+  'bright': ['brightness and sound_Button.png', None],
+  'adjust': ['adjust feeds_Button.png', None],
+  'restore': ['restore to defaults_Button.png', None],
+  'scale': ['scale config_Button.png', None],
 
 
 

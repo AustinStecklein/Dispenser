@@ -31,11 +31,11 @@ class SavePage(Page):
             test_label.pack()
             
             ## Num Pad
-            numpad_frame = tk.Frame(popup)
-            numpad_frame.pack(side = 'bottom', padx = 4)
+            keyboard_frame = tk.Frame(popup)
+            keyboard_frame.pack(side = 'bottom', padx = 4, pady = 15)
 
-            numpad = Keyboard(numpad_frame)
-            numpad.pack(side = "bottom")
+            keyboard = Keyboard(keyboard_frame)
+            keyboard.pack()
 
             
 
