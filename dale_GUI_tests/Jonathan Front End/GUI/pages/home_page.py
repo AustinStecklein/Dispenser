@@ -144,3 +144,4 @@ class HomePage(Page):
     def go_home(self):
         self.load_page.lower()
         self.save_page.lower()
+        self.settings_page.lower()
