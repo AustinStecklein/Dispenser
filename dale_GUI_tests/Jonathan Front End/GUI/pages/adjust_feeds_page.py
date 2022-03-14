@@ -1,5 +1,6 @@
 import tkinter as tk
 from pages.page import Page
+import Images
 
 class AdjustFeedsPage(Page):
     def __init__(self, *args, **kwargs):
@@ -14,7 +15,7 @@ class AdjustFeedsPage(Page):
         bump_frame = tk.Frame(bottom_frame)
         bump_frame .pack(side = 'right', expand = True, padx = 10)
         
-        bump_button = tk.Button(bump_frame, text = 'Bump')
+        bump_button = tk.Button(bump_frame, image = Images.get('adjust bump'), borderwidth=0)
         bump_button .pack(side = 'top', pady = 2)
 
         bump_display = tk.Label(bump_frame, text = '0.01', bg = 'light gray')
@@ -40,7 +41,7 @@ class AdjustFeedsPage(Page):
         fine_frame = tk.Frame(bottom_frame)
         fine_frame .pack(side = 'right', expand = True, padx = 10)
         
-        fine_button = tk.Button(fine_frame, text = 'Fine')
+        fine_button = tk.Button(fine_frame, image = Images.get('adjust fine'), borderwidth=0)
         fine_button .pack(side = 'top', pady = 2)
 
         fine_display = tk.Label(fine_frame, text = '0.1', bg = 'light gray')
@@ -66,7 +67,7 @@ class AdjustFeedsPage(Page):
         coarse_frame = tk.Frame(bottom_frame)
         coarse_frame .pack(side = 'right', expand = True, padx = 10)
         
-        coarse_button = tk.Button(coarse_frame, text = 'Coarse')
+        coarse_button = tk.Button(coarse_frame, image = Images.get('adjust coarse'), borderwidth=0)
         coarse_button .pack(side = 'top', pady = 2)
 
         coarse_display = tk.Label(coarse_frame, text = '1.00', bg = 'light gray')
@@ -75,21 +76,14 @@ class AdjustFeedsPage(Page):
         coarse_select_frame = tk.Frame(coarse_frame)
         coarse_select_frame .pack(side = 'top', pady = 2)
 
-        coarse_left_arrow = tk.Button(coarse_select_frame, text = '<', 
-                                    fg = "white", bg = "#c62b24", width="2", height="1")
+        coarse_left_arrow = tk.Button(coarse_select_frame, text = '<', fg = "white", bg = "#c62b24", width="2", height="1")
         coarse_left_arrow .pack(side = 'left')
 
         coarse_range_label = tk.Label(coarse_select_frame, text = '0-10gn')
         coarse_range_label .pack(side = 'left')
         
-        coarse_right_arrow = tk.Button(coarse_select_frame, text = '>', 
-                                    fg = "white", bg = "#c62b24", width="2", height="1")
+        coarse_right_arrow = tk.Button(coarse_select_frame, text = '>', fg = "white", bg = "#c62b24", width="2", height="1")
         coarse_right_arrow .pack(side = 'left')
     
-
-
-
-        save_button = tk.Button(self, text = 'Save Adjustments', 
-                              fg = "white", bg = "#c62b24", width="15", height="2", command = self.lower)
-
+        save_button = tk.Button(self, image = Images.get('save adjustments'), borderwidth=0, command = self.lower)
         save_button .pack(anchor = 'w')

@@ -22,17 +22,11 @@ class SavePage(Page):
             popup = tk.Toplevel()
             popup.geometry('800x480')
             popup.resizable(height=False, width=False)
-
-            nonlocal test_name
-
             #test_name = input("Please Input Filename: ")
-
-            test_label = tk.Label(popup, text = "Filename: " + test_name, width = 25, font = scale_font)
-            test_label.pack()
             
             ## Num Pad
             keyboard_frame = tk.Frame(popup)
-            keyboard_frame.pack(side = 'bottom', padx = 4, pady = 15)
+            keyboard_frame.pack(side = 'bottom', padx = 4, pady = 30)
 
             keyboard = Keyboard(keyboard_frame)
             keyboard.pack()
@@ -74,7 +68,7 @@ class SavePage(Page):
             load_frame = tk.Frame(left_side)
             load_frame.pack(side = 'top', expand = False, pady = 3, fill = 'x', anchor = 'w')
 
-            load_label = tk.Label(load_frame, text = load_string, bg = 'light gray', font = scale_font, width = '20',  anchor = 'w', pady = 4)
+            load_label = tk.Button(load_frame, text = load_string, bg = 'light gray', font = scale_font, width = '20',  anchor = 'w', pady = 4)
             load_label.pack(side = 'left', expand = False)
 
        for load_string in load_list1:
@@ -82,14 +76,14 @@ class SavePage(Page):
                load_frame = tk.Frame(right_side)
                load_frame.pack(side = 'top', expand = False, pady = 25, fill = 'x')
 
-               load_label = tk.Label(load_frame, text = load_string, bg = 'light gray', font = scale_font, width = '20', height = "4", pady = 2, anchor = "nw")
+               load_label = tk.Button(load_frame, text = load_string, bg = 'light gray', font = scale_font, width = '20', height = "4", pady = 2, anchor = "nw")
                load_label.pack(side = 'right', expand = False)
 
             else:
                 load_frame = tk.Frame(right_side)
                 load_frame.pack(side = 'top', expand = False, pady = 3, fill = 'x', anchor = 'w')
 
-                load_label = tk.Label(load_frame, text = load_string, bg = 'light gray', font = scale_font, width = '20',  anchor = 'w', pady = 4)
+                load_label = tk.Button(load_frame, text = load_string, bg = 'light gray', font = scale_font, width = '20',  anchor = 'w', pady = 4)
                 load_label.pack(side = 'right', expand = False)
 
         

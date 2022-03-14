@@ -8,7 +8,8 @@ speed = 50
 load_list =  ['load1', 'load2', 'load3']
 save_list =  ['Cartridge: ', 'Bullet: ', 'Powder: ', "Charge Weight: ", 'C.O.A.L.: ']
 save_list1 = ['Primer: ', 'Brass: ', 'Notes: ']
-test_name = "NUMBER 13"
+test_name = "Filename"
+units = "gr"
 
 def read_scale():
     return str(datetime.date.today().strftime('%m.%d'))
@@ -83,3 +84,11 @@ def get_save_list1():
 
 def load_preset(load_string):
     print(f'Loading {load_string}')
+
+def new_units(new_units):
+    global units
+    units = new_units
+
+def get_units():
+    global units
+    return units

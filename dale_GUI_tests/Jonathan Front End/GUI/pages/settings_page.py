@@ -40,9 +40,9 @@ class SettingsPage(Page):
         left_buttons_frame = tk.Frame(buttons_frame)
         left_buttons_frame.pack(side = 'right', expand = True)
 
-        scale_config_button     = tk.Button(left_buttons_frame, image = Images.get('scale'), borderwidth = 0,    command = self.scale_config_page.show)
-        adjust_feeds_button     = tk.Button(left_buttons_frame, image = Images.get('adjust'), borderwidth = 0,   command = self.adjust_feeds_page.show)
-        brightness_sound_button = tk.Button(right_buttons_frame, image = Images.get('bright'), borderwidth = 0,  command = self.brightness_sound_page.show)
+        scale_config_button     = tk.Button(left_buttons_frame,  image = Images.get('scale'),   borderwidth = 0, command = self.scale_config_page.show)
+        adjust_feeds_button     = tk.Button(left_buttons_frame,  image = Images.get('adjust'),  borderwidth = 0, command = self.adjust_feeds_page.show)
+        brightness_sound_button = tk.Button(right_buttons_frame, image = Images.get('bright'),  borderwidth = 0, command = self.brightness_sound_page.show)
         defaults_button         = tk.Button(right_buttons_frame, image = Images.get('restore'), borderwidth = 0, command = self.default_page.show)
 
 

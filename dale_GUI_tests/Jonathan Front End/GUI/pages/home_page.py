@@ -1,3 +1,4 @@
+from json.tool import main
 import tkinter as tk
 from pages.page import Page
 from modules.numpad import *
@@ -9,10 +10,16 @@ from PIL import ImageTk, Image
 from tkinter import *
 import Images
 
+
+units = backend.get_units()
+
+
 class HomePage(Page):
 
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)
+
+        
 
         # Initialize other pages
         self.load_page = LoadPage(self)
@@ -50,7 +57,76 @@ class HomePage(Page):
         load_button.pack(side = 'left', expand = False, padx = 8)
         view_button.pack(side = 'left', expand = False, padx = 8)
 
+
+
         ## display
+
+        def popup():
+            popup = tk.Toplevel()
+            popup.geometry('800x480')
+            popup.resizable(height=False, width=False)
+
+            global units
+
+            #test_name = input("Please Input Filename: ")
+
+            test_label = tk.Label(popup, text = "Currently Selected: " + units, font = scale_unit_font)
+            test_label.grid()
+
+            def mg_units():
+                global units
+                units = "mg"
+                backend.new_units("mg")
+                popup.destroy()
+                home_page.after(10, backend.get_units)
+
+            def ml_units():
+                global units
+                units = "ml"
+                backend.new_units("ml")
+                popup.destroy()
+                home_page.after(10, backend.get_units)
+
+            def gr_units():
+                global units
+                units = "gr"
+                backend.new_units("gr")
+                popup.destroy()
+                home_page.after(10, backend.get_units)
+            
+            if (units == "gr"):
+                gr_button = tk.Button(popup, text = "gr", font = scale_unit_font)
+                gr_button.config(relief = SUNKEN)
+                gr_button.grid(row = 0, column = 0, ipadx = 50)
+            
+            else:
+                gr_button = tk.Button(popup, text = "gr", font = scale_unit_font,
+                                        command = gr_units,)
+                gr_button.grid(row = 0, column = 0, ipadx = 50)
+
+            if (units == "mg"):
+                mg_button = tk.Button(popup, text = "mg", font = scale_unit_font)
+                mg_button.config(relief = SUNKEN)
+                mg_button.grid(row = 0, column = 1, ipadx = 50)
+            
+            else: 
+                mg_button = tk.Button(popup, text = "mg", font = scale_unit_font,
+                                        command = mg_units)
+                mg_button.grid(row = 0, column = 1, ipadx = 50)
+
+            if (units == "ml"):
+                ml_button = tk.Button(popup, text = "ml", font = scale_unit_font)
+                ml_button.config(relief = SUNKEN)
+                ml_button.grid(row = 0, column = 2, ipadx = 50)
+            
+            else: 
+                ml_button = tk.Button(popup, text = "ml", font = scale_unit_font,
+                                        command = ml_units)
+                ml_button.grid(row = 0, column = 2, ipadx = 50)
+
+
+
+
 
             # Scale Weight
         scale_weight_frame = tk.Frame(right_frame)
@@ -63,7 +139,7 @@ class HomePage(Page):
         scale_weight.pack(side = "left", pady = 5, anchor = 's')
 
         scale_unit_font = font.Font(family='Bahnschrift', size=20, weight='bold')
-        scale_unit = Label(scale_weight_frame, text ="gr", bg = "light gray")
+        scale_unit = Button(scale_weight_frame, text = backend.get_units(), bg = "light gray", command = popup)
         scale_unit['font'] = scale_unit_font
         scale_unit.pack(side = "left", pady = 5, anchor = 'sw')
 

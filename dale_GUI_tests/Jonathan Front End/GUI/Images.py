@@ -92,7 +92,7 @@ imagelist = {
   'UP_ARROW': ['images/UP_ARROW.png', None],
 
   # Keyboard Symbols
-  '!': ['images/exclamation_mark.png', None],
+  '!': ['images/exclamation_point.png', None],
   '@': ['images/at.png', None],
   '#': ['images/hashtag.png', None],
   '$': ['images/dollar_sign.png', None],
@@ -110,7 +110,7 @@ imagelist = {
   ':': ['images/colon.png', None],
   '/': ['images/backslash.png', None],
   'apostrophe': ['images/apostrophe.png', None],
-  'quotation': ['images/quotation_mark.png', None],
+  'quotation': ['images/quotation_marks.png', None],
 
 
   ## Settings Pages
@@ -121,6 +121,14 @@ imagelist = {
   'restore': ['restore to defaults_Button.png', None],
   'scale': ['scale config_Button.png', None],
 
+  # Brightness Screen
+  'selections': ['save selections_Button.png', None],
+
+  # Adjust Feed Screen
+  'adjust bump': ['bump for adjust feed screen_Button.png', None],
+  'adjust coarse': ['coarse for adjust feed screen_Button.png', None],
+  'adjust fine': ['fine for adjust feed screen_Button.png', None],
+  'save adjustments': ['save adjustments_Button.png', None],
 
 
 }

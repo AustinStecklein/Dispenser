@@ -1,6 +1,7 @@
 import tkinter as tk
 import modules.backend as backend
 from pages.page import Page
+import Images
 
 # https://python-course.eu/tkinter/sliders-in-tkinter.php
 # A quality tkinter Slider guide
@@ -54,7 +55,6 @@ class BrightnessSoundPage(Page):
         haptic_select = tk.Listbox(left_frame, listvariable = haptics_list_var, height = 6, selectmode = 'extended')
         haptic_select .pack(side = 'top')
 
-        save_button = tk.Button(right_frame, text = 'Save Selections', 
-                                fg = "white", bg = "#c62b24", width="15", height="2", command = self.lower)
+        save_button = tk.Button(right_frame,  borderwidth=0, image = Images.get('selections'), command = self.lower)
 
         save_button .pack()
