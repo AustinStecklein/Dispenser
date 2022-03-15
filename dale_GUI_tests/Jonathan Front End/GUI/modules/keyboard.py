@@ -8,13 +8,11 @@ import modules.backend as backend
 
 is_shift = False
 exp = " "
-start = True
 
 class Keyboard(Frame):
     def __init__(self, window):
         super().__init__(window)
         self.create_buttons()
-
 
     def create_buttons(self):
 
@@ -23,30 +21,27 @@ class Keyboard(Frame):
 
         equation = tk.StringVar()
 
-        global start
-        
-        if (start == True):
-            start = not True    
-
         def press(num):
             global exp
             exp = exp + str(num)
             equation.set(exp)
-
 
         def Backspace():
             global exp
             exp = exp[:-1]
             equation.set(exp)
 
-
         def Shift():
-            Dis_entry.destroy()
-            keyboard_frame.destroy()
+            global exp
+            equation.set(exp)
+
             global is_shift
             is_shift = not is_shift
+            keyboard_frame.destroy()
             self.create_buttons()
+            self.after(10)
 
+        
         keyboard_frame = tk.Frame(self)
         keyboard_frame.grid(padx = 4, pady = 15)
 
@@ -56,7 +51,7 @@ class Keyboard(Frame):
         item_label.grid(row = 0, column = 1, columnspan = 3, sticky = 'w')
 
         Dis_entry = tk.Entry(keyboard_frame, state='readonly', textvariable=equation, font = scale_font)
-        Dis_entry.grid(row = 0, column = 5, columnspan=11, ipadx=40, ipady=35, sticky = 'w')   
+        Dis_entry.grid(row = 0, column = 5, columnspan=11, ipadx=40, ipady=35, sticky = 'w')  
 
         if (is_shift):
             # Adding keys line wise

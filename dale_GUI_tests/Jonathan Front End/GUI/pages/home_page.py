@@ -75,8 +75,8 @@ class HomePage(Page):
 
             def mg_units():
                 global units
-                units = "mg"
-                backend.new_units("mg")
+                units = "g"
+                backend.new_units("g")
                 popup.destroy()
                 home_page.after(10, backend.get_units)
 
