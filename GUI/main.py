@@ -19,7 +19,7 @@ class MainView(tk.Frame):
         
         # Page Buttons
         button_frame = tk.Frame(self)
-        button_frame .pack(side="bottom", expand=False, anchor="se")
+        button_frame .pack(side = "bottom", expand = False, anchor="se")
         
         # Power Button
         power_button = tk.Button(button_frame, text = "Power", fg = '#FFFFFF', bg = "#c62b24", width = '10', height = '2', command = power_off_page.show)
