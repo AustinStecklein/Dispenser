@@ -1,4 +1,5 @@
 import datetime
+import Images
 
 # Placeholders for backend functions
 
@@ -8,11 +9,56 @@ speed = 50
 load_list =  ['load1', 'load2', 'load3']
 save_list =  ['Cartridge: ', 'Bullet: ', 'Powder: ', "Charge Weight: ", 'C.O.A.L.: ']
 save_list1 = ['Primer: ', 'Brass: ', 'Notes: ']
-test_name = "Filename"
+file_name = "Card #2"
 units = "gr"
+label_counter = 0
+keyboard_label = ""
+
+def set_counter(new_counter):
+    global label_counter
+    label_counter = new_counter
+
+def get_counter():
+    global label_counter
+    return label_counter
+
+
+def set_label(new_label):
+    global keyboard_label
+    keyboard_label = new_label
+
+def get_label():
+    global keyboard_label
+    return keyboard_label
+
 
 def read_scale():
-    return str(datetime.date.today().strftime('%m.%d'))
+    if (units == "gr"):
+        return "000.000"
+    if (units == "lb"):
+        return str(datetime.date.today().strftime('%d.%m'))
+    if (units == "g"):
+        return str(datetime.date.today().strftime('%y'))
+    else:
+        return "00.00"
+
+def set_filename(new_filename):
+    global file_name
+    file_name = new_filename
+
+def get_filename():
+    global file_name
+    return str(file_name)
+
+def new_units(new_units):
+    global units
+    units = new_units
+
+def get_units():
+    global units
+    return units
+
+
 
 def set_target(new_target):
     global target
@@ -63,8 +109,8 @@ def get_trickler_speed():
     return str(speed)
 
 def get_test_name():
-    global test_name
-    return str(test_name)
+    global file_name
+    return str(file_name)
     
 def get_trickler_tilt():
     global tilt
@@ -85,10 +131,8 @@ def get_save_list1():
 def load_preset(load_string):
     print(f'Loading {load_string}')
 
-def new_units(new_units):
-    global units
-    units = new_units
 
-def get_units():
-    global units
-    return units
+
+
+
+

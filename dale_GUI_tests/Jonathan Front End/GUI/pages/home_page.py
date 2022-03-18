@@ -63,27 +63,24 @@ class HomePage(Page):
 
         def popup():
             popup = tk.Toplevel()
-            popup.geometry('800x480')
+            popup.geometry('480x288')
             popup.resizable(height=False, width=False)
+
+            unit_font = font.Font(family='Bahnschrift', size=16, weight='bold')
 
             global units
 
-            #test_name = input("Please Input Filename: ")
-
-            test_label = tk.Label(popup, text = "Currently Selected: " + units, font = scale_unit_font)
-            test_label.grid()
-
-            def mg_units():
+            def g_units():
                 global units
                 units = "g"
                 backend.new_units("g")
                 popup.destroy()
                 home_page.after(10, backend.get_units)
 
-            def ml_units():
+            def lb_units():
                 global units
-                units = "ml"
-                backend.new_units("ml")
+                units = "lb"
+                backend.new_units("lb")
                 popup.destroy()
                 home_page.after(10, backend.get_units)
 
@@ -93,39 +90,96 @@ class HomePage(Page):
                 backend.new_units("gr")
                 popup.destroy()
                 home_page.after(10, backend.get_units)
+
+            def oz_units():
+                global units
+                units = "oz"
+                backend.new_units("oz")
+                popup.destroy()
+                home_page.after(10, backend.get_units)
+
+            def ct_units():
+                global units
+                units = "ct"
+                backend.new_units("ct")
+                popup.destroy()
+                home_page.after(10, backend.get_units)
+
+            def tl_units():
+                global units
+                units = "tl"
+                backend.new_units("tl")
+                popup.destroy()
+                home_page.after(10, backend.get_units)
             
             if (units == "gr"):
-                gr_button = tk.Button(popup, text = "gr", font = scale_unit_font)
+                gr_button = tk.Button(popup, text = "Grains: (gr)", font = unit_font, width = 5,)
                 gr_button.config(relief = SUNKEN)
-                gr_button.grid(row = 0, column = 0, ipadx = 50)
+                gr_button.grid(row = 1, column = 0, ipadx = 50, ipady = 2, pady = 5, padx = 25)
             
             else:
-                gr_button = tk.Button(popup, text = "gr", font = scale_unit_font,
+                gr_button = tk.Button(popup, text = "Grains: (gr)", font = unit_font, width = 5,
                                         command = gr_units,)
-                gr_button.grid(row = 0, column = 0, ipadx = 50)
+                gr_button.grid(row = 1, column = 0, ipadx = 50, ipady = 2, pady = 5, padx = 25)
 
-            if (units == "mg"):
-                mg_button = tk.Button(popup, text = "mg", font = scale_unit_font)
-                mg_button.config(relief = SUNKEN)
-                mg_button.grid(row = 0, column = 1, ipadx = 50)
+
+            if (units == "g"):
+                g_button = tk.Button(popup, text = "Grams: (g)", font = unit_font, width = 5,)
+                g_button.config(relief = SUNKEN)
+                g_button.grid(row = 2, column = 0, ipadx = 50, ipady = 2, pady = 5, padx = 25)
             
             else: 
-                mg_button = tk.Button(popup, text = "mg", font = scale_unit_font,
-                                        command = mg_units)
-                mg_button.grid(row = 0, column = 1, ipadx = 50)
+                g_button = tk.Button(popup, text = "Grams: (g)", font = unit_font, width = 5,
+                                        command = g_units)
+                g_button.grid(row = 2, column = 0, ipadx = 50, ipady = 2, pady = 5, padx = 25)
 
-            if (units == "ml"):
-                ml_button = tk.Button(popup, text = "ml", font = scale_unit_font)
-                ml_button.config(relief = SUNKEN)
-                ml_button.grid(row = 0, column = 2, ipadx = 50)
+
+            if (units == "lb"):
+                lb_button = tk.Button(popup, text = "Pounds: (lb)", font = unit_font, width = 5,)
+                lb_button.config(relief = SUNKEN)
+                lb_button.grid(row = 3, column = 0, ipadx = 50, ipady = 2, pady = 5, padx = 25)
             
             else: 
-                ml_button = tk.Button(popup, text = "ml", font = scale_unit_font,
-                                        command = ml_units)
-                ml_button.grid(row = 0, column = 2, ipadx = 50)
+                lb_button = tk.Button(popup, text = "Pounds: (lb)", font = unit_font, width = 5,
+                                        command = lb_units)
+                lb_button.grid(row = 3, column = 0, ipadx = 50, ipady = 2, pady = 5, padx = 25)
+
+            
+            if (units == "oz"):
+                oz_button = tk.Button(popup, text = "Ounces: (oz)", font = unit_font, width = 5,)
+                oz_button.config(relief = SUNKEN)
+                oz_button.grid(row = 1, column = 1, ipadx = 50, ipady = 2, pady = 5, padx = 25)
+            
+            else:
+                oz_button = tk.Button(popup, text = "Ounces: (oz)", font = unit_font, width = 5,
+                                        command = oz_units,)
+                oz_button.grid(row = 1, column = 1, ipadx = 50, ipady = 2, pady = 5, padx = 25)
 
 
+            if (units == "ct"):
+                ct_button = tk.Button(popup, text = "Carat: (ct)", font = unit_font, width = 5,)
+                ct_button.config(relief = SUNKEN)
+                ct_button.grid(row = 2, column = 1, ipadx = 50, ipady = 2, pady = 5, padx = 25)
+            
+            else: 
+                ct_button = tk.Button(popup, text = "Carat: (ct)", font = unit_font, width = 5,
+                                        command = ct_units)
+                ct_button.grid(row = 2, column = 1, ipadx = 50, ipady = 2, pady = 5, padx = 25)
 
+
+            if (units == "tl"):
+                tl_button = tk.Button(popup, text = "Tael: (tl)", font = unit_font, width = 5,)
+                tl_button.config(relief = SUNKEN)
+                tl_button.grid(row = 3, column = 1, ipadx = 50, ipady = 2, pady = 5, padx = 25)
+            
+            else: 
+                tl_button = tk.Button(popup, text = "Tael: (tl)", font = unit_font, width = 5,
+                                        command = tl_units)
+                tl_button.grid(row = 3, column = 1, ipadx = 50, ipady = 2, pady = 5, padx = 25)
+
+        updated_units = backend.get_units()
+
+        
 
 
             # Scale Weight
@@ -133,15 +187,23 @@ class HomePage(Page):
         scale_weight_frame.pack(side = 'top', expand = False, padx = 2)
 
 
-        scale_font = font.Font(family='Bahnschrift', size=96, weight='bold')
+        scale_font = font.Font(family='Bahnschrift', size=78, weight='bold')
         scale_weight = Label(scale_weight_frame, text ="00.00", bg = "light gray")
         scale_weight['font'] = scale_font
         scale_weight.pack(side = "left", pady = 5, anchor = 's')
 
         scale_unit_font = font.Font(family='Bahnschrift', size=20, weight='bold')
-        scale_unit = Button(scale_weight_frame, text = backend.get_units(), bg = "light gray", command = popup)
+        scale_unit = Button(scale_weight_frame, text = 'gr', bg = "light gray", command = popup)
         scale_unit['font'] = scale_unit_font
         scale_unit.pack(side = "left", pady = 5, anchor = 'sw')
+
+        def update_units():
+            updated_units = backend.get_units()
+            scale_unit.config(text = updated_units)
+            home_page.after(10, update_units)
+
+        update_units()
+
 
         def get_scale_reading():
             scale_reading = backend.read_scale()

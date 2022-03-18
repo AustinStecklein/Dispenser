@@ -5,14 +5,6 @@ import Images
 
 #import modules.backend as backend
 
-# Used this guide:
-# https://www.pythontutorial.net/tkinter/tkinter-object-oriented-frame/
-
-#def button_press(btn):
-    #print(btn)
-    #if btn != 'Dispense':
-        #backend.add_target_digit(btn)     
-
 class NumPad(Frame):
     def __init__(self, window):
         super().__init__(window)

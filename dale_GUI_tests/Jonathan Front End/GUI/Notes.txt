@@ -1,0 +1,2 @@
+Images.py has to stay in the same folder as main because if it was in the images folder everything in the modules and pages folders would not be able to access those images
+The Subpages for Settings do not lower when the home button is pressed

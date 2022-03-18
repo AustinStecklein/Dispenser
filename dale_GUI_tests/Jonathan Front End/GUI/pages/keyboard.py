@@ -5,14 +5,18 @@ import tkinter as tk
 import tkinter.font as font
 import Images
 import modules.backend as backend
+from pages.page import Page
+import Images
 
 is_shift = False
-exp = " "
+exp = ""
+counter = 0
 
-class Keyboard(Frame):
-    def __init__(self, window):
-        super().__init__(window)
+class Keyboard(Page):
+    def __init__(self, *args, **kwargs):
+        Page.__init__(self, *args, **kwargs)
         self.create_buttons()
+
 
     def create_buttons(self):
 
@@ -39,19 +43,56 @@ class Keyboard(Frame):
             is_shift = not is_shift
             keyboard_frame.destroy()
             self.create_buttons()
-            self.after(10)
+
+        def reset():
+            global exp
+            equation.set(exp)
+            self.after(1, reset)
+
+        reset()
 
         
+
+        
+        label = backend.get_label() + ":"
+
         keyboard_frame = tk.Frame(self)
         keyboard_frame.grid(padx = 4, pady = 15)
 
+        
         scale_font = font.Font(family='Bahnschrift', size=26, weight='bold')
 
-        item_label = tk.Label(keyboard_frame, text = backend.get_test_name() + ": ", font = scale_font)
-        item_label.grid(row = 0, column = 1, columnspan = 3, sticky = 'w')
+        item_label = tk.Label(keyboard_frame, text = label, font = scale_font)
+        item_label.grid(row = 0, column = 1, columnspan = 4, sticky = 'w')
 
-        Dis_entry = tk.Entry(keyboard_frame, state='readonly', textvariable=equation, font = scale_font)
-        Dis_entry.grid(row = 0, column = 5, columnspan=11, ipadx=40, ipady=35, sticky = 'w')  
+        Dis_entry = tk.Entry(keyboard_frame, state='readonly', textvariable=equation, font = scale_font, border = 2, bg = "black")
+        Dis_entry.grid(row = 0, column = 5, columnspan=11, ipadx=35, ipady=35, sticky = 'w')  
+
+        def update_units():
+            global label_updated
+            label_updated = backend.get_label()
+            label =  label_updated + ":"
+            item_label.config(text = label)
+
+            global counter
+            counter = backend.get_counter()
+
+            keyboard_frame.after(10, update_units)
+
+        update_units()
+
+
+        def Enter():
+            global exp
+            print (counter)
+            if (counter == 0):
+                backend.set_filename(exp)
+            if (counter == 1):
+                backend.set_filename(exp)
+            self.destroy()
+
+
+
 
         if (is_shift):
             # Adding keys line wise
@@ -183,7 +224,7 @@ class Keyboard(Frame):
                             command=lambda: press(' '))
             space.grid(row=5, column=1, columnspan=9, ipadx=BUTTON_X_PAD, ipady=BUTTON_Y_PAD, padx=0)
 
-            enter = tk.Button(keyboard_frame, image = Images.get('ENTER'), borderwidth = 0)
+            enter = tk.Button(keyboard_frame, image = Images.get('ENTER'), borderwidth = 0, command = Enter)
             enter.grid(row=5, column=9, columnspan=2, ipadx=BUTTON_X_PAD, ipady=BUTTON_Y_PAD, padx=0, sticky='w')
 
         else:
@@ -316,7 +357,7 @@ class Keyboard(Frame):
                             command=lambda: press(' '))
             space.grid(row=5, column=1, columnspan=9, ipadx=BUTTON_X_PAD, ipady=BUTTON_Y_PAD, padx=0)
 
-            enter = tk.Button(keyboard_frame, image = Images.get('ENTER'), borderwidth = 0)
+            enter = tk.Button(keyboard_frame, image = Images.get('ENTER'), borderwidth = 0, command = Enter)
             enter.grid(row=5, column=9, columnspan=2, ipadx=BUTTON_X_PAD, ipady=BUTTON_Y_PAD, padx=0, sticky='w')
 
 
