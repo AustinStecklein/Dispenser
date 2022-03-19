@@ -89,7 +89,23 @@ class Keyboard(Page):
                 backend.set_filename(exp)
             if (counter == 1):
                 backend.set_filename(exp)
-            self.destroy()
+            if (counter == 2):
+                backend.set_filename(exp)
+            if (counter == 3):
+                backend.set_filename(exp)
+            if (counter == 4):
+                backend.set_filename(exp)
+            if (counter == 5):
+                backend.set_filename(exp)
+            if (counter == 6):
+                backend.set_filename(exp)
+            if (counter == 7):
+                backend.set_filename(exp)
+            if (counter == 8):
+                backend.set_notes(exp)
+            
+            exp = ""
+            self.lower()
 
 
 

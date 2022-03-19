@@ -7,12 +7,22 @@ target = ""
 tilt = 0
 speed = 50
 load_list =  ['load1', 'load2', 'load3']
-save_list =  ['Cartridge: ', 'Bullet: ', 'Powder: ', "Charge Weight: ", 'C.O.A.L.: ']
-save_list1 = ['Primer: ', 'Brass: ', 'Notes: ']
-file_name = "Card #2"
+
 units = "gr"
+
 label_counter = 0
 keyboard_label = ""
+
+
+file_name = "Card #2"
+cartridge = ""
+bullet = ""
+powder = ""
+charge = ""
+coal = ""
+primer = ""
+brass = ""
+notes = ""
 
 def set_counter(new_counter):
     global label_counter
@@ -49,6 +59,73 @@ def set_filename(new_filename):
 def get_filename():
     global file_name
     return str(file_name)
+
+def set_cartridge(new_cartridge):
+    global cartridge
+    cartridge = new_cartridge
+
+def get_cartridge():
+    global cartridge
+    return str(cartridge)
+
+def set_bullet(new_bullet):
+    global bullet
+    bullet = new_bullet
+
+def get_bullet():
+    global bullet
+    return str(bullet)
+
+def set_powder(new_powder):
+    global powder
+    powder = new_powder
+
+def get_powder():
+    global powder
+    return str(powder)
+
+def set_charge(new_charge):
+    global charge
+    charge = new_charge
+
+def get_charge():
+    global charge
+    return str(charge)
+
+def set_coal(new_coal):
+    global coal
+    coal = new_coal
+
+def get_coal():
+    global coal
+    return str(coal)
+
+def set_primer(new_primer):
+    global primer
+    primer = new_primer
+
+def get_primer():
+    global primer
+    return str(primer)
+
+def set_brass(new_brass):
+    global brass
+    brass = new_brass
+
+def get_brass():
+    global brass
+    return str(brass)
+
+def set_notes(new_notes):
+    global notes
+    notes = new_notes
+
+def get_notes():
+    global notes
+    return str(notes)
+
+
+    
 
 def new_units(new_units):
     global units
