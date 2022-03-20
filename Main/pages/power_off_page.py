@@ -1,6 +1,7 @@
 import tkinter as tk
 from pages.page import Page
 import modules.backend as backend
+import modules.image_loader as Images
 
 class PowerOffPage(Page):
    def __init__(self, *args, **kwargs):

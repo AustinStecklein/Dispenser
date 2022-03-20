@@ -1,6 +1,3 @@
-
-
-
 import tkinter as tk
 from pages.page import Page
 from modules.numpad import *
@@ -10,6 +7,7 @@ from pages.settings_page  import *
 from pages.calibrate_page import *
 from pages.save_page      import *
 from pages.view_page      import *
+import modules.image_loader as Images
 
 class HomePage(Page):
     def __init__(self, *args, **kwargs):
@@ -45,18 +43,81 @@ class HomePage(Page):
         top_buttons_frame = tk.Frame(right_frame)
         top_buttons_frame.pack(side = 'top', pady = 4)
 
-        load_button = tk.Button(top_buttons_frame, text = "Load", fg = "white", bg = "#c62b24", 
-                                width="10", height="2", command = self.load_page.show)
-        save_button = tk.Button(top_buttons_frame, text = "Save", fg = "white", bg = "#c62b24", 
-                                width="10", height="2", command = self.save_page.show)
-        view_button = tk.Button(top_buttons_frame, text = "View", fg = "white", bg = "#c62b24", 
-                                width="10", height="2", command = self.view_page.show)
+        
+        load_button = tk.Button(top_buttons_frame, command = self.load_page.show, width = 100, height = 50, image = Images.get('load'), borderwidth = 0)
+        save_button = tk.Button(top_buttons_frame, command = self.save_page.show, width = 100, height = 50, image = Images.get('save'), borderwidth = 0)
+        view_button = tk.Button(top_buttons_frame, command = self.view_page.show, width = 100, height = 50, image = Images.get('view'), borderwidth = 0)
 
         save_button.pack(side = 'left', expand = False, padx = 8)
         load_button.pack(side = 'left', expand = False, padx = 8)
         view_button.pack(side = 'left', expand = False, padx = 8)
 
         ## display
+
+            # Unit Selector
+        def popup():
+            popup = tk.Toplevel()
+            popup.geometry('800x480')
+            popup.resizable(height=False, width=False)
+
+            global units
+
+            #test_name = input("Please Input Filename: ")
+
+            test_label = tk.Label(popup, text = "Currently Selected: " + units, font = scale_unit_font)
+            test_label.grid()
+
+            def mg_units():
+                global units
+                units = "g"
+                backend.new_units("g")
+                popup.destroy()
+                self.after(10, backend.get_units)
+
+            def ml_units():
+                global units
+                units = "ml"
+                backend.new_units("ml")
+                popup.destroy()
+                self.after(10, backend.get_units)
+
+            def gr_units():
+                global units
+                units = "gr"
+                backend.new_units("gr")
+                popup.destroy()
+                self.after(10, backend.get_units)
+            
+            if (units == "gr"):
+                gr_button = tk.Button(popup, text = "gr", font = scale_unit_font)
+                gr_button.config(relief = SUNKEN)
+                gr_button.grid(row = 0, column = 0, ipadx = 50)
+            
+            else:
+                gr_button = tk.Button(popup, text = "gr", font = scale_unit_font,
+                                        command = gr_units,)
+                gr_button.grid(row = 0, column = 0, ipadx = 50)
+
+            if (units == "mg"):
+                mg_button = tk.Button(popup, text = "mg", font = scale_unit_font)
+                mg_button.config(relief = SUNKEN)
+                mg_button.grid(row = 0, column = 1, ipadx = 50)
+            
+            else: 
+                mg_button = tk.Button(popup, text = "mg", font = scale_unit_font,
+                                        command = mg_units)
+                mg_button.grid(row = 0, column = 1, ipadx = 50)
+
+            if (units == "ml"):
+                ml_button = tk.Button(popup, text = "ml", font = scale_unit_font)
+                ml_button.config(relief = SUNKEN)
+                ml_button.grid(row = 0, column = 2, ipadx = 50)
+            
+            else: 
+                ml_button = tk.Button(popup, text = "ml", font = scale_unit_font,
+                                        command = ml_units)
+                ml_button.grid(row = 0, column = 2, ipadx = 50)
+
 
             # Scale Weight
         scale_weight_frame = tk.Frame(right_frame)
@@ -118,12 +179,12 @@ class HomePage(Page):
         feed_button_frame = tk.Frame(right_frame)
         feed_button_frame.pack(side = 'top', expand = False, anchor = 's', pady = 4)
 
-        coarse_feed_button = tk.Button( feed_button_frame, text = "Coarse Feed", fg = "white", bg = "#c62b24", 
-                                        width="10", height="2", command = backend.coarse_feed)
-        fine_feed_button = tk.Button(   feed_button_frame, text = "Fine Feed", fg = "white", bg = "#c62b24", 
-                                        width="10", height="2", command = backend.fine_feed)
-        bump_feed_button = tk.Button(   feed_button_frame, text = "Bump", fg = "white", bg = "#c62b24", 
-                                        width="10", height="2", command = backend.bump_feed)
+        coarse_feed_button = tk.Button( feed_button_frame, image = Images.get('coarse'), 
+                                        width="100", height="50", command = backend.coarse_feed, borderwidth=0)
+        fine_feed_button = tk.Button(   feed_button_frame, image = Images.get('fine'), 
+                                        width="100", height="50", command = backend.fine_feed, borderwidth=0)
+        bump_feed_button = tk.Button(   feed_button_frame, image = Images.get('bump'), 
+                                        width="100", height="50", command = backend.bump_feed, borderwidth=0)
         
         bump_feed_button.pack(  side = 'right', expand = False, anchor = 's', padx = 8)
         fine_feed_button.pack(  side = 'right', expand = False, anchor = 's', padx = 8)
@@ -136,12 +197,12 @@ class HomePage(Page):
         bottom_buttons_frame = tk.Frame(right_frame)
         bottom_buttons_frame.pack(side = 'top', anchor = 's', pady = 4)
 
-        clear_button = tk.Button(bottom_buttons_frame, text = "CLEAR", fg = "white", bg = "#c62b24", 
-                                    width="10", height="2", command = backend.numpad_clear)
-        calibrate_button = tk.Button(bottom_buttons_frame, text = "Calibrate", fg = "white", bg = "#c62b24", 
-                                    width="10", height="2", command = self.calibrate_page.show)
-        settings_button = tk.Button(bottom_buttons_frame, text = "Settings", fg = "white", bg = "#c62b24", 
-                                    width="10", height="2", command = self.settings_page.show)
+        clear_button = tk.Button(bottom_buttons_frame, image = Images.get('clear'), 
+                                    width="100", height="50", command = backend.numpad_clear, borderwidth=0)
+        calibrate_button = tk.Button(bottom_buttons_frame, image = Images.get('calibrate'), 
+                                    width="100", height="50", command = self.calibrate_page.show, borderwidth=0)
+        settings_button = tk.Button(bottom_buttons_frame, image = Images.get('settings'), 
+                                    width="100", height="50", command = self.settings_page.show, borderwidth=0)
                                 
         clear_button    .pack(side = 'left', expand = False, padx = 8)
         calibrate_button.pack(side = 'left', expand = False, padx = 8)
