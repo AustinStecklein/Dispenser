@@ -90,6 +90,13 @@ class SavePage(Page):
           
 
           full_filename_text = "Filename:" + "    " + new_filename
+          full_cartridge_text = "Cartridge: " + new_cartridge
+          full_bullet_text = "Bullet: " + new_bullet
+          full_powder_text = "Powder: " + new_powder
+          full_charge_text = "Charge: " + new_charge
+          full_coal_text = "C.O.A.L.: " + new_coal
+          full_primer_text = "Primer: " + new_primer
+          full_brass_text = "Brass: " + new_brass
           full_notes_text = "Notes: " + new_notes
 
           # Initialize Page

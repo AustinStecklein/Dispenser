@@ -6,7 +6,7 @@ from pages.adjust_feeds_page        import *
 from pages.brightness_sound_page    import * 
 from pages.scale_config_page        import *
 from pages.default_settings_page    import *
-import modules.image_loader as Images
+import Images
 
 class SettingsPage(Page):
     def __init__(self, *args, **kwargs):
@@ -45,10 +45,10 @@ class SettingsPage(Page):
         brightness_sound_button = tk.Button(right_buttons_frame, image = Images.get('bright'),  borderwidth = 0, command = self.brightness_sound_page.show)
         defaults_button         = tk.Button(right_buttons_frame, image = Images.get('restore'), borderwidth = 0, command = self.default_page.show)
 
-        brightness_sound_button .pack(side = 'top', expand = False, padx = 50, pady = 20)
-        defaults_button         .pack(side = 'top', expand = False, padx = 50, pady = 20)
-        adjust_feeds_button     .pack(side = 'top', expand = False, padx = 50, pady = 20)
-        scale_config_button     .pack(side = 'top', expand = False, padx = 50, pady = 20)
+        brightness_sound_button .pack(side = 'top', expand = False, padx = 25, pady = 20)
+        defaults_button         .pack(side = 'top', expand = False, padx = 25, pady = 20)
+        adjust_feeds_button     .pack(side = 'top', expand = False, padx = 25, pady = 20)
+        scale_config_button     .pack(side = 'top', expand = False, padx = 25, pady = 20)
    
         self.scale_config_page      .lower()
         self.brightness_sound_page  .lower()

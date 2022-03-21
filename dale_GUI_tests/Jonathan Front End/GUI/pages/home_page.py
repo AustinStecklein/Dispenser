@@ -177,8 +177,6 @@ class HomePage(Page):
                                         command = tl_units)
                 tl_button.grid(row = 3, column = 1, ipadx = 50, ipady = 2, pady = 5, padx = 25)
 
-        updated_units = backend.get_units()
-
         
 
 

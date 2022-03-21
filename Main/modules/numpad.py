@@ -1,42 +1,45 @@
 from tkinter import *
+import tkinter as tk
 import tkinter.font as font
-import modules.backend as backend
-import modules.image_loader as Images
+import Images
 
-# Used this guide:
-# https://www.pythontutorial.net/tkinter/tkinter-object-oriented-frame/
-
-# TODO: merge jonathan's images with button_press()
-
-def button_press(btn):
-    print(btn)
-    if btn != 'Dispense':
-        backend.add_target_digit(btn)
+#import modules.backend as backend
 
 class NumPad(Frame):
     def __init__(self, window):
         super().__init__(window)
         self.create_buttons()
 
+    
+
     def create_buttons(self):
+
+        number1 = Images.get('1')
+        number2 = Images.get('2')
+        number3 = Images.get('3')
+        number4 = Images.get('4')
+        number5 = Images.get('5')
+        number6 = Images.get('6')
+        number7 = Images.get('7')
+        number8 = Images.get('8')
+        number9 = Images.get('9')
+        number0 = Images.get('0')
+        dispense = Images.get('dispense')
+
+
         button_list = [ 
-                        '7',    '8',    '9',
-                        '4',    '5',    '6',
-                        '1',    '2',    '3',
-                        '0']
+                        number1,    number2,    number3,
+                        number4,    number5,    number6,
+                        number7,    number8,    number9,
+                        number0]
 
         r = 0
         c = 0
-        button_font = font.Font(family='Bahnschrift', size=12, weight='bold')
+        
         for button in button_list:
-            self.btn =  Button(self, 
-                                text = button,
-                                bg = '#c62b24',
-                                fg = 'white',
-                                width = 10, 
-                                height = 4,
-                                command = lambda txt = button:button_press(txt)) 
-            self.btn['font'] = button_font
+
+            self.btn = Button(self, image = button, borderwidth="0", anchor = 'center')
+
             self.btn.grid(row = r, column = c, padx = 2, pady = 2)
             
             c = (c + 1) % 3
@@ -44,12 +47,11 @@ class NumPad(Frame):
                 r += 1
 
         dispense_button = Button(self,
-                                text = "Dispense",
-                                bg = '#c62b24',
-                                fg = 'white',
-                                width = 22, 
-                                height = 4,
-                                command = lambda txt = button:button_press('Dispense'))    
+                                image = dispense,
+                                borderwidth="0",
+                                )    
         
-        dispense_button['font'] = button_font
-        dispense_button.grid(columnspan = 2, row = r, column = c, padx = 2, pady = 2)           
+        dispense_button.grid(columnspan = 2, row = r, column = c, padx = 2, pady = 2)    
+
+
+          

@@ -88,19 +88,19 @@ class Keyboard(Page):
             if (counter == 0):
                 backend.set_filename(exp)
             if (counter == 1):
-                backend.set_filename(exp)
+                backend.set_cartridge(exp)
             if (counter == 2):
-                backend.set_filename(exp)
+                backend.set_bullet(exp)
             if (counter == 3):
-                backend.set_filename(exp)
+                backend.set_powder(exp)
             if (counter == 4):
-                backend.set_filename(exp)
+                backend.set_charge(exp)
             if (counter == 5):
-                backend.set_filename(exp)
+                backend.set_coal(exp)
             if (counter == 6):
-                backend.set_filename(exp)
+                backend.set_primer(exp)
             if (counter == 7):
-                backend.set_filename(exp)
+                backend.set_brass(exp)
             if (counter == 8):
                 backend.set_notes(exp)
             

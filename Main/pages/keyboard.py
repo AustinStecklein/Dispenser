@@ -3,59 +3,155 @@
 from tkinter import *
 import tkinter as tk
 import tkinter.font as font
-import modules.image_loader as Images
+import Images
 import modules.backend as backend
+from pages.page import Page
+import Images
 
+# Default settings for each of the variables listed below
 is_shift = False
-exp = " "
+exp = ""
+counter = 0
 
-class Keyboard(Frame):
-    def __init__(self, window):
-        super().__init__(window)
+class Keyboard(Page):
+    def __init__(self, *args, **kwargs):
+        Page.__init__(self, *args, **kwargs)
+
+        # Calls the create_buttons function 
         self.create_buttons()
 
+    # create_buttons is the entire Keyboard
     def create_buttons(self):
 
+
+        # Sets spacing for each button
         BUTTON_X_PAD = 2
         BUTTON_Y_PAD = 2
 
+        # Sets the equation to a String variable to ensure 
         equation = tk.StringVar()
 
+        # When a button is pressed
         def press(num):
             global exp
             exp = exp + str(num)
             equation.set(exp)
 
+        # When the Back button is pressed 
         def Backspace():
             global exp
             exp = exp[:-1]
             equation.set(exp)
 
+        # When the UP Arrow button is pressed
         def Shift():
             global exp
             equation.set(exp)
 
             global is_shift
             is_shift = not is_shift
+
+            # Deletes and recalls the create_buttons function to show the updated keyboard
             keyboard_frame.destroy()
             self.create_buttons()
-            self.after(10)
+
+        # Ensures the string within the text field is up to date according to user input
+        def reset():
+            global exp
+            equation.set(exp)
+
+            # Ensures the function loops after the initial call
+            self.after(1, reset)
+
+        # Calls the reset function defined above
+        reset()
 
         
+
+        # Sets the variable for the display of which field the user is editting
+        label = backend.get_label() + ":"
+
+        # Keyboard container
         keyboard_frame = tk.Frame(self)
         keyboard_frame.grid(padx = 4, pady = 15)
 
+        #Font for Text
         scale_font = font.Font(family='Bahnschrift', size=26, weight='bold')
 
-        item_label = tk.Label(keyboard_frame, text = backend.get_test_name() + ": ", font = scale_font)
-        item_label.grid(row = 0, column = 1, columnspan = 3, sticky = 'w')
 
-        Dis_entry = tk.Entry(keyboard_frame, state='readonly', textvariable=equation, font = scale_font)
-        Dis_entry.grid(row = 0, column = 5, columnspan=11, ipadx=40, ipady=35, sticky = 'w')  
+        # Displays the field the user is editting
+        item_label = tk.Label(keyboard_frame, text = label, font = scale_font)
+        item_label.grid(row = 0, column = 1, columnspan = 4, sticky = 'w')
 
+        # Text Entry Field 
+        Dis_entry = tk.Entry(keyboard_frame, state='readonly', textvariable=equation, font = scale_font, border = 2, bg = "black")
+        Dis_entry.grid(row = 0, column = 5, columnspan=11, ipadx=35, ipady=35, sticky = 'w')  
+
+
+        # Updates the units for the label and counter for the enter field
+        def update_units():
+            
+            # Ensures label_updated and counter can be modified
+            global label_updated
+            global counter
+
+            # sets the label_updated variable to the label variable in the backend
+            # then assigns the label value to the label_updated variable
+            # afterwhich the item_label's text is reassigned to the now current label value 
+            label_updated = backend.get_label()
+            label =  label_updated + ":"
+            item_label.config(text = label)
+
+            # Sets the counter value to the counter variable in the backend
+            counter = backend.get_counter()
+
+            # This ensures the function loops every 10 milliseconds after the inital call
+            keyboard_frame.after(10, update_units)
+
+        # Calls the update_units function defined above
+        update_units()
+
+        # Enter Function
+        def Enter():
+
+            # Ensures the variable, exp, can be editted
+            global exp
+
+            # Based on the counter variable, which was set on the Save Page,
+            # sets the current exp variable to the desired variable
+            if (counter == 0):
+                backend.set_filename(exp)
+            if (counter == 1):
+                backend.set_cartridge(exp)
+            if (counter == 2):
+                backend.set_bullet(exp)
+            if (counter == 3):
+                backend.set_powder(exp)
+            if (counter == 4):
+                backend.set_charge(exp)
+            if (counter == 5):
+                backend.set_coal(exp)
+            if (counter == 6):
+                backend.set_primer(exp)
+            if (counter == 7):
+                backend.set_brass(exp)
+            if (counter == 8):
+                backend.set_notes(exp)
+
+
+            # Resets the exp variable and lowers the Keyboard Page to reveal the Save Page
+            exp = ""
+            self.lower()
+
+
+
+        # If the is_shift variable is true, which it is set to false on default
         if (is_shift):
             # Adding keys line wise
             # First Line Button
+
+            ### This is the template for each button in the keyboard:
+            # variable = Button(attachment, image, borderwidth: is 0 to ensure no hidden borders and give the image a curved feel, command: associated with the button press)
 
             num1 = tk.Button(keyboard_frame, image = Images.get('small_1'), borderwidth = 0, command=lambda: press('1'))
             num1.grid(row=1, column=1, ipadx=BUTTON_X_PAD, ipady=BUTTON_Y_PAD, padx=0)
@@ -183,9 +279,11 @@ class Keyboard(Frame):
                             command=lambda: press(' '))
             space.grid(row=5, column=1, columnspan=9, ipadx=BUTTON_X_PAD, ipady=BUTTON_Y_PAD, padx=0)
 
-            enter = tk.Button(keyboard_frame, image = Images.get('ENTER'), borderwidth = 0)
+            enter = tk.Button(keyboard_frame, image = Images.get('ENTER'), borderwidth = 0, command = Enter)
             enter.grid(row=5, column=9, columnspan=2, ipadx=BUTTON_X_PAD, ipady=BUTTON_Y_PAD, padx=0, sticky='w')
 
+
+        # If is_shift is False
         else:
             # Adding keyboard_frames line wise
             # First Line Button
@@ -316,7 +414,7 @@ class Keyboard(Frame):
                             command=lambda: press(' '))
             space.grid(row=5, column=1, columnspan=9, ipadx=BUTTON_X_PAD, ipady=BUTTON_Y_PAD, padx=0)
 
-            enter = tk.Button(keyboard_frame, image = Images.get('ENTER'), borderwidth = 0)
+            enter = tk.Button(keyboard_frame, image = Images.get('ENTER'), borderwidth = 0, command = Enter)
             enter.grid(row=5, column=9, columnspan=2, ipadx=BUTTON_X_PAD, ipady=BUTTON_Y_PAD, padx=0, sticky='w')
 
 
