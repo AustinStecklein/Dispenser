@@ -5,8 +5,6 @@ from pages.page import Page
 # https://python-course.eu/tkinter/sliders-in-tkinter.php
 # A quality tkinter Slider guide
 
-
-
 class BrightnessSoundPage(Page):
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)

@@ -1,9 +1,12 @@
 from tkinter import *
 import tkinter.font as font
 import modules.backend as backend
+import modules.image_loader as Images
 
 # Used this guide:
 # https://www.pythontutorial.net/tkinter/tkinter-object-oriented-frame/
+
+# TODO: merge jonathan's images with button_press()
 
 def button_press(btn):
     print(btn)

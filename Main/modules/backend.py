@@ -8,6 +8,13 @@ tilt = 0
 speed = 50
 load_list = ['Test Load #' + str(x) for x in range(17)]
 load_page = 1
+bump_strength = 0.01
+fine_strength = 0.1
+coarse_strength = 1.00
+save_list =  ['Cartridge: ', 'Bullet: ', 'Powder: ', "Charge Weight: ", 'C.O.A.L.: ']
+save_list1 = ['Primer: ', 'Brass: ', 'Notes: ']
+test_name = "Filename"
+units = "gr"
 
 def next_page():
     global load_page
@@ -53,6 +60,30 @@ def fine_feed():
 def bump_feed():
     print('bump feed')
 
+def increase_bump():
+    global bump_strength
+    bump_strength += 0.01
+
+def decrease_bump():
+    global bump_strength
+    bump_strength -= 0.01
+
+def increase_fine():
+    global fine_strength
+    fine_strength += 0.1
+
+def decrease_fine():
+    global fine_strength
+    fine_strength -= 0.1
+
+def increase_coarse():
+    global coarse_strength
+    coarse_strength += 1
+
+def decrease_coarse():
+    global coarse_strength
+    coarse_strength -= 1
+
 def power_off():
     print('Power off')
 
@@ -90,3 +121,20 @@ def load_preset(load_string):
 def edit_preset(load_string):
     print(f'Editing {load_string}')
 
+def settings_default():
+    print('Settings returned to default')
+
+def begin_calibration():
+    print('Calibrating...')
+
+def get_test_name():
+    global test_name
+    return str(test_name)
+
+def new_units(new_units):
+    global units
+    units = new_units
+
+def get_units():
+    global units
+    return units

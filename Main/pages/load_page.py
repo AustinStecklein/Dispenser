@@ -1,15 +1,11 @@
 import tkinter as tk
-
 from pages.page import Page
 import modules.backend as backend
+import modules.image_loader as Images
 
-class ViewPage(Page):
+class LoadPage(Page):
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)
-
-        def edit_preset(load_string):
-            backend.edit_preset(load_string)
-            self.lower()
 
         def display_presets():
 
@@ -31,7 +27,7 @@ class ViewPage(Page):
                 load_frame.pack(side = 'top', expand = False, anchor = 'w', pady = 2)
 
                 load_button = tk.Button(load_frame, text = load_string, bg = "light gray", borderwidth = 0, 
-                                        width = 40, height = 2, command = lambda string = load_string: edit_preset(string) )
+                                        width = 40, height = 2, command = lambda string = load_string: load_preset(string) )
                 load_button.pack(side = 'right', expand = False)
 
         def next_page():
@@ -46,7 +42,7 @@ class ViewPage(Page):
 
         self.current_page = backend.load_page
 
-        heading_label = tk.Label(self, text = 'Select a previously saved configuration to edit', bg = 'light gray')
+        heading_label = tk.Label(self, text = 'Select a previously saved configuration to load', bg = 'light gray')
         heading_label .pack(side = 'top', expand = False, anchor = 'w')
 
         arrows_frame = tk.Frame(self)
@@ -69,8 +65,14 @@ class ViewPage(Page):
                                 fg = "white", bg = "#c62b24", width="2", height="1", command = next_page)
         right_arrow .pack(side = 'left', padx = 10)
 
+        def load_preset(load_string):
+            backend.load_preset(load_string)
+            self.lower()
+
         bottom_frame = tk.Frame(self)
         bottom_frame .pack()
+
+       
 
         display_presets()
 
