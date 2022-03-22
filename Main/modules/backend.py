@@ -11,9 +11,8 @@ load_page = 1
 bump_strength = 0.01
 fine_strength = 0.1
 coarse_strength = 1.00
-save_list =  ['Cartridge: ', 'Bullet: ', 'Powder: ', "Charge Weight: ", 'C.O.A.L.: ']
-save_list1 = ['Primer: ', 'Brass: ', 'Notes: ']
-test_name = "Filename"
+
+# Sets the default value for the units variable shown on the main menu page to grains
 units = "gr"
 
 target = ""
@@ -21,12 +20,11 @@ tilt = 0
 speed = 50
 load_list =  ['load1', 'load2', 'load3']
 
-units = "gr"
-
+# Sets the default value for label_counter to 0
 label_counter = 0
+
+# Sets the default value for every category for the Save Page to blank to ensure the user can start fresh everytime
 keyboard_label = ""
-
-
 file_name = "Card #2"
 cartridge = ""
 bullet = ""
@@ -36,8 +34,6 @@ coal = ""
 primer = ""
 brass = ""
 notes = ""
-
-
 
 def next_page():
     global load_page

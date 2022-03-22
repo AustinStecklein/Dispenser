@@ -6,7 +6,7 @@ from pages.home_page      import *
 import Images
 from pages.keyboard import *
 
-
+# Sets each variable to its corresponding value in the backend
 new_filename = backend.get_filename()
 new_cartridge = backend.get_cartridge()
 new_bullet = backend.get_bullet()
@@ -27,11 +27,12 @@ class SavePage(Page):
           scale_font = font.Font(family='Bahnschrift', size=26, weight='bold')
           details_font = font.Font(family='Bahnschrift', size=18, weight='bold')
 
-          # Pop out Window for the user to input text using digital keyboard
+          # Sets the Keyboard Page to the same dimensions as other pages
 
           self.keyboard      = Keyboard(self)
           self.keyboard      .place(in_ = self, x = 0, y = 0, relwidth = 1, relheight = 1)
 
+          ## Set of functions, which send the desired label and counter to the Keyboard then displays the Keyboard
 
           def filename_keyboard():
                backend.set_label("Filename")
@@ -88,7 +89,7 @@ class SavePage(Page):
                self.keyboard.show()
 
           
-
+          # Sets each variable for every field with its corresponding label
           full_filename_text = "Filename:" + "    " + new_filename
           full_cartridge_text = "Cartridge: " + new_cartridge
           full_bullet_text = "Bullet: " + new_bullet
@@ -100,29 +101,34 @@ class SavePage(Page):
           full_notes_text = "Notes: " + new_notes
 
           # Initialize Page
-
           save_page = tk.Frame(self)
           save_page .place(in_=self, x=0, y=0, relwidth=1, relheight=1)
 
+          # Sets the top menu aside from the rest of the page
           top_bar = tk.Frame(save_page, borderwidth=0, width = 800, background="light gray")
           top_bar.pack(side = 'top', expand = False,  fill = 'x', anchor = 'w', pady = 2)
 
+          # Sets the Save button 
           save_button = tk.Button(top_bar, image = Images.get('save_card'), width = '225', borderwidth=0)
           save_button.pack(side="left", expand=False, fill = "both", anchor = 'w')
 
+          # Sets the Filename Button allowing the user to edit the latter half of the text
           filename_button = tk.Button(top_bar, text = full_filename_text, width = 800-225, anchor = 'w', font = scale_font, command = filename_keyboard, borderwidth=0, background = "light gray")
           filename_button.pack(side="left", expand=False, fill = "both", anchor = 'w')
 
 
-
+          # Sets the rest of the page within its own container
           info_section = tk.Frame(save_page)
           info_section.pack(side = 'top', expand = False, pady = 2)
 
+          # Splits the rest of the page into left side and right 
           left_side = tk.Canvas(info_section, width = 250,)
           left_side.grid(row = 0, column = 0, sticky = 'w', ipadx = "25")
 
           right_side = tk.Canvas(info_section, width = 350)
           right_side.grid(row = 0, column = 1, sticky = 'w')
+
+          ## Each category has its own frame and button to ensure they can be editted indiviually and not have any conflicts with the others
 
           cartridge_frame = tk.Frame(left_side)
           cartridge_frame.pack(side = 'top', expand = False, pady = 3, fill = 'x', anchor = 'w')
@@ -172,7 +178,7 @@ class SavePage(Page):
           notes_label = tk.Button(notes_frame, text = full_notes_text, command = notes_keyboard, bg = 'light gray', font = details_font, borderwidth=0, width = '25', height = "4", pady = 2, anchor = "nw")
           notes_label.pack(side = 'right', expand = False)
 
-
+          # Defines the update_units function, which allows the user to see the changes they have made
           def update_units():
                filename_updated = backend.get_filename()
                full_filename_text =  "Filename:" + "   " + filename_updated
@@ -210,34 +216,11 @@ class SavePage(Page):
                full_notes_text = "Notes: " + notes_updated
                notes_label.config(text = full_notes_text)
 
+               # Ensures the function loops after the inital call
                save_page.after(10, update_units)
 
+          # Initial Call of the update_units function
           update_units()
 
+          # Ensures the user does not see the Keyboard unless they click on a field to edit
           self.keyboard      .lower()
-
-
-          # for load_string in load_list:
-          #      load_frame = tk.Frame(left_side)
-          #      load_frame.pack(side = 'top', expand = False, pady = 3, fill = 'x', anchor = 'w')
-
-          #      load_label = tk.Button(load_frame, text = load_string, bg = 'light gray', font = details_font, borderwidth=0, width = '30',  anchor = 'w', pady = 4)
-          #      load_label.pack(side = 'left', expand = False)
-
-          # for load_string in load_list1:
-          #      if (load_string == "Notes: "):
-          #           load_frame = tk.Frame(right_side)
-          #           load_frame.pack(side = 'top', expand = False, pady = 20, fill = 'x', anchor = 'e')
-
-          #           load_label = tk.Button(load_frame, text = load_string, command = notes_keyboard, bg = 'light gray', font = details_font, borderwidth=0, width = '25', height = "4", pady = 2, anchor = "nw")
-          #           load_label.pack(side = 'right', expand = False)
-
-          #      else:
-          #           load_frame = tk.Frame(right_side)
-          #           load_frame.pack(side = 'top', expand = False, pady = 3, fill = 'x', anchor = 'e')
-
-          #           load_label = tk.Button(load_frame, text = load_string, bg = 'light gray', font = details_font, borderwidth=0, width = '25',  anchor = 'w', pady = 4)
-          #           load_label.pack(side = 'right', expand = False)
-
-          
-          
