@@ -14,11 +14,8 @@ coarse_strength = 1.00
 
 # Sets the default value for the units variable shown on the main menu page to grains
 units = "gr"
-
-target = ""
 tilt = 0
 speed = 50
-load_list =  ['load1', 'load2', 'load3']
 
 # Sets the default value for label_counter to 0
 label_counter = 0
@@ -34,6 +31,57 @@ coal = ""
 primer = ""
 brass = ""
 notes = ""
+
+# Settings variables
+backlight_brightness = 50 # 0 to 100
+notification_volume = 50 # 0 to 100
+button_volume = 50 # 0 to 100
+haptic_mode = 'Option 1'
+startResetDefaults = False
+
+def set_backlight(value):
+    global backlight_brightness
+    backlight_brightness = value
+
+def get_backlight():
+    global backlight_brightness
+    return backlight_brightness
+
+def set_notification_volume(value):
+    global notification_volume
+    notification_volume = value
+
+def get_notification_volume():
+    global notification_volume
+    return notification_volume
+
+def set_button_volume(value):
+    global button_volume
+    button_volume = value
+
+def get_button_volume():
+    global button_volume
+    return button_volume
+
+def set_haptic(option):
+    global haptic_mode
+    haptic_mode = option
+
+def get_haptic():
+    global haptic_mode
+    return int(haptic_mode[-1]) - 1
+
+def needsReset():
+    global startResetDefaults
+    return startResetDefaults
+
+def startReset():
+    global startResetDefaults
+    startResetDefaults = True
+
+def finishReset():
+    global startResetDefaults
+    startResetDefaults = False
 
 def next_page():
     global load_page
@@ -139,9 +187,6 @@ def load_preset(load_string):
 
 def edit_preset(load_string):
     print(f'Editing {load_string}')
-
-def settings_default():
-    print('Settings returned to default')
 
 def begin_calibration():
     print('Calibrating...')

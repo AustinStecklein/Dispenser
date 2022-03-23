@@ -19,10 +19,7 @@ class MainView(tk.Frame):
         # Page Frames
         home_page       = HomePage(self)
         power_off_page  = PowerOffPage(self)
-        calibrate_page  = CalibratePage(self)
-        save_page       = SavePage(self)
         power_off_page  = PowerOffPage(self)
-        keyboard        = Keyboard(self)
         
         # Page Buttons
         button_frame = tk.Frame(self)

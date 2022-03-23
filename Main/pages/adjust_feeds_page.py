@@ -120,5 +120,6 @@ class AdjustFeedsPage(Page):
 
         # Save button
     
-        save_button = tk.Button(self, image = Images.get('save adjustments'), borderwidth=0, command = self.lower)
+        save_button = tk.Button(self, text = 'IMAGE NOT FOUND', borderwidth=0, command = self.lower)
+        # save_button = tk.Button(self, image = Images.get('save adjustments'), borderwidth=0, command = self.lower)
         save_button .pack(anchor = 'w')

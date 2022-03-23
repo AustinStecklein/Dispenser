@@ -7,7 +7,7 @@ class DefaultSettingsPage(Page):
         Page.__init__(self, *args, **kwargs)
 
         def defaults():
-            backend.settings_default()
+            backend.startReset()
             self.lower()
 
         
