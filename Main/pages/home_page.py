@@ -59,15 +59,19 @@ class HomePage(Page):
 
             # Unit Selector
         def popup():
+
+            # Starts a new Screen that will be on top of the main screen and sets its dimensions, with the attribute of the not being modifiable by the user
             popup = tk.Toplevel()
             popup.geometry('480x288')
             popup.resizable(height=False, width=False)
 
+            # Allows the units variable to be editted
             global units
 
+            # Font for the text in the Buttons
             unit_font = font.Font(family='Bahnschrift', size=16, weight='bold')
 
-
+            # Sets the units variable to the desired units; sends that choice to the backend to be saved; closes the popup; then updates the get_units function
             def g_units():
                 global units
                 units = "g"
@@ -109,6 +113,8 @@ class HomePage(Page):
                 backend.new_units("tl")
                 popup.destroy()
                 home_page.after(10, backend.get_units)
+
+            # If the current units is already selected, the user cannot select those units and must choose a different one
             
             if (units == "gr"):
                 gr_button = tk.Button(popup, text = "Grains: (gr)", font = unit_font, width = 5,)
@@ -191,14 +197,13 @@ class HomePage(Page):
         scale_unit['font'] = scale_unit_font
         scale_unit.pack(side = "left", pady = 5, anchor = 'sw')
 
-        
+        # Continously called to ensure the units stay updated
         def update_units():
             updated_units = backend.get_units()
             scale_unit.config(text = updated_units)
             home_page.after(10, update_units)
 
         update_units()
-
 
         def get_scale_reading():
             scale_reading = backend.read_scale()
@@ -274,6 +279,7 @@ class HomePage(Page):
         calibrate_button.pack(side = 'left', expand = False, padx = 8)
         settings_button .pack(side = 'left', expand = False, padx = 8)
 
+    # Lowers all pages to reveal the Home Page
     def go_home(self):
         self.load_page.lower()
         self.save_page.lower()
