@@ -3,3 +3,12 @@ The Subpages for Settings do not lower when the home button is pressed
 Keyboard has the home screen attached to it
 
 Add Button to close unit selector in case the user accidently pressed it
+
+
+Not the Image Problem:
+Where the files are located
+Does not matter how the image is declared within the button or label object i.e. image = Images.get('ex'), or image = example_image
+Not an issue with the Settings Pages
+nothing to do with spaces in the image names
+not because of the NONE, variable in the file location
+sys path crashes 

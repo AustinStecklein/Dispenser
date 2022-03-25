@@ -1,7 +1,7 @@
 import tkinter as tk
-import pages.backend as backend
+import modules.backend as backend
 from pages.page import Page
-import pages.images.images as Images
+import modules.image_loader as Images
 
 # https://python-course.eu/tkinter/sliders-in-tkinter.php
 # A quality tkinter Slider guide
@@ -59,7 +59,7 @@ class BrightnessSoundPage(Page):
 
 
         save_button = tk.Button(right_frame,  borderwidth=0, text = 'IMAGE NOT FOUND', command = self.lower)
-        #save_button = tk.Button(right_frame,  borderwidth=0, image = Images.get('selections'), command = self.lower)
+        # save_button = tk.Button(right_frame,  borderwidth=0, image = Images.get('selections'), command = self.lower)
         save_button .pack()
 
         def update_settings():

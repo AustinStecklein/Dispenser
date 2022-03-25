@@ -1,7 +1,7 @@
 import tkinter as tk
 from pages.page import Page
-import modules.backend as backend
-import modules.image_loader as Images
+import pages.backend as backend
+import pages.images.images as Images
 
 class AdjustFeedsPage(Page):
     def __init__(self, *args, **kwargs):
@@ -15,10 +15,12 @@ class AdjustFeedsPage(Page):
 
         # Bump
 
+        
+
         bump_frame = tk.Frame(bottom_frame)
         bump_frame .pack(side = 'right', expand = True, padx = 10)
         
-        bump_button = tk.Button(bump_frame, image = Images.get('adjust bump'), borderwidth=0, command = backend.bump_feed)
+        bump_button = tk.Button(bump_frame, image = Images.get('adjust_bump'), borderwidth=0, command = backend.bump_feed)
         bump_button .pack(side = 'top', pady = 2)
 
         bump_display = tk.Label(bump_frame, text = '0.01', bg = 'light gray')
@@ -54,7 +56,7 @@ class AdjustFeedsPage(Page):
         fine_frame = tk.Frame(bottom_frame)
         fine_frame .pack(side = 'right', expand = True, padx = 10)
         
-        fine_button = tk.Button(fine_frame, image = Images.get('adjust fine'), borderwidth=0, command = backend.fine_feed)
+        fine_button = tk.Button(fine_frame, image = Images.get('adjust_fine'), borderwidth=0, command = backend.fine_feed)
         fine_button .pack(side = 'top', pady = 2)
 
         fine_display = tk.Label(fine_frame, text = '0.1', bg = 'light gray')
@@ -90,7 +92,7 @@ class AdjustFeedsPage(Page):
         coarse_frame = tk.Frame(bottom_frame)
         coarse_frame .pack(side = 'right', expand = True, padx = 10)
         
-        coarse_button = tk.Button(coarse_frame, image = Images.get('adjust coarse'), borderwidth=0, command = backend.coarse_feed)
+        coarse_button = tk.Button(coarse_frame, image = Images.get('adjust_coarse'), borderwidth=0, command = backend.coarse_feed)
         coarse_button .pack(side = 'top', pady = 2)
 
         coarse_display = tk.Label(coarse_frame, text = '1.00', bg = 'light gray')
@@ -120,6 +122,7 @@ class AdjustFeedsPage(Page):
 
         # Save button
     
+        
         save_button = tk.Button(self, text = 'IMAGE NOT FOUND', borderwidth=0, command = self.lower)
-        # save_button = tk.Button(self, image = Images.get('save adjustments'), borderwidth=0, command = self.lower)
+        #save_button = tk.Button(self, image = Images.get('save adjustments'), borderwidth=0, command = self.lower)
         save_button .pack(anchor = 'w')

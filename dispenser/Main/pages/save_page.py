@@ -1,9 +1,9 @@
 import tkinter as tk
 from pages.page import Page
-import pages.backend as backend
+import modules.backend as backend
 import tkinter.font as font
 from pages.home_page      import *
-import pages.images.images as Images
+import Images
 from pages.keyboard import *
 
 # Sets each variable to its corresponding value in the backend

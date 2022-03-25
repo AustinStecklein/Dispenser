@@ -1,8 +1,8 @@
 import tkinter as tk
 
 from pages.page import Page
-import pages.backend as backend
-import pages.images.images as Images
+import modules.backend as backend
+import modules.image_loader as Images
 
 class ViewPage(Page):
     def __init__(self, *args, **kwargs):

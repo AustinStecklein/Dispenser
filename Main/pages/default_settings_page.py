@@ -1,6 +1,6 @@
 import tkinter as tk
 from pages.page import Page
-import modules.backend as backend
+import pages.backend as backend
 
 class DefaultSettingsPage(Page):
     def __init__(self, *args, **kwargs):

@@ -1,6 +1,6 @@
 import tkinter as tk
 from pages.page import Page
-import pages.images.images as Images
+import modules.image_loader as Images
 
 class ScaleConfigPage(Page):
     def __init__(self, *args, **kwargs):

@@ -1,6 +1,13 @@
 from tkinter import *
 import sys
 
+## How to add more images:
+#  1. Ensure that the moniker that you will be using to distinguish the new image is not one that has already been used.
+#  2. then follow the pattern illustrated below.
+#  2.1. The first part is the sys.path function, which returns the location of the main file relative to the machine it is currently on, which enables every machine to find the correct
+#       path to the image.
+#  2.2. The second part is the rest of the file path, which is pretty straight forward, however, for more clarification, this part is the exact path from the main folder to the desired image. 
+
 imagelist = {
 
   ## Menu Bar

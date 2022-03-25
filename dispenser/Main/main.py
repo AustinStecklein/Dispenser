@@ -8,10 +8,9 @@ from pages.home_page      import *
 from pages.save_page      import *
 from pages.power_off_page import *
 from pages.keyboard       import *
-import sys
 
-import pages.backend
-import pages.images.images as Images
+import modules.backend
+import Images
 
 class MainView(tk.Frame):
     def __init__(self, *args, **kwargs):
@@ -19,6 +18,7 @@ class MainView(tk.Frame):
 
         # Page Frames
         home_page       = HomePage(self)
+        power_off_page  = PowerOffPage(self)
         power_off_page  = PowerOffPage(self)
         
         # Page Buttons
@@ -55,8 +55,6 @@ class MainView(tk.Frame):
         
 
         home_page.show()
-
-        print (sys.path[0])
 
 if __name__ == "__main__":
     root = tk.Tk()

@@ -1,12 +1,12 @@
 import tkinter as tk
 import tkinter.font as font
 from pages.page import *
-import pages.backend as backend
+import modules.backend as backend
 from pages.adjust_feeds_page        import *
 from pages.brightness_sound_page    import * 
 from pages.scale_config_page        import *
 from pages.default_settings_page    import *
-import pages.images.images as Images
+import Images
 
 class SettingsPage(Page):
     def __init__(self, *args, **kwargs):

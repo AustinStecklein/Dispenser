@@ -1,12 +1,12 @@
 # keyboard.py
 
+from this import s
 from tkinter import *
 import tkinter as tk
 import tkinter.font as font
-import Images
-import modules.backend as backend
+import pages.backend as backend
 from pages.page import Page
-import Images
+import pages.images.images as Images
 
 # Default settings for each of the variables listed below
 is_shift = False
@@ -73,7 +73,7 @@ class Keyboard(Page):
 
         # Keyboard container
         keyboard_frame = tk.Frame(self)
-        keyboard_frame.grid(padx = 4, pady = 15)
+        keyboard_frame.grid(padx = 20, sticky = "s", pady = 30)
 
         #Font for Text
         scale_font = font.Font(family='Bahnschrift', size=26, weight='bold')
@@ -85,7 +85,7 @@ class Keyboard(Page):
 
         # Text Entry Field 
         Dis_entry = tk.Entry(keyboard_frame, state='readonly', textvariable=equation, font = scale_font, border = 2, bg = "black")
-        Dis_entry.grid(row = 0, column = 5, columnspan=11, ipadx=35, ipady=35, sticky = 'w')  
+        Dis_entry.grid(row = 0, column = 5, columnspan=11, ipadx=30, ipady=15, sticky = 'w')  
 
 
         # Updates the units for the label and counter for the enter field

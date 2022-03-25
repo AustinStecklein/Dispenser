@@ -9,8 +9,7 @@ from pages.save_page      import *
 from pages.power_off_page import *
 from pages.keyboard       import *
 
-import modules.backend
-import Images
+import pages.images.images as Images
 
 class MainView(tk.Frame):
     def __init__(self, *args, **kwargs):
@@ -18,7 +17,6 @@ class MainView(tk.Frame):
 
         # Page Frames
         home_page       = HomePage(self)
-        power_off_page  = PowerOffPage(self)
         power_off_page  = PowerOffPage(self)
         
         # Page Buttons
@@ -45,24 +43,31 @@ class MainView(tk.Frame):
         left_arrow_button = tk.Button(menu_bar_image, image = Images.get('left'), borderwidth = 0 , background="black")
         left_arrow_button.place(relx = .68, rely = .92, anchor = "se")
 
-
+        # Page Frame which each page will be placed on top of the main page
         page_frame = tk.Frame(self)
         page_frame.pack(side="right", fill="both", expand=True)
 
-
+        # Enables the Home Page and Power off Pages to be placed underneath the menu bar with the arrow, home and power buttons
         home_page       .place(in_=page_frame, x=0, y=0, relwidth=1, relheight=1)
         power_off_page  .place(in_=page_frame, x=0, y=0, relwidth=1, relheight=1)
         
-
+        # Show Home_Page
         home_page.show()
 
+
 if __name__ == "__main__":
+    
+    # Starts the Program and labels the Screen as Dispenser
     root = tk.Tk()
     root.title('Dispenser')
 
+    # Sets the MainView Class on the root, ensuring it stays on screen on every page while filling the screen
     main = MainView(root)
-
     main.pack(side="top", fill="both", expand=True)
+
+    # Sets the Size of the Screen and disables the user's ability to change the dimensions 
     root.wm_geometry("800x480")
     root.resizable(height=False, width=False)
+
+    # Ensures the Program remains open until the user decides to close it
     root.mainloop()
