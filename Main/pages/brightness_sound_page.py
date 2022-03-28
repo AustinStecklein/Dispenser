@@ -76,7 +76,5 @@ class BrightnessSoundPage(Page):
                 backend.set_button_volume(button_volume_slider.get())
                 backend.set_haptic(haptic_select.curselection())
 
-            print(backend.get_backlight())
-
             self.after(10, update_settings)
         update_settings()
