@@ -1,7 +1,7 @@
 import datetime
 import math
 
-# Placeholders for backend functions
+# TODO: give actual backend functions
 
 target = ""
 tilt = 0
