@@ -188,7 +188,7 @@ class HomePage(Page):
         scale_weight_frame.pack(side = 'top', expand = False, padx = 2)
 
 
-        scale_font = font.Font(family='Bahnschrift', size=78, weight='bold')
+        scale_font = font.Font(family='Bahnschrift', size=40, weight='bold') # size reduced from 78
         scale_weight = Label(scale_weight_frame, text ="00.00", bg = "light gray")
         scale_weight['font'] = scale_font
         scale_weight.pack(side = "left", pady = 5, anchor = 's')
