@@ -3,6 +3,10 @@ from pages.page import Page
 import pages.backend as backend
 import pages.images.images as Images
 
+# TODO: font 
+# TODO: button size
+# TODO: arrow buttons
+
 class LoadPage(Page):
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)

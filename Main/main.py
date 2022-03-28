@@ -11,6 +11,9 @@ from pages.keyboard       import *
 
 import pages.images.images as Images
 
+# TODO: Forward button
+# TODO: Back button
+
 class MainView(tk.Frame):
     def __init__(self, *args, **kwargs):
         tk.Frame.__init__(self, *args, **kwargs)

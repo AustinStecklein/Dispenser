@@ -6,6 +6,8 @@ import pages.images.images as Images
 # https://python-course.eu/tkinter/sliders-in-tkinter.php
 # A quality tkinter Slider guide
 
+# TODO: save button image not found
+
 class BrightnessSoundPage(Page):
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)

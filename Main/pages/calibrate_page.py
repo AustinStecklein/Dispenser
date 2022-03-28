@@ -2,6 +2,8 @@ import tkinter as tk
 from pages.page import Page
 import pages.backend as backend
 
+# TODO: font and buttons
+
 class CalibratePage(Page):
    def __init__(self, *args, **kwargs):
        Page.__init__(self, *args, **kwargs)

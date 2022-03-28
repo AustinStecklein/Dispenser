@@ -115,7 +115,8 @@ class HomePage(Page):
                 home_page.after(10, backend.get_units)
 
             # If the current units is already selected, the user cannot select those units and must choose a different one
-            
+            # TODO: remove 3D border from unit buttons
+
             if (units == "gr"):
                 gr_button = tk.Button(popup, text = "Grains: (gr)", font = unit_font, width = 5,)
                 gr_button.config(relief = SUNKEN)
@@ -219,7 +220,9 @@ class HomePage(Page):
         target_weight_frame = tk.Frame(small_displays_frame)
         target_weight_frame.pack(side = 'left', expand = True, padx = 2)
 
-        target_weight = Label(target_weight_frame, text ="Target Weight: 0.00", bg = "light gray")
+        target_font = font.Font(family='Bahnschrift', size=16, weight='bold')
+        target_weight = Label(target_weight_frame, text ="Target Weight: 0.00")
+        target_weight['font'] = target_font
         target_weight.pack(side = "left", pady = 5, anchor = 's')
 
         def get_target_weight():
@@ -233,10 +236,15 @@ class HomePage(Page):
         speed_display_frame = tk.Frame(small_displays_frame)
         speed_display_frame.pack(side = 'right', expand = True, padx = 2)
 
-        speed_display_label = Label(speed_display_frame, text = "Speed:", bg = 'light gray')
+        speed_font = font.Font(family='Bahnschrift', size=16, weight='bold')
+
+        speed_display_label = Label(speed_display_frame, text = "Speed:")
+        speed_display_label['font'] = speed_font
         speed_display_label.pack(side = 'left', expand = False)
 
-        speed_display_value = Label(speed_display_frame, text = "0000", bg = 'light gray')
+        target_font = font.Font(family='Bahnschrift', size=16, weight='bold')
+        speed_display_value = Label(speed_display_frame, text = "0000")
+        speed_display_value['font'] = speed_font
         speed_display_value.pack(side = 'left', expand = False)
 
         def get_speed():

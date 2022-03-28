@@ -3,6 +3,10 @@ from pages.page import Page
 import pages.backend as backend
 import pages.images.images as Images
 
+# TODO: fix weird float addiiton issues on  ex: 0.500000000005
+# TODO: save button image not found
+# TODO: resize dispense buttons
+
 class AdjustFeedsPage(Page):
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)
@@ -14,8 +18,6 @@ class AdjustFeedsPage(Page):
         bottom_frame .pack(side = 'top', expand = True)
 
         # Bump
-
-        
 
         bump_frame = tk.Frame(bottom_frame)
         bump_frame .pack(side = 'right', expand = True, padx = 10)

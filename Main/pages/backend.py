@@ -99,33 +99,13 @@ def total_pages():
     global load_list
     return int(math.ceil(len(load_list) / 5))
 
-def read_scale():
-    return str(datetime.date.today().strftime('%m.%d'))
-
-def set_target(new_target):
-    global target
-    target = new_target
-
-def add_target_digit(digit):
-    global target
-    target = target + digit
-
-def numpad_clear():
-    global target
-    target = ''
-
 def get_target():
     global target
-    return target
 
-def coarse_feed():
-    print('coarse feed')
-
-def fine_feed():
-    print('fine feed')
-
-def bump_feed():
-    print('bump feed')
+    if target == '':
+        return '0.00'
+    else:
+        return target
 
 def increase_bump():
     global bump_strength
@@ -151,37 +131,6 @@ def decrease_coarse():
     global coarse_strength
     coarse_strength -= 1
 
-def power_off():
-    print('Power off')
-
-def increase_tilt():
-    global tilt
-    tilt += 1
-    
-def decrease_tilt():
-    global tilt
-    tilt -= 1
-    
-def increase_speed():
-    global speed
-    speed += 1
-    
-def decrease_speed():
-    global speed
-    speed -= 1
-
-def get_trickler_speed():
-    global speed
-    return str(speed)
-    
-def get_trickler_tilt():
-    global tilt
-    return str(tilt)
-
-def get_load_list():
-    global load_list
-    return load_list
-
 def load_preset(load_string):
     print(f'Loading {load_string}')
 
@@ -191,18 +140,6 @@ def edit_preset(load_string):
 def begin_calibration():
     print('Calibrating...')
 
-def get_test_name():
-    global test_name
-    return str(test_name)
-
-def new_units(new_units):
-    global units
-    units = new_units
-
-def get_units():
-    global units
-    return units
-
 def set_counter(new_counter):
     global label_counter
     label_counter = new_counter
@@ -211,7 +148,6 @@ def get_counter():
     global label_counter
     return label_counter
 
-
 def set_label(new_label):
     global keyboard_label
     keyboard_label = new_label
@@ -219,7 +155,6 @@ def set_label(new_label):
 def get_label():
     global keyboard_label
     return keyboard_label
-
 
 def read_scale():
     if (units == "gr"):
@@ -303,9 +238,6 @@ def get_notes():
     global notes
     return str(notes)
 
-
-    
-
 def new_units(new_units):
     global units
     units = new_units
@@ -313,8 +245,6 @@ def new_units(new_units):
 def get_units():
     global units
     return units
-
-
 
 def set_target(new_target):
     global target
@@ -327,10 +257,6 @@ def add_target_digit(digit):
 def numpad_clear():
     global target
     target = ''
-
-def get_target():
-    global target
-    return target
 
 def coarse_feed():
     print('coarse feed')
@@ -383,9 +309,6 @@ def get_save_list():
 def get_save_list1():
     global save_list1
     return save_list1
-
-def load_preset(load_string):
-    print(f'Loading {load_string}')
 
 
 
