@@ -18,7 +18,7 @@ imagelist = {
   'menu_bar': [sys.path[0] +'/pages/images/bottom_bar/Bottom Bar.png', None],
 
   ## NumPad
-  '1': [sys.path[0] +'/pages/images/numpad_buttons/1_button.png', None],
+  '1': [sys.path[0] +'/pages/images/numpad_buttons/1_Button.png', None],
   '2': [sys.path[0] +'/pages/images/numpad_buttons/2_Button.png', None],
   '3': [sys.path[0] +'/pages/images/numpad_buttons/3_Button.png', None],
   '4': [sys.path[0] +'/pages/images/numpad_buttons/4_Button.png', None],
