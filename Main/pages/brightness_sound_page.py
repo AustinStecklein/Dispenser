@@ -7,6 +7,9 @@ import pages.images.images as Images
 # A quality tkinter Slider guide
 
 # TODO: save button image not found
+# TODO: prettier sliders if possible
+# TODO: space things out
+# TODO: fonts
 
 class BrightnessSoundPage(Page):
     def __init__(self, *args, **kwargs):
