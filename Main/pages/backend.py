@@ -1,7 +1,10 @@
 import datetime
 import math
+from backend_modules.Eventhandler import *
 
 # TODO: give actual backend functions
+
+event_handler = Eventhandler()
 
 target = ""
 tilt = 0
@@ -38,6 +41,19 @@ notification_volume = 50 # 0 to 100
 button_volume = 50 # 0 to 100
 haptic_mode = 'Option 1'
 startResetDefaults = False
+
+def coarse_feed():
+    global event_handler
+    event_handler.Manual_fast()
+
+def fine_feed():
+    print('fine feed')
+
+def bump_feed():
+    print('bump feed')
+
+def power_off():
+    print('Power off')
 
 def set_backlight(value):
     global backlight_brightness
@@ -257,18 +273,6 @@ def add_target_digit(digit):
 def numpad_clear():
     global target
     target = ''
-
-def coarse_feed():
-    print('coarse feed')
-
-def fine_feed():
-    print('fine feed')
-
-def bump_feed():
-    print('bump feed')
-
-def power_off():
-    print('Power off')
 
 def increase_tilt():
     global tilt
