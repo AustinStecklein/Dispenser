@@ -1,6 +1,6 @@
 import Adafruit_BBIO.PWM as PWM
 import Adafruit_BBIO.GPIO as GPIO
-from Database import *
+from pages.backend_modules.Database import *
 import time
 
 
