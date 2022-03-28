@@ -1,6 +1,6 @@
 import datetime
 import math
-from backend_modules.Eventhandler import *
+from pages.backend_modules.Eventhandler import *
 
 # TODO: give actual backend functions
 
