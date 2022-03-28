@@ -1,7 +1,7 @@
-from Database import *
+from pages.backend_modules.Database import *
 import threading
-from StepperDriver import *
-from event import Event
+from pages.backend_modules.StepperDriver import *
+from pages.backend_modules.event import Event
 import serial
 import Adafruit_BBIO.ADC as ADC
 import Adafruit_BBIO.GPIO as GPIO
