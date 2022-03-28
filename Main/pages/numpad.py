@@ -3,7 +3,7 @@ import tkinter as tk
 import tkinter.font as font
 import pages.images.images as Images
 
-#import modules.backend as backend
+# TODO: fix buttons
 
 class NumPad(Frame):
     def __init__(self, window):
