@@ -28,7 +28,7 @@ class SettingsPage(Page):
         settings_frame = tk.Frame(self)
         settings_frame .place(in_ = self, x = 0, y = 0, relwidth = 1, relheight = 1)
 
-        settings_label = tk.Label(settings_frame, text = "Settings", fg = "red", font = scale_font)
+        settings_label = tk.Label(settings_frame, text = "Settings", fg = "#c62b24", font = scale_font)
         settings_label.pack(side = 'top', expand = False, padx = 50, pady = 25)
 
         buttons_frame = tk.Frame(settings_frame)

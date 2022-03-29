@@ -3,6 +3,7 @@ import tkinter as tk
 from pages.page import Page
 import pages.backend as backend
 import pages.images.images as Images
+import tkinter.font as font
 
 # TODO: font 
 # TODO: button size
@@ -11,6 +12,11 @@ import pages.images.images as Images
 class ViewPage(Page):
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)
+
+        # Fonts
+        page_font = font.Font(family='Bahnschrift', size=16, weight='bold')
+        unit_font = font.Font(family='Bahnschrift', size=14, weight='bold')
+        previous_font = font.Font(family='Bahnschrift', size=12, weight='bold')
 
         def edit_preset(load_string):
             backend.edit_preset(load_string)
@@ -35,8 +41,8 @@ class ViewPage(Page):
                 load_frame = tk.Frame(bottom_frame)
                 load_frame.pack(side = 'top', expand = False, anchor = 'w', pady = 2)
 
-                load_button = tk.Button(load_frame, text = load_string, bg = "light gray", borderwidth = 0, 
-                                        width = 40, height = 2, command = lambda string = load_string: edit_preset(string) )
+                load_button = tk.Button(load_frame, text = load_string, bg = "light gray", borderwidth = 0, font = unit_font,
+                                        width = 25, height = 2, command = lambda string = load_string: edit_preset(string) )
                 load_button.pack(side = 'right', expand = False)
 
         def next_page():
@@ -51,17 +57,16 @@ class ViewPage(Page):
 
         self.current_page = backend.load_page
 
-        heading_label = tk.Label(self, text = 'Select a previously saved configuration to edit', bg = 'light gray')
+        heading_label = tk.Label(self, text = 'Select a previously saved configuration to edit', bg = 'light gray', font = previous_font)
         heading_label .pack(side = 'top', expand = False, anchor = 'w')
 
         arrows_frame = tk.Frame(self)
         arrows_frame .pack()
 
-        left_arrow = tk.Button(arrows_frame, text = '<', 
-                                fg = "white", bg = "#c62b24", width="2", height="1", command = prev_page)
+        left_arrow = tk.Button(arrows_frame, text = "<", command = prev_page, fg = "white", bg = "#c62b24", width="2", height="1",)
         left_arrow .pack(side = 'left', padx = 10)
 
-        page_number_label = tk.Label(arrows_frame, text = '1')
+        page_number_label = tk.Label(arrows_frame, text = '1', font = page_font)
         page_number_label .pack(side = 'left', padx = 10)
 
         def get_page_number():

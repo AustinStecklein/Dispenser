@@ -9,6 +9,7 @@ from pages.save_page      import *
 from pages.view_page      import *
 import pages.images.images as Images
 from tkinter import *
+import tkinter.font as font
 
 units = backend.get_units()
 
@@ -115,70 +116,70 @@ class HomePage(Page):
                 home_page.after(10, backend.get_units)
 
             # If the current units is already selected, the user cannot select those units and must choose a different one
-            # TODO: remove 3D border from unit buttons
+            
 
             if (units == "gr"):
-                gr_button = tk.Button(popup, text = "Grains: (gr)", font = unit_font, width = 5,)
+                gr_button = tk.Button(popup, text = "Grains: (gr)", font = unit_font, width = 5,borderwidth = 0,)
                 gr_button.config(relief = SUNKEN)
                 gr_button.grid(row = 1, column = 0, ipadx = 50, ipady = 2, pady = 5, padx = 25)
             
             else:
-                gr_button = tk.Button(popup, text = "Grains: (gr)", font = unit_font, width = 5,
+                gr_button = tk.Button(popup, text = "Grains: (gr)", font = unit_font, width = 5,borderwidth = 0,
                                         command = gr_units,)
                 gr_button.grid(row = 1, column = 0, ipadx = 50, ipady = 2, pady = 5, padx = 25)
 
 
             if (units == "g"):
-                g_button = tk.Button(popup, text = "Grams: (g)", font = unit_font, width = 5,)
+                g_button = tk.Button(popup, text = "Grams: (g)", font = unit_font, width = 5,borderwidth = 0,)
                 g_button.config(relief = SUNKEN)
                 g_button.grid(row = 2, column = 0, ipadx = 50, ipady = 2, pady = 5, padx = 25)
             
             else: 
-                g_button = tk.Button(popup, text = "Grams: (g)", font = unit_font, width = 5,
+                g_button = tk.Button(popup, text = "Grams: (g)", font = unit_font, width = 5,borderwidth = 0,
                                         command = g_units)
                 g_button.grid(row = 2, column = 0, ipadx = 50, ipady = 2, pady = 5, padx = 25)
 
 
             if (units == "lb"):
-                lb_button = tk.Button(popup, text = "Pounds: (lb)", font = unit_font, width = 5,)
+                lb_button = tk.Button(popup, text = "Pounds: (lb)", font = unit_font, width = 5,borderwidth = 0,)
                 lb_button.config(relief = SUNKEN)
                 lb_button.grid(row = 3, column = 0, ipadx = 50, ipady = 2, pady = 5, padx = 25)
             
             else: 
-                lb_button = tk.Button(popup, text = "Pounds: (lb)", font = unit_font, width = 5,
+                lb_button = tk.Button(popup, text = "Pounds: (lb)", font = unit_font, width = 5,borderwidth = 0,
                                         command = lb_units)
                 lb_button.grid(row = 3, column = 0, ipadx = 50, ipady = 2, pady = 5, padx = 25)
 
             
             if (units == "oz"):
-                oz_button = tk.Button(popup, text = "Ounces: (oz)", font = unit_font, width = 5,)
+                oz_button = tk.Button(popup, text = "Ounces: (oz)", font = unit_font, width = 5,borderwidth = 0,)
                 oz_button.config(relief = SUNKEN)
                 oz_button.grid(row = 1, column = 1, ipadx = 50, ipady = 2, pady = 5, padx = 25)
             
             else:
-                oz_button = tk.Button(popup, text = "Ounces: (oz)", font = unit_font, width = 5,
+                oz_button = tk.Button(popup, text = "Ounces: (oz)", font = unit_font, width = 5,borderwidth = 0,
                                         command = oz_units,)
                 oz_button.grid(row = 1, column = 1, ipadx = 50, ipady = 2, pady = 5, padx = 25)
 
 
             if (units == "ct"):
-                ct_button = tk.Button(popup, text = "Carat: (ct)", font = unit_font, width = 5,)
+                ct_button = tk.Button(popup, text = "Carat: (ct)", font = unit_font, width = 5,borderwidth = 0,)
                 ct_button.config(relief = SUNKEN)
                 ct_button.grid(row = 2, column = 1, ipadx = 50, ipady = 2, pady = 5, padx = 25)
             
             else: 
-                ct_button = tk.Button(popup, text = "Carat: (ct)", font = unit_font, width = 5,
+                ct_button = tk.Button(popup, text = "Carat: (ct)", font = unit_font, width = 5,borderwidth = 0,
                                         command = ct_units)
                 ct_button.grid(row = 2, column = 1, ipadx = 50, ipady = 2, pady = 5, padx = 25)
 
 
             if (units == "tl"):
-                tl_button = tk.Button(popup, text = "Tael: (tl)", font = unit_font, width = 5,)
+                tl_button = tk.Button(popup, text = "Tael: (tl)", font = unit_font, width = 5,borderwidth = 0,)
                 tl_button.config(relief = SUNKEN)
                 tl_button.grid(row = 3, column = 1, ipadx = 50, ipady = 2, pady = 5, padx = 25)
             
             else: 
-                tl_button = tk.Button(popup, text = "Tael: (tl)", font = unit_font, width = 5,
+                tl_button = tk.Button(popup, text = "Tael: (tl)", font = unit_font, width = 5,borderwidth = 0,
                                         command = tl_units)
                 tl_button.grid(row = 3, column = 1, ipadx = 50, ipady = 2, pady = 5, padx = 25)
 
@@ -188,13 +189,13 @@ class HomePage(Page):
         scale_weight_frame.pack(side = 'top', expand = False, padx = 2)
 
 
-        scale_font = font.Font(family='Bahnschrift', size=40, weight='bold') # size reduced from 78
+        scale_font = font.Font(family='Bahnschrift', size=56, weight='bold') # size reduced from 78
         scale_weight = Label(scale_weight_frame, text ="00.00", bg = "light gray")
         scale_weight['font'] = scale_font
         scale_weight.pack(side = "left", pady = 5, anchor = 's')
 
         scale_unit_font = font.Font(family='Bahnschrift', size=20, weight='bold')
-        scale_unit = Button(scale_weight_frame, text = 'gr', bg = "light gray", command = popup)
+        scale_unit = Button(scale_weight_frame, text = 'gr', bg = "light gray", command = popup,borderwidth = 0,)
         scale_unit['font'] = scale_unit_font
         scale_unit.pack(side = "left", pady = 5, anchor = 'sw')
 
