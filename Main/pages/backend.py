@@ -40,6 +40,9 @@ button_volume = 50 # 0 to 100
 haptic_mode = 'Option 1'
 startResetDefaults = False
 
+def auto_dispense():
+    pass
+
 def coarse_feed(x):
     global event_handler
     event_handler.Manual_fast()

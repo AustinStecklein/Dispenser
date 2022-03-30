@@ -54,5 +54,5 @@ class NumPad(Frame):
         num0 = tk.Button(self, image = Images.get('0'), borderwidth = 0, command=lambda: press('0'))
         num0.grid(row=3, column=0, ipadx=BUTTON_X_PAD, ipady=BUTTON_Y_PAD, padx=0)
 
-        dispense_button = Button(self,image = Images.get('dispense'), borderwidth="0",)    
+        dispense_button = Button(self,image = Images.get('dispense'), borderwidth="0", command = backend.auto_dispense)    
         dispense_button.grid(columnspan = 2, row = 3, column = 1, padx = 2, pady = 2)  
