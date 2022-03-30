@@ -76,16 +76,21 @@ def autorun():
     target = float(getSetting("TargetW"))
     
     gab = target - float(getSetting("CurrentW"))
-    while(gab > .5):
-        if(gab/2 > fast):
+    while(gab > .1):
+        if(gab > fast/2):
             Start(3)
-        elif(gab/2 > med):
+        elif(gab > med/2):
             Start(2)
-        elif(gab/2 > slow):
+        elif(gab > slow/2):
             Start(1)
+        else:
+            print("finish")
+            break
         time.sleep(.5)
         Stop()
+        time.sleep(4)
         gab = target - float(getSetting("CurrentW"))
+        
         
 def angleChange(direction):
     
