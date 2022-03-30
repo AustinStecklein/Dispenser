@@ -48,7 +48,7 @@ class Eventhandler():
         return getSetting("CurrentW")
     
     def clearTarget(self):
-        setSetting("TargetW", float(0))
+        setSetting("TargetW", "0")
         
     #Takes a string value and adds it to the end of the string
     def addDigit(self, digit):
