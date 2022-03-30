@@ -166,6 +166,8 @@ def edit_preset(load_string):
 
 def begin_calibration():
     print('Calibrating...')
+    global event_handler
+    event_handler.calibrate()
 
 def set_counter(new_counter):
     global label_counter
