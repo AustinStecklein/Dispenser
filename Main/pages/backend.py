@@ -46,7 +46,7 @@ def coarse_feed():
     global event_handler
     event_handler.Manual_fast()
 
-def stop_coarse_feed():
+def stop_coarse_feed(x):
     global event_handler
     event_handler.stop()
 
@@ -54,7 +54,7 @@ def fine_feed():
     global event_handler
     event_handler.Manual_med()
     
-def stop_fine_feed():
+def stop_fine_feed(x):
     global event_handler
     event_handler.stop()
 
@@ -62,7 +62,7 @@ def bump_feed():
     global event_handler
     event_handler.Manual_slow()
 
-def stop_bump_feed():
+def stop_bump_feed(x):
     global event_handler
     event_handler.stop()
 
