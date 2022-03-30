@@ -46,13 +46,22 @@ def coarse_feed():
     global event_handler
     event_handler.Manual_fast()
 
+def stop_coarse_feed():
+    pass
+
 def fine_feed():
     global event_handler
     event_handler.Manual_med()
+    
+def stop_fine_feed():
+    pass
 
 def bump_feed():
     global event_handler
     event_handler.Manual_slow()
+
+def stop_bump_feed():
+    pass
 
 def power_off():
     print('Power off')

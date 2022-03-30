@@ -229,16 +229,27 @@ class HomePage(Page):
         speed_display_value.pack(side = 'left', expand = False)
 
         # Coarse, Fine Feed, and Bump Container
+        #  https://stackoverflow.com/questions/16548757/how-can-i-identify-when-a-button-is-released-in-tkinter
+
         feed_button_frame = tk.Frame(right_frame)
         feed_button_frame.pack(side = 'top', expand = False, anchor = 's', pady = 4)
 
         coarse_feed_button = tk.Button( feed_button_frame, image = Images.get('coarse'), 
-                                        width="100", height="50", command = backend.coarse_feed, borderwidth=0)
+                                        width="100", height="50", borderwidth=0)
         fine_feed_button = tk.Button(   feed_button_frame, image = Images.get('fine'), 
-                                        width="100", height="50", command = backend.fine_feed, borderwidth=0)
+                                        width="100", height="50", borderwidth=0)
         bump_feed_button = tk.Button(   feed_button_frame, image = Images.get('bump'), 
-                                        width="100", height="50", command = backend.bump_feed, borderwidth=0)
+                                        width="100", height="50", borderwidth=0)
         
+        coarse_feed_button.bind('<ButtonPress>',    command = backend.coarse_feed)
+        coarse_feed_button.bind('<ButtonRelease>',  command = backend.stop_coarse_feed)
+        
+        fine_feed_button.bind('<ButtonPress>',      command = backend.fine_feed)
+        fine_feed_button.bind('<ButtonRelease>',    command = backend.stop_fine_feed)
+        
+        bump_feed_button.bind('<ButtonPress>',      command = backend.bump_feed)
+        bump_feed_button.bind('<ButtonRelease>',    command = backend.stop_bump_feed)
+
         bump_feed_button.pack(  side = 'right', expand = False, anchor = 's', padx = 8)
         fine_feed_button.pack(  side = 'right', expand = False, anchor = 's', padx = 8)
         coarse_feed_button.pack(side = 'right', expand = False, anchor = 's', padx = 8)
