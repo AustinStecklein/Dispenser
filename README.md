@@ -1,3 +1,9 @@
+In a world, where every electrical component is out of stock, a world where
+everything is breaking left and right, and gunpowder is the preferred unit
+of commerce: An unlikely group of heroes (And John) are tasked with creating
+the ultimate senior project. Will they succeed? Can they overcome the endless
+challenges? Are they going to graduate? Find out this Wednesday! Or else...
+
 # Dispenser
 CreedMoore code base for the powder dispenser
 
