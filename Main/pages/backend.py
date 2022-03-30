@@ -41,7 +41,8 @@ haptic_mode = 'Option 1'
 startResetDefaults = False
 
 def auto_dispense():
-    pass
+    global event_handler
+    event_handler.auto_target()
 
 def coarse_feed(x):
     global event_handler
