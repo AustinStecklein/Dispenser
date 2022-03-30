@@ -272,8 +272,10 @@ def set_target(new_target):
     target = new_target
 
 def add_target_digit(digit):
-    global target
+    global event_handler
+    target = event_handler.getTargetWeight()
     target = target + digit
+    event_handlet.setTargetWeight(target)
 
 def numpad_clear():
     global target
