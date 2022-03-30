@@ -2,6 +2,7 @@ from tkinter import *
 import tkinter as tk
 import tkinter.font as font
 import pages.images.images as Images
+import pages.backend as backend
 
 
 # TODO: Implement Number Press Function to Target Weight Variable on home_page
@@ -19,15 +20,11 @@ class NumPad(Frame):
     
     def create_buttons(self):
 
-        # Used to Change the Target Weight Variable 
-        equation = tk.StringVar()
-
         # Sends the Number pressed to the exp variable
-        def press(num):
-            print(num)
-            global exp
-            exp = exp + str(num)
-            equation.set(exp)
+        def press(btn):
+            print(btn)
+            if btn != 'Dispense':
+                backend.add_target_digit(btn)
 
         # Numbers 0 - 9 Buttons and Dispense Button
         num1 = tk.Button(self, image = Images.get('1'), borderwidth = 0, command=lambda: press('1'))
@@ -62,11 +59,4 @@ class NumPad(Frame):
 
         dispense_button = Button(self,image = Images.get('dispense'), borderwidth="0",)    
         dispense_button.grid(columnspan = 2, row = 3, column = 1, padx = 2, pady = 2)  
-
-
-        # Work In Progress
-        #Dis_entry = tk.Entry(keyboard_frame, state='readonly', textvariable=equation, font = scale_font, border = 2, bg = "black")
-        #Dis_entry.grid(row = 0, column = 5, columnspan=11, ipadx=30, ipady=15, sticky = 'w')  
-
-
-          
+        
