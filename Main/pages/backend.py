@@ -47,10 +47,12 @@ def coarse_feed():
     event_handler.Manual_fast()
 
 def fine_feed():
-    print('fine feed')
+    global event_handler
+    event_handler.Manual_med()
 
 def bump_feed():
-    print('bump feed')
+    global event_handler
+    event_handler.Manual_slow()
 
 def power_off():
     print('Power off')
@@ -116,12 +118,9 @@ def total_pages():
     return int(math.ceil(len(load_list) / 5))
 
 def get_target():
-    global target
-
-    if target == '':
-        return '0.00'
-    else:
-        return target
+    global event_handler
+    target = event_handler.getTargetWeight()
+    return target
 
 def increase_bump():
     global bump_strength
@@ -173,14 +172,8 @@ def get_label():
     return keyboard_label
 
 def read_scale():
-    if (units == "gr"):
-        return "000.000"
-    if (units == "lb"):
-        return str(datetime.date.today().strftime('%d.%m'))
-    if (units == "g"):
-        return str(datetime.date.today().strftime('%y'))
-    else:
-        return "00.00"
+    global event_handler
+    return event_handler.getcurrentWeight()
 
 def set_filename(new_filename):
     global file_name
