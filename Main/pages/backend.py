@@ -132,7 +132,7 @@ def total_pages():
 def get_target():
     global event_handler
     target = event_handler.getTargetWeight()
-    return target
+    return str(target)
 
 def increase_bump():
     global bump_strength
