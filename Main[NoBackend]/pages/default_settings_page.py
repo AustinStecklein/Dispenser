@@ -3,7 +3,7 @@ from pages.page import Page
 import pages.backend as backend
 import tkinter.font as font
 
-# TODO: font and buttons
+# TODO: Buttons
 
 class DefaultSettingsPage(Page):
     def __init__(self, *args, **kwargs):

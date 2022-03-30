@@ -5,15 +5,14 @@ import pages.backend as backend
 import pages.images.images as Images
 import tkinter.font as font
 
-# TODO: font 
-# TODO: button size
+
 # TODO: arrow buttons
 
 class ViewPage(Page):
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)
 
-        # Fonts
+        # Font Sizes and Styles
         page_font = font.Font(family='Bahnschrift', size=16, weight='bold')
         unit_font = font.Font(family='Bahnschrift', size=14, weight='bold')
         previous_font = font.Font(family='Bahnschrift', size=12, weight='bold')

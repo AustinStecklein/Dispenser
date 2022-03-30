@@ -30,6 +30,7 @@ class HomePage(Page):
         self.settings_page  .place(in_=self, x=0, y=0, relwidth=1, relheight=1)
         self.view_page      .place(in_=self, x=0, y=0, relwidth=1, relheight=1)
 
+        # Sets the Home_Page
         home_page = tk.Frame(self)
         home_page .place(in_=self, x=0, y=0, relwidth=1, relheight=1)
 
@@ -40,14 +41,15 @@ class HomePage(Page):
         numpad = NumPad(numpad_frame)
         numpad.pack()
 
-        ## load / save / view
+        # Splits the Page in Half Vertically and Contains all the Buttons and Values on the Right Side
         right_frame = tk.Frame(home_page)
         right_frame.pack(side = 'right', expand = True)
 
+        # Load, Save and View Container
         top_buttons_frame = tk.Frame(right_frame)
         top_buttons_frame.pack(side = 'top', pady = 4)
 
-        
+        # Load, Save and View Buttons
         load_button = tk.Button(top_buttons_frame, command = self.load_page.show, width = 100, height = 50, image = Images.get('load'), borderwidth = 0)
         save_button = tk.Button(top_buttons_frame, command = self.save_page.show, width = 100, height = 50, image = Images.get('save'), borderwidth = 0)
         view_button = tk.Button(top_buttons_frame, command = self.view_page.show, width = 100, height = 50, image = Images.get('view'), borderwidth = 0)
@@ -55,10 +57,9 @@ class HomePage(Page):
         save_button.pack(side = 'left', expand = False, padx = 8)
         load_button.pack(side = 'left', expand = False, padx = 8)
         view_button.pack(side = 'left', expand = False, padx = 8)
+        
 
-        ## display
-
-            # Unit Selector
+        # Unit Selector
         def popup():
 
             # Starts a new Screen that will be on top of the main screen and sets its dimensions, with the attribute of the not being modifiable by the user
@@ -115,9 +116,8 @@ class HomePage(Page):
                 popup.destroy()
                 home_page.after(10, backend.get_units)
 
-            # If the current units is already selected, the user cannot select those units and must choose a different one
-            
 
+            # If the current units is already selected, the user cannot select those units and must choose a different one
             if (units == "gr"):
                 gr_button = tk.Button(popup, text = "Grains: (gr)", font = unit_font, width = 5,borderwidth = 0,)
                 gr_button.config(relief = SUNKEN)
@@ -184,37 +184,24 @@ class HomePage(Page):
                 tl_button.grid(row = 3, column = 1, ipadx = 50, ipady = 2, pady = 5, padx = 25)
 
         
-            # Scale Weight
+        # Scale Weight Container
         scale_weight_frame = tk.Frame(right_frame)
         scale_weight_frame.pack(side = 'top', expand = False, padx = 2)
 
-
+        # Scale Weight Number
         scale_font = font.Font(family='Bahnschrift', size=56, weight='bold') # size reduced from 78
         scale_weight = Label(scale_weight_frame, text ="00.00", bg = "light gray")
         scale_weight['font'] = scale_font
         scale_weight.pack(side = "left", pady = 5, anchor = 's')
 
+        # Scale Units which has an attached function to change units
         scale_unit_font = font.Font(family='Bahnschrift', size=20, weight='bold')
         scale_unit = Button(scale_weight_frame, text = 'gr', bg = "light gray", command = popup,borderwidth = 0,)
         scale_unit['font'] = scale_unit_font
         scale_unit.pack(side = "left", pady = 5, anchor = 'sw')
 
-        # Continously called to ensure the units stay updated
-        def update_units():
-            updated_units = backend.get_units()
-            scale_unit.config(text = updated_units)
-            home_page.after(10, update_units)
-
-        update_units()
-
-        def get_scale_reading():
-            scale_reading = backend.read_scale()
-            scale_weight.config(text = scale_reading)
-            home_page.after(10, get_scale_reading)
         
-        get_scale_reading()
-
-            # Target Weight
+        # Target Weight Containter
         small_displays_frame = tk.Frame(right_frame)
         small_displays_frame.pack(side = "top", expand = True)
 
@@ -226,14 +213,7 @@ class HomePage(Page):
         target_weight['font'] = target_font
         target_weight.pack(side = "left", pady = 5, anchor = 's')
 
-        def get_target_weight():
-            target_value = backend.get_target()
-            target_weight.config(text = "Target Weight: " + target_value)
-            home_page.after(10, get_target_weight)
-        
-        get_target_weight()
-
-            # Speed Display
+        # Speed Container
         speed_display_frame = tk.Frame(small_displays_frame)
         speed_display_frame.pack(side = 'right', expand = True, padx = 2)
 
@@ -248,14 +228,7 @@ class HomePage(Page):
         speed_display_value['font'] = speed_font
         speed_display_value.pack(side = 'left', expand = False)
 
-        def get_speed():
-            speed_value = backend.get_trickler_speed()
-            speed_display_value.config(text = speed_value + '%')
-            home_page.after(10, get_speed)
-        
-        get_speed()
-
-        ## feed buttons
+        # Coarse, Fine Feed, and Bump Container
         feed_button_frame = tk.Frame(right_frame)
         feed_button_frame.pack(side = 'top', expand = False, anchor = 's', pady = 4)
 
@@ -271,9 +244,7 @@ class HomePage(Page):
         coarse_feed_button.pack(side = 'right', expand = False, anchor = 's', padx = 8)
 
 
-
-        ## clear / calibrate / settings
-
+        # Clear, Calibrate, and Settings Container
         bottom_buttons_frame = tk.Frame(right_frame)
         bottom_buttons_frame.pack(side = 'top', anchor = 's', pady = 4)
 
@@ -287,6 +258,24 @@ class HomePage(Page):
         clear_button    .pack(side = 'left', expand = False, padx = 8)
         calibrate_button.pack(side = 'left', expand = False, padx = 8)
         settings_button .pack(side = 'left', expand = False, padx = 8)
+
+        # Continously called to ensure the units stay updated
+        def update_units():
+            updated_units = backend.get_units()
+            scale_unit.config(text = updated_units)
+            home_page.after(10, update_units)
+            scale_reading = backend.read_scale()
+            scale_weight.config(text = scale_reading)
+            home_page.after(10, get_scale_reading)
+            target_value = backend.get_target()
+            target_weight.config(text = "Target Weight: " + target_value)
+            home_page.after(10, get_target_weight)
+            speed_value = backend.get_trickler_speed()
+            speed_display_value.config(text = speed_value + '%')
+            home_page.after(10, get_speed)
+
+        # Calls update_units function to ensure that all the units stay up to date
+        update_units()
 
     # Lowers all pages to reveal the Home Page
     def go_home(self):
