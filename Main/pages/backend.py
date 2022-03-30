@@ -273,13 +273,11 @@ def set_target(new_target):
 
 def add_target_digit(digit):
     global event_handler
-    target = str(event_handler.getTargetWeight())
-    target = target + digit
-    event_handler.setTargetWeight(target)
+    target = event_handler.addDigit(float(digit))
 
 def numpad_clear():
-    global target
-    target = ''
+    global event_handler
+    event_handler.clearTarget()
 
 def increase_tilt():
     global tilt
