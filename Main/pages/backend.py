@@ -2,8 +2,6 @@ import datetime
 import math
 from pages.backend_modules.Eventhandler import *
 
-# TODO: give actual backend functions
-
 event_handler = Eventhandler()
 
 target = ""

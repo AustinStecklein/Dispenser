@@ -4,9 +4,6 @@ import tkinter.font as font
 import pages.images.images as Images
 import pages.backend as backend
 
-
-# TODO: Implement Number Press Function to Target Weight Variable on home_page
-
 # Sets Variables used in Numpad Buttons
 exp = ""
 BUTTON_X_PAD = 2
@@ -59,4 +56,3 @@ class NumPad(Frame):
 
         dispense_button = Button(self,image = Images.get('dispense'), borderwidth="0",)    
         dispense_button.grid(columnspan = 2, row = 3, column = 1, padx = 2, pady = 2)  
-        
