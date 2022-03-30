@@ -255,6 +255,8 @@ class HomePage(Page):
         get_speed()
 
         ## feed buttons
+        # TODO: bind commands to press/release. See https://stackoverflow.com/questions/16548757/how-can-i-identify-when-a-button-is-released-in-tkinter
+
         feed_button_frame = tk.Frame(right_frame)
         feed_button_frame.pack(side = 'top', expand = False, anchor = 's', pady = 4)
 
