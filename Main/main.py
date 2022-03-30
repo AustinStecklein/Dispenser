@@ -63,9 +63,8 @@ if __name__ == "__main__":
     # Starts the Program and labels the Screen as Dispenser
     root = tk.Tk()
 
-    root.attributes('-fullscreen', True)
     root.title('Dispenser')
-    root.attributes('-fullscreen',True)
+    #root.attributes('-fullscreen',True)
 
     # Sets the MainView Class on the root, ensuring it stays on screen on every page while filling the screen
     main = MainView(root)
