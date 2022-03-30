@@ -263,16 +263,13 @@ class HomePage(Page):
         def update_units():
             updated_units = backend.get_units()
             scale_unit.config(text = updated_units)
-            home_page.after(10, update_units)
             scale_reading = backend.read_scale()
             scale_weight.config(text = scale_reading)
-            home_page.after(10, get_scale_reading)
             target_value = backend.get_target()
             target_weight.config(text = "Target Weight: " + target_value)
-            home_page.after(10, get_target_weight)
             speed_value = backend.get_trickler_speed()
             speed_display_value.config(text = speed_value + '%')
-            home_page.after(10, get_speed)
+            home_page.after(10, update_units)
 
         # Calls update_units function to ensure that all the units stay up to date
         update_units()

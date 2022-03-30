@@ -19,7 +19,7 @@ class NumPad(Frame):
     
     def create_buttons(self):
 
-        # 
+        # Used to Change the Target Weight Variable 
         equation = tk.StringVar()
 
         # Sends the Number pressed to the exp variable

@@ -30,7 +30,7 @@ class LoadPage(Page):
 
             current_loads = load_list[ (current_page - 1) * 5 : ( (current_page - 1) * 5 ) + 5 ]
 
-            # Make a button for each preset on the current page
+            # Makes a button for each preset on the current page
             for load_string in current_loads:
                 load_frame = tk.Frame(bottom_frame)
                 load_frame.pack(side = 'top', expand = False, anchor = 'w', pady = 2)

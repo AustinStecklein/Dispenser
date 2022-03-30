@@ -13,30 +13,35 @@ class BrightnessSoundPage(Page):
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)
 
+        # Fonts and Styles
         page_font = font.Font(family='Bahnschrift', size=26, weight='bold')
         unit_font = font.Font(family='Bahnschrift', size=14, weight='bold')
         list_font = font.Font(family='Bahnschrift', size=10)
         
+        # List of Haptic Options
         haptics_list = ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5', 'Option 6']
         haptics_list_var = tk.StringVar(value = haptics_list)
 
+        # Container for Brightness and Sound Label
         banner_frame = tk.Frame(self)
         banner_frame .pack(side = 'top', expand = False, anchor = 'n')
 
+        # Brightness and Sound Label
         label = tk.Label(banner_frame, text="Settings: Brightness and Sound", font = page_font, fg = "#c62b24")
         label .pack(side = "top", fill = "both", expand = False)
 
+        # Container for the Haptic, Backlight, Notification, and Volume Settings
         bottom_frame = tk.Frame(self)
         bottom_frame .pack(side = 'top', expand = True)
 
-
+        # Splits the Bottom Frame Vertically
         left_frame = tk.Frame(bottom_frame)
         left_frame .pack(side = 'left', expand = False, padx = 50)
 
         right_frame = tk.Frame(bottom_frame)
         right_frame .pack(side = 'right', expand = False, padx = 50)
 
-
+        # Frames for each of the Settings
         haptic_frame = tk.Frame(left_frame)
         haptic_frame.pack(side = "bottom", expand = True)
 
@@ -46,11 +51,10 @@ class BrightnessSoundPage(Page):
         notification_frame = tk.Frame(right_frame)
         notification_frame.pack(side = "top", expand = True, pady = 15)
 
-
         volume_frame = tk.Frame(right_frame)
         volume_frame.pack(side = "bottom", expand = True, pady = 5)
 
-
+        # Backlight Setting
         backlight_slider = tk.Scale(backlight_frame, from_ = 0, to_ = 100, orient = tk.HORIZONTAL)
         backlight_slider .pack(side = 'top')
         backlight_slider .set(backend.get_backlight())
@@ -58,7 +62,7 @@ class BrightnessSoundPage(Page):
         backlight_label = tk.Label(backlight_frame, text = 'Backlight Intensity', font = unit_font)
         backlight_label .pack(side = 'top', expand = False)
 
-
+        # Notification Volume Setting
         notification_volume_slider = tk.Scale(notification_frame, from_ = 0, to_ = 100, orient = tk.HORIZONTAL)
         notification_volume_slider .pack(side = 'top')
         notification_volume_slider .set(backend.get_notification_volume())
@@ -66,7 +70,7 @@ class BrightnessSoundPage(Page):
         notification_volume_label = tk.Label(notification_frame, text = 'Notification Volume', font = unit_font)
         notification_volume_label .pack(side = 'top', expand = False)
 
-        
+        # Button Volume Setting
         button_volume_slider = tk.Scale(volume_frame, from_ = 0, to_ = 100, orient = tk.HORIZONTAL)
         button_volume_slider .pack(side = 'top')
         button_volume_slider .set(backend.get_button_volume())
@@ -74,7 +78,7 @@ class BrightnessSoundPage(Page):
         button_volume_label = tk.Label(volume_frame, text = 'Button Volume', font = unit_font)
         button_volume_label .pack(side = 'top', expand = False)
 
-
+        # Haptic Setting
         haptic_label = tk.Label(haptic_frame, text = 'Haptic Feedback', font = unit_font)
         haptic_label .pack( side = 'top')
 
@@ -83,13 +87,14 @@ class BrightnessSoundPage(Page):
         haptic_select .activate(backend.get_haptic())
 
 
-
+        # Button Frame for Save Selections
         button_frame = tk.Frame(self)
         button_frame  .pack(side = "left", expand = False)
 
         save_button = tk.Button(button_frame,  borderwidth=0, image = Images.get('selections'), command = self.lower)
         save_button .pack(padx = 25)
 
+        # Updates the Settings on the Screen
         def update_settings():
             if backend.needsReset():
                 backlight_slider            .set(50)

@@ -14,15 +14,15 @@ class AdjustFeedsPage(Page):
         page_font = font.Font(family='Bahnschrift', size=26, weight='bold')
         unit_font = font.Font(family='Bahnschrift', size=14, weight='bold')
 
-
+        # Label for Adjust Feeds Sub Pave
         label = tk.Label(self, text="Settings: Adjust Feeds", font = page_font, fg = "#c62b24")
         label.pack(side = "top", fill="both", expand = False)
 
+        # Page Container
         bottom_frame = tk.Frame(self)
         bottom_frame .pack(side = 'top', expand = True)
 
-        # Bump
-
+        # Bump Button, Value, and Range
         bump_frame = tk.Frame(bottom_frame)
         bump_frame .pack(side = 'right', expand = True, padx = 10)
         
@@ -54,8 +54,8 @@ class AdjustFeedsPage(Page):
             self.after(10, display_bump)
         display_bump()
             
-        # Fine
-
+       
+        # Fine Button, Value, and Range
         fine_frame = tk.Frame(bottom_frame)
         fine_frame .pack(side = 'right', expand = True, padx = 10)
         
@@ -87,8 +87,8 @@ class AdjustFeedsPage(Page):
             self.after(10, display_fine)
         display_fine()
 
-        # Coarse
 
+        # Coarse Button, Value, and Range
         coarse_frame = tk.Frame(bottom_frame)
         coarse_frame .pack(side = 'right', expand = True, padx = 10)
 
@@ -123,6 +123,6 @@ class AdjustFeedsPage(Page):
             self.after(10, display_coarse)
         display_coarse()
 
-        # Save button
+        # Save Adjustments button
         save_button = tk.Button(self, image = Images.get('save adjustments'), borderwidth=0, command = self.lower)
         save_button .pack(anchor = 'w', padx = 25)

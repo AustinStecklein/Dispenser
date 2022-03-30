@@ -8,18 +8,21 @@ import tkinter.font as font
 class DefaultSettingsPage(Page):
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)
-
+        
+        # Fonts and Styles
         unit_font = font.Font(family='Bahnschrift', size=14)
         label_font = font.Font(family='Bahnschrift', size=20, weight='bold')
 
+        # Default Function that resets
         def defaults():
             backend.startReset()
             self.lower()
 
-        
+        # Default Question
         label = tk.Label(self, text="Would you like to reset to default settings?", font = label_font)
         label.pack(side="top", fill="both", expand=True)
 
+        # Yes and No Buttons Frame 
         buttons_frame = tk.Frame(self)
         buttons_frame .pack(side = 'top', anchor = 'n', expand = True)
 
