@@ -2,8 +2,6 @@ import datetime
 import math
 from pages.backend_modules.Eventhandler import *
 
-# TODO: give actual backend functions
-
 event_handler = Eventhandler()
 
 target = ""
@@ -42,27 +40,31 @@ button_volume = 50 # 0 to 100
 haptic_mode = 'Option 1'
 startResetDefaults = False
 
-def coarse_feed():
+def auto_dispense():
+    global event_handler
+    event_handler.auto_target()
+
+def coarse_feed(x):
     global event_handler
     event_handler.Manual_fast()
 
-def stop_coarse_feed():
+def stop_coarse_feed(x):
     global event_handler
     event_handler.stop()
 
-def fine_feed():
+def fine_feed(x):
     global event_handler
     event_handler.Manual_med()
     
-def stop_fine_feed():
+def stop_fine_feed(x):
     global event_handler
     event_handler.stop()
 
-def bump_feed():
+def bump_feed(x):
     global event_handler
     event_handler.Manual_slow()
 
-def stop_bump_feed():
+def stop_bump_feed(x):
     global event_handler
     event_handler.stop()
 
@@ -166,6 +168,8 @@ def edit_preset(load_string):
 
 def begin_calibration():
     print('Calibrating...')
+    global event_handler
+    event_handler.calibrate()
 
 def set_counter(new_counter):
     global label_counter
@@ -272,12 +276,12 @@ def set_target(new_target):
     target = new_target
 
 def add_target_digit(digit):
-    global target
-    target = target + digit
+    global event_handler
+    target = event_handler.addDigit(float(digit))
 
 def numpad_clear():
-    global target
-    target = ''
+    global event_handler
+    event_handler.clearTarget()
 
 def increase_tilt():
     global tilt

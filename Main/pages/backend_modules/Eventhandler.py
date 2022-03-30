@@ -46,11 +46,14 @@ class Eventhandler():
     #returns a string value for the current weight
     def getcurrentWeight(self):
         return getSetting("CurrentW")
-
+    
+    def clearTarget(self):
+        setSetting("TargetW", "0")
+        
     #Takes a string value and adds it to the end of the string
     def addDigit(self, digit):
-        current = self.getTargetWeight * 10
-        setSetting("TargetW", current + (digit * .01))
+        current = self.getTargetWeight() * float(10)
+        setSetting("TargetW", str(current + (digit * .01)))
     
     #This will remove the last digit in the string
     #def backspace(self):
