@@ -1,7 +1,7 @@
-from pages.backend_modules.Database import *
+from Database import *
 import threading
-from pages.backend_modules.StepperDriver import *
-from pages.backend_modules.event import Event
+from StepperDriver import *
+from event import Event
 import serial
 import Adafruit_BBIO.ADC as ADC
 import Adafruit_BBIO.GPIO as GPIO
@@ -66,7 +66,7 @@ class Eventhandler():
         self.regEvent(Event.MANUAL_FAST)
     
     def auto_target(self):
-        #self.regEvent(Event.AUTO_TARGET)
+        self.regEvent(Event.AUTO_TARGET)
         pass
     
     def calibrate(self):
@@ -92,7 +92,7 @@ class Eventhandler():
         self.regEvent(Event.MANUAL_ANGLE_CHANGE, direction)
 
     def stop(self):
-        self.regEvent(Event.FULL_STOP)
+        Stop()
 
     def save_data(self, Name, Cartridge, Bullet, Powder, Charge, Weight, COAL, Primer, Brass, Notes):
         addCard(Name, Cartridge, Bullet, Powder, Charge, Weight, COAL, Primer, Brass, Notes)
@@ -107,8 +107,8 @@ class Eventhandler():
             self.startThread(Start, "dispense", 2)
         elif event == Event.MANUAL_FAST:
             self.startThread(Start,"dispense", 3)
-        #elif event == Event.AUTO_TARGET:
-            #self.startThread(StepperDriver.autorun)
+        elif event == Event.AUTO_TARGET:
+            self.startThread(autorun, "auto")
         elif event == Event.MANUAL_ANGLE_CHANGE:
             #currentAngle = getSetting("angle")
             self.startThread(StepperDriver.angleChange, args)
