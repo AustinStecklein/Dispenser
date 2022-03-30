@@ -42,7 +42,7 @@ button_volume = 50 # 0 to 100
 haptic_mode = 'Option 1'
 startResetDefaults = False
 
-def coarse_feed():
+def coarse_feed(x):
     global event_handler
     event_handler.Manual_fast()
 
@@ -50,7 +50,7 @@ def stop_coarse_feed(x):
     global event_handler
     event_handler.stop()
 
-def fine_feed():
+def fine_feed(x):
     global event_handler
     event_handler.Manual_med()
     
@@ -58,7 +58,7 @@ def stop_fine_feed(x):
     global event_handler
     event_handler.stop()
 
-def bump_feed():
+def bump_feed(x):
     global event_handler
     event_handler.Manual_slow()
 
