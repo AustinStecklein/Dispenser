@@ -53,7 +53,7 @@ class Eventhandler():
     #Takes a string value and adds it to the end of the string
     def addDigit(self, digit):
         current = self.getTargetWeight() * float(10)
-        setSetting("TargetW", current + (digit * .01))
+        setSetting("TargetW", str(current + (digit * .01)))
     
     #This will remove the last digit in the string
     #def backspace(self):
