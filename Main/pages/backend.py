@@ -273,7 +273,7 @@ def set_target(new_target):
 
 def add_target_digit(digit):
     global event_handler
-    target = event_handler.getTargetWeight()
+    target = string(event_handler.getTargetWeight())
     target = target + digit
     event_handlet.setTargetWeight(target)
 
