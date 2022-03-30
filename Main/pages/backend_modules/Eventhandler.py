@@ -47,8 +47,9 @@ class Eventhandler():
     def getcurrentWeight(self):
         return getSetting("CurrentW")
     
-    def setTargetWeight(self, weight):
-        setSetting("TargetW", str(weight))
+    def clearTarget(self):
+        SetSetting("TargetW", float(0))
+        
     #Takes a string value and adds it to the end of the string
     def addDigit(self, digit):
         current = self.getTargetWeight * 10
