@@ -5,7 +5,7 @@ the ultimate senior project. Will they succeed? Can they overcome the endless
 challenges? Are they going to graduate? Find out this Wednesday! Or else...
 
 # Dispenser
-CreedMoore code base for the powder dispenser
+Creedmoor code base for the powder dispenser
 
 # TODO List
 - [ ] forward and back buttons dont function
