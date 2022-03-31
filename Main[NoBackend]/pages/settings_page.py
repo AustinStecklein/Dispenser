@@ -56,7 +56,9 @@ class SettingsPage(Page):
         adjust_feeds_button     .pack(side = 'top', expand = False, padx = 25, pady = 20)
         scale_config_button     .pack(side = 'top', expand = False, padx = 25, pady = 20)
 
-        # Lowers the Sub Pages to Ensure they do not appear above the main Settings Page
+        # Lowers the Sub Pages to ensure they do not appear above the main Settings Page
         self.scale_config_page      .lower()
         self.brightness_sound_page  .lower()
         self.adjust_feeds_page      .lower()
+
+        

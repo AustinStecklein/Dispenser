@@ -2,12 +2,8 @@ from tkinter import *
 from tkinter.ttk import *
 
 from pages.page           import *
-from pages.settings_page  import *
-from pages.calibrate_page import *
 from pages.home_page      import *
-from pages.save_page      import *
 from pages.power_off_page import *
-from pages.keyboard       import *
 
 import pages.images.images as Images
 
@@ -62,8 +58,10 @@ if __name__ == "__main__":
     
     # Starts the Program and labels the Screen as Dispenser
     root = tk.Tk()
-
     root.title('Dispenser')
+
+    # Ensures that the window fills the entire screen, however, it is disabled for Main[No Backend] to allow 
+    # the programmer to run and debug the user interface without the Beaglebone Black Wireless 
     #root.attributes('-fullscreen',True)
 
     # Sets the MainView Class on the root, ensuring it stays on screen on every page while filling the screen

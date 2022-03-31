@@ -1,16 +1,17 @@
-from fileinput import close
 import tkinter as tk
+from tkinter import *
+
 from pages.page import Page
-from pages.numpad import *
-import pages.backend as backend
 from pages.load_page      import *
 from pages.settings_page  import *
 from pages.calibrate_page import *
 from pages.save_page      import *
 from pages.view_page      import *
-import pages.images.images as Images
-from tkinter import *
+
 import tkinter.font as font
+from pages.numpad import *
+import pages.backend as backend
+import pages.images.images as Images
 
 units = backend.get_units()
 
