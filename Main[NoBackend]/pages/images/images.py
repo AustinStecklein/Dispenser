@@ -2,22 +2,28 @@ from tkinter import *
 import sys
 
 ## How to add more images:
-#  1. Ensure that the moniker that you will be using to distinguish the new image is not one that has already been used.
-#  2. then follow the pattern illustrated below.
+#  1.   Ensure that the moniker that you will be using to distinguish the new image is not one that has already been used.
+#  2.   Follow the pattern illustrated below.
 #  2.1. The first part is the sys.path function, which returns the location of the main file relative to the machine it is currently on, which enables every machine to find the correct
 #       path to the image.
 #  2.2. The second part is the rest of the file path, which is pretty straight forward, however, for more clarification, this part is the exact path from the main folder to the desired image. 
+#  3.   If you want to use the same image for multiple items, make a new moniker as outlined in the steps above, becuase Python will only recognize the first Images.get() function used with a particular moniker.
+#       You will when you have this issue when Python shows the size of the image but it will be blank. This is illustrated by the images used on the Load and Save Pages.
+#  3.1  So to summarize: You can use the same image if you have different monikers for each use of the image. 
 
 imagelist = {
 
-  ## Menu Bar
+  ## MENU BAR
   'power': [sys.path[0] +'/pages/images/bottom_bar/power.png', None],
   'home': [sys.path[0] +'/pages/images/bottom_bar/home.png', None],
   'right': [sys.path[0] +'/pages/images/bottom_bar/right_arrow.png', None],
   'left': [sys.path[0] +'/pages/images/bottom_bar/left_arrow.png', None],
   'menu_bar': [sys.path[0] +'/pages/images/bottom_bar/Bottom Bar.png', None],
 
-  ## NumPad
+
+  ## MAIN MENU
+
+  # NumPad
   '1': [sys.path[0] +'/pages/images/numpad_buttons/1_Button.png', None],
   '2': [sys.path[0] +'/pages/images/numpad_buttons/2_Button.png', None],
   '3': [sys.path[0] +'/pages/images/numpad_buttons/3_Button.png', None],
@@ -29,9 +35,6 @@ imagelist = {
   '9': [sys.path[0] +'/pages/images/numpad_buttons/9_Button.png', None],
   '0': [sys.path[0] +'/pages/images/numpad_buttons/0_Button.png', None],
   'dispense': [sys.path[0] +'/pages/images/numpad_buttons/dispense_Button.png', None],
-
-
-  ## Main Menu
 
   # Top Bar
   'load': [sys.path[0] +'/pages/images/main_menu_buttons/load_Button.png', None],
@@ -45,6 +48,19 @@ imagelist = {
   'clear': [sys.path[0] +'/pages/images/main_menu_buttons/Clear_Button.png', None],
   'calibrate': [sys.path[0] +'/pages/images/main_menu_buttons/Calibrate_Button.png', None],
   'settings': [sys.path[0] +'/pages/images/main_menu_buttons/Settings_Button.png', None],
+
+
+  ## LOAD and VIEW PAGES
+
+  # Arrow Buttons
+  'left_load': [sys.path[0] +'/pages/images/bottom_bar/left_arrow.png', None],
+  'right_load': [sys.path[0] +'/pages/images/bottom_bar/right_arrow.png', None],
+  
+  'left_view': [sys.path[0] +'/pages/images/bottom_bar/left_arrow.png', None],
+  'right_view': [sys.path[0] +'/pages/images/bottom_bar/right_arrow.png', None],
+
+
+  ## SAVE PAGE
 
   # Save Card
   'save_card': [sys.path[0] +'/pages/images/keyboard_buttons/Save_Card.png', None],
@@ -92,7 +108,6 @@ imagelist = {
   'Y': [sys.path[0] +'/pages/images/keyboard_buttons/Y.png', None],
   'Z': [sys.path[0] +'/pages/images/keyboard_buttons/Z.png', None],
 
-
   # Keyboard Buttons: Other
   'BACK': [sys.path[0] +'/pages/images/keyboard_buttons/BACK.png', None],
   'ENTER': [sys.path[0] +'/pages/images/keyboard_buttons/ENTER.png', None],
@@ -121,24 +136,24 @@ imagelist = {
   'quotation': [sys.path[0] +'/pages/images/keyboard_buttons/quotation_marks.png', None],
 
 
-  ## Settings Pages
+  ## SETTINGS PAGE
 
-  # First Screen
+  # Main Settings Page
   'bright': [sys.path[0] +'/pages/images/settings_buttons/brightness_and_sound_Button.png', None],
   'adjust': [sys.path[0] +'/pages/images/settings_buttons/adjust_feeds_Button.png', None],
   'restore': [sys.path[0] +'/pages/images/settings_buttons/restore_to_defaults_Button.png', None],
   'scale': [sys.path[0] +'/pages/images/settings_buttons/scale_config_Button.png', None],
 
-  # Brightness Screen
+  # Brightness Sub Page
   'selections': [sys.path[0] +'/pages/images/settings_buttons/save_selections_Button.png', None],
 
-  # Adjust Feed Screen
+  # Adjust Feed Sub Page
   'adjust_bump': [sys.path[0] +'/pages/images/settings_buttons/bump_for_adjust_feed_screen_Button.png', None],
   'adjust_coarse': [sys.path[0] +'/pages/images/settings_buttons/coarse_for_adjust_feed_screen_Button.png', None],
   'adjust_fine': [sys.path[0] +'/pages/images/settings_buttons/fine_for_adjust_feed_screen_Button.png', None],
   'save adjustments': [sys.path[0] +'/pages/images/settings_buttons/save_adjustments_Button.png', None],
 
-
+  
 }
 
 def get(name):
