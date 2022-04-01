@@ -1,6 +1,7 @@
 import datetime
 import math
 from pages.backend_modules.Eventhandler import *
+from pages.backend_modules.Database import *
 
 event_handler = Eventhandler()
 
@@ -14,7 +15,7 @@ fine_strength = 0.1
 coarse_strength = 1.00
 
 # Sets the default value for the units variable shown on the main menu page to grains
-units = "gr"
+units = "g"
 tilt = 0
 speed = 50
 
@@ -68,16 +69,22 @@ def stop_bump_feed(x):
     global event_handler
     event_handler.stop()
 
+##########################
+#out of scope for this semester
+
 def power_off():
     print('Power off')
+    #Turn off system
 
 def set_backlight(value):
     global backlight_brightness
     backlight_brightness = value
+    #Figure out if we can change screen brightness
 
 def get_backlight():
     global backlight_brightness
     return backlight_brightness
+    #Figure out if we can change screen brightness
 
 def set_notification_volume(value):
     global notification_volume
@@ -115,6 +122,9 @@ def finishReset():
     global startResetDefaults
     startResetDefaults = False
 
+#end of out of scope
+##############################
+
 def next_page():
     global load_page
     load_page += 1
@@ -128,13 +138,15 @@ def get_page():
     return str(load_page)
 
 def total_pages():
-    global load_list
-    return int(math.ceil(len(load_list) / 5))
+    pages = getCards()
+    return int(math.ceil(len(pages) / 5))
 
 def get_target():
     global event_handler
     target = event_handler.getTargetWeight()
     return str(target)
+
+##########################
 
 def increase_bump():
     global bump_strength
@@ -159,6 +171,7 @@ def increase_coarse():
 def decrease_coarse():
     global coarse_strength
     coarse_strength -= 1
+##########################
 
 def load_preset(load_string):
     print(f'Loading {load_string}')
@@ -312,8 +325,12 @@ def get_trickler_tilt():
     return str(tilt)
 
 def get_load_list():
-    global load_list
-    return load_list
+    cards = getCards()
+    cardNames = []
+    for row in cards:
+        cardNames.append(row[0])
+    return cardNames
+
 
 def get_save_list():
     global save_list

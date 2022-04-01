@@ -49,6 +49,13 @@ def addCard(Name, Cartridge, Bullet, Powder, Charge, Weight, COAL, Primer, Brass
     cur.execute('''INSERT INTO Cards VALUES (Name, Cartridge, Bullet, Powder, Charge, Weight, COAL, Primer, Brass, Notes)''')
     con.close()
 
+def getCard(Name):
+    con = sqlite3.connect("data.db")
+    cur = con.cursor()
+    cur.execute('''SELECT * FROM Cards WHERE ''' + Name )
+    card = cur.fetchone()[0]
+    con.close()
+    return card
 # Insert a row of data
 #cur.execute("INSERT INTO stocks VALUES ('2006-01-05','BUY','RHAT',100,35.14)")
 
