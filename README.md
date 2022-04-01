@@ -13,3 +13,4 @@ Creedmoor code base for the powder dispenser
 - [ ] calibrate, default settings, power off need yes and no image buttons
 - [ ] Force the Subpages of Settings to not appear after clicking on the home button   and then clicking on Settings
 - [ ] Keyboard does the same thing as the Settings subpages
+- [ ] Replace the Boot Logo when the Program starts with a Creedmoor Logo
