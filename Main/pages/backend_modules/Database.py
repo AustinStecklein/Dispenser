@@ -7,7 +7,7 @@ def init_database():
     cur.execute('''SELECT count(name) FROM sqlite_master WHERE type='table' AND name='Cards' ''')
     if (cur.fetchone()[0] == 0):
         cur.execute('''CREATE TABLE Cards
-                    (Name text, Cartridge text, Bullet text, Powder text, Charge text, Weight real, COAL text, Primer text, Brass text, notes text)''')
+                   ( Name text, Cartridge text, Bullet text, Powder text, Charge text, Weight real, COAL text, Primer text, Brass text, notes text)''')
     
     cur.execute('''SELECT count(name) FROM sqlite_master WHERE type='table' AND name='settings' ''')
     if (cur.fetchone()[0] == 0):
@@ -46,7 +46,7 @@ def getCards():
 def addCard(Name, Cartridge, Bullet, Powder, Charge, Weight, COAL, Primer, Brass, Notes):
     con = sqlite3.connect('data.db')
     cur = con.cursor()
-    cur.execute('''INSERT INTO Cards VALUES (''' + Name + ''', ''' + Cartridge + ''', ''' + Bullet + ''', ''' + Powder + ''', ''' + Charge + ''', ''' + Weight + ''', ''' + COAL+ ''', ''' + Primer + ''', ''' + Brass + ''', ''' + Notes + ''')''')
+    cur.execute('''INSERT INTO Cards (Name, Cartridge, Bullet, Powder, Charge, Weight, COAL, Primer, Brass, notes) VALUES (''' + Name + ''', ''' + Cartridge + ''', ''' + Bullet + ''', ''' + Powder + ''', ''' + Charge + ''', ''' + Weight + ''', ''' + COAL+ ''', ''' + Primer + ''', ''' + Brass + ''', ''' + Notes + ''')''')
     con.close()
 
 def getCard(Name):
