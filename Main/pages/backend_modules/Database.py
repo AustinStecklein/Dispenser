@@ -46,7 +46,7 @@ def getCards():
 def addCard(Name, Cartridge, Bullet, Powder, Charge, Weight, COAL, Primer, Brass, Notes):
     con = sqlite3.connect('data.db')
     cur = con.cursor()
-    cur.execute('''INSERT INTO Cards (Name, Cartridge, Bullet, Powder, Charge, Weight, COAL, Primer, Brass, notes) VALUES (''' + Name + ''', ''' + Cartridge + ''', ''' + Bullet + ''', ''' + Powder + ''', ''' + Charge + ''', ''' + Weight + ''', ''' + COAL+ ''', ''' + Primer + ''', ''' + Brass + ''', ''' + Notes + ''')''')
+    cur.execute('''INSERT INTO Cards (Name, Cartridge, Bullet, Powder, Charge, Weight, COAL, Primer, Brass, notes) VALUES (''' + Name + ''', ''' + Cartridge + ''', ''' + Bullet + ''', ''' + Powder + ''', ''' + Charge + ''', ''' + Weight + ''', ''' + COAL + ''', ''' + Primer + ''', ''' + Brass + ''', ''' + Notes + ''')''')
     con.close()
 
 def getCard(Name):

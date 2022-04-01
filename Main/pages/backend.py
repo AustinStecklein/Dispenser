@@ -25,14 +25,14 @@ label_counter = 0
 # Sets the default value for every category for the Save Page to blank to ensure the user can start fresh everytime
 keyboard_label = ""
 file_name = "Card #2"
-cartridge = ""
-bullet = ""
-powder = ""
-charge = ""
-coal = ""
-primer = ""
-brass = ""
-notes = ""
+cartridge = " "
+bullet = " "
+powder = " "
+charge = " "
+coal = " "
+primer = " "
+brass = " "
+notes = " "
 
 # Settings variables
 backlight_brightness = 50 # 0 to 100
