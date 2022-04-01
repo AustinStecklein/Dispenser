@@ -6,14 +6,12 @@ import pages.images.images as Images
 import tkinter.font as font
 
 
-# TODO: arrow buttons
-
 class ViewPage(Page):
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)
 
         # Font Sizes and Styles
-        page_font = font.Font(family='Bahnschrift', size=16, weight='bold')
+        page_font = font.Font(family='Bahnschrift', size=20, weight='bold')
         unit_font = font.Font(family='Bahnschrift', size=14, weight='bold')
         previous_font = font.Font(family='Bahnschrift', size=12, weight='bold')
 
@@ -67,13 +65,13 @@ class ViewPage(Page):
         arrows_frame = tk.Frame(self)
         arrows_frame .pack()
 
-        left_arrow = tk.Button(arrows_frame, text = "<", command = prev_page, fg = "white", bg = "#c62b24", width="2", height="1",)
+        left_arrow = tk.Button(arrows_frame, image = Images.get('left_view'), bg = "gray", borderwidth = 0, command = prev_page)
         left_arrow .pack(side = 'left', padx = 10)
 
         page_number_label = tk.Label(arrows_frame, text = '1', font = page_font)
         page_number_label .pack(side = 'left', padx = 10)
-
-        right_arrow = tk.Button(arrows_frame, text = '>', fg = "white", bg = "#c62b24", width="2", height="1", command = next_page)
+        
+        right_arrow = tk.Button(arrows_frame, image = Images.get('right_view'), bg = "gray", borderwidth = 0, command = next_page)
         right_arrow .pack(side = 'left', padx = 10)
 
         # Updates Page Number 
