@@ -20,7 +20,7 @@ TODO
 [ ] Source Code Documents Created
 [ ] DataSheets of Purchased Components
 [ ] Weekly Reports (Only 13 Needed) 
-[ ] Executive Summaries
+[ ] Executive Summaries - Jonathan's Done
 	    Title and Name
 	    Technical Contributions
 	    Team Contributions
