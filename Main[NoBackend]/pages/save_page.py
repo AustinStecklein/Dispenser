@@ -6,8 +6,6 @@ from pages.home_page      import *
 import pages.images.images as Images
 from pages.keyboard import *
 
-# TODO: Save Button 
-
 
 # Sets each variable to its corresponding value in the backend
 new_filename = backend.get_filename()
@@ -24,19 +22,15 @@ class SavePage(Page):
      def __init__(self, *args, **kwargs):
           Page.__init__(self, *args, **kwargs)
 
-          # Fonts, which include type, size, and weight 
-
-          main_font = font.Font(family = "Bahnschrift", size = 25)
+          # Fonts, which include type, size, and weight
           scale_font = font.Font(family='Bahnschrift', size=26, weight='bold')
           details_font = font.Font(family='Bahnschrift', size=18, weight='bold')
 
           # Sets the Keyboard Page to the same dimensions as other pages
-
           self.keyboard      = Keyboard(self)
           self.keyboard      .place(in_ = self, x = 0, y = 0, relwidth = 1, relheight = 1)
 
           ## Set of functions, which send the desired label and counter to the Keyboard then displays the Keyboard
-
           def filename_keyboard():
                backend.set_label("Filename")
                backend.set_counter(0)
@@ -132,7 +126,6 @@ class SavePage(Page):
           right_side.grid(row = 0, column = 1, sticky = 'w')
 
           ## Each category has its own frame and button to ensure they can be editted indiviually and not have any conflicts with the others
-
           cartridge_frame = tk.Frame(left_side)
           cartridge_frame.pack(side = 'top', expand = False, pady = 3, fill = 'x', anchor = 'w')
 

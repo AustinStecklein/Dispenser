@@ -1,15 +1,17 @@
 import tkinter as tk
+from tkinter import *
+
 from pages.page import Page
-from pages.numpad import *
-import pages.backend as backend
 from pages.load_page      import *
 from pages.settings_page  import *
 from pages.calibrate_page import *
 from pages.save_page      import *
 from pages.view_page      import *
-import pages.images.images as Images
-from tkinter import *
+
 import tkinter.font as font
+from pages.numpad import *
+import pages.backend as backend
+import pages.images.images as Images
 
 units = backend.get_units()
 
@@ -186,6 +188,7 @@ class HomePage(Page):
             close_button = tk.Button(popup, text = "Close", font = unit_font, fg = "white", bg = "#c62b24", 
                                     width = 5, borderwidth = 0, command = popup.destroy)
             close_button.grid(row = 4, column = 1, ipadx = 50, ipady = 2, pady = 25, padx = 25)
+
         
         # Scale Weight Container
         scale_weight_frame = tk.Frame(right_frame)
@@ -232,27 +235,16 @@ class HomePage(Page):
         speed_display_value.pack(side = 'left', expand = False)
 
         # Coarse, Fine Feed, and Bump Container
-        #  https://stackoverflow.com/questions/16548757/how-can-i-identify-when-a-button-is-released-in-tkinter
-
         feed_button_frame = tk.Frame(right_frame)
         feed_button_frame.pack(side = 'top', expand = False, anchor = 's', pady = 4)
 
         coarse_feed_button = tk.Button( feed_button_frame, image = Images.get('coarse'), 
-                                        width="100", height="50", borderwidth=0)
+                                        width="100", height="50", command = backend.coarse_feed, borderwidth=0)
         fine_feed_button = tk.Button(   feed_button_frame, image = Images.get('fine'), 
-                                        width="100", height="50", borderwidth=0)
+                                        width="100", height="50", command = backend.fine_feed, borderwidth=0)
         bump_feed_button = tk.Button(   feed_button_frame, image = Images.get('bump'), 
-                                        width="100", height="50", borderwidth=0)
+                                        width="100", height="50", command = backend.bump_feed, borderwidth=0)
         
-        coarse_feed_button.bind('<ButtonPress>',    backend.coarse_feed)
-        coarse_feed_button.bind('<ButtonRelease>',  backend.stop_coarse_feed)
-        
-        fine_feed_button.bind('<ButtonPress>',      backend.fine_feed)
-        fine_feed_button.bind('<ButtonRelease>',    backend.stop_fine_feed)
-        
-        bump_feed_button.bind('<ButtonPress>',      backend.bump_feed)
-        bump_feed_button.bind('<ButtonRelease>',    backend.stop_bump_feed)
-
         bump_feed_button.pack(  side = 'right', expand = False, anchor = 's', padx = 8)
         fine_feed_button.pack(  side = 'right', expand = False, anchor = 's', padx = 8)
         coarse_feed_button.pack(side = 'right', expand = False, anchor = 's', padx = 8)

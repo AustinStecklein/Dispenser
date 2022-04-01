@@ -1,1 +1,6 @@
 Adafruit_BBIO
+
+pip install numpy
+pip install opencv-python
+pip install Pillow
+pip install PySimpleGUI
