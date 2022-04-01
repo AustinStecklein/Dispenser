@@ -90,6 +90,10 @@ class SavePage(Page):
                backend.set_counter(8)
 
                self.keyboard.show()
+          
+          def save_button():
+               backend.save_card_data()
+               self.lower
 
           
           # Sets each variable for every field with its corresponding label
@@ -112,7 +116,7 @@ class SavePage(Page):
           top_bar.pack(side = 'top', expand = False,  fill = 'x', anchor = 'w', pady = 2)
 
           # Sets the Save button 
-          save_button = tk.Button(top_bar, image = Images.get('save_card'), width = '225', borderwidth=0, command = self.lower)
+          save_button = tk.Button(top_bar, image = Images.get('save_card'), width = '225', borderwidth=0, command = save_button)
           save_button.pack(side="left", expand=False, fill = "both", anchor = 'w')
 
           # Sets the Filename Button allowing the user to edit the latter half of the text

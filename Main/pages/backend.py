@@ -41,6 +41,7 @@ button_volume = 50 # 0 to 100
 haptic_mode = 'Option 1'
 startResetDefaults = False
 
+
 def auto_dispense():
     global event_handler
     event_handler.auto_target()
@@ -340,7 +341,8 @@ def get_save_list1():
     global save_list1
     return save_list1
 
-
+def save_card_data():
+    addCard(get_filename(), get_cartridge(), get_bullet(), get_powder(), get_charge(), get_charge(), get_coal(), get_primer(), get_brass(), get_notes())
 
 
 
