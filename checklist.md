@@ -3,7 +3,7 @@ Check List for Final Documentation
 TODO
 
 [ ] Written Final Report
-[ ]	    Title Page
+[DONE]	    Title Page
 [ ]	    Index
 [ ]	    Mission Statement (~ 1 Paragraph)
 [ ]	    Scope of Work (No more than 1 Page)
