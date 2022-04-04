@@ -14,13 +14,13 @@ TODO
 
 [DONE] Bill of Material
 [DONE] Budget with Itemized Expenses
-[ ] User Manual and Video Instructions/Demo
-[ ] Team Oral Report: Slides and/or Video Recording
+[NE] User Manual and Video Instructions/Demo
+[DONE] Team Oral Report: Slides and/or Video Recording
 [DONE] Team Poster (Refer to Project Poster Assignment for Details)
 [DONE] Source Code Documents Created
 [DONE] DataSheets of Purchased Components
 [DONE] Weekly Reports (Only 13 Needed) 
-[ ] Executive Summaries - Jonathan's and Austin's Done 
+[DO] Executive Summaries - Jonathan, Dale, Austin done
 	    Title and Name
 	    Technical Contributions
 	    Team Contributions
@@ -30,3 +30,8 @@ TODO
         (example in Final Documentation PDF)
 
 [ ] HTML Document with links to Everything
+
+Check List for Final Documentation
+
+TODO
+
