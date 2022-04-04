@@ -12,15 +12,15 @@ TODO
 [ ]	    Body (for Body see Final Documentation PDF in Canvas)
 [ ]	    Conclusion
 
-[ ] Bill of Material
-[ ] Budget with Itemized Expenses
+[DONE] Bill of Material
+[DONE] Budget with Itemized Expenses
 [ ] User Manual and Video Instructions/Demo
 [ ] Team Oral Report: Slides and/or Video Recording
-[ ] Team Poster (Refer to Project Poster Assignment for Details)
-[ ] Source Code Documents Created
-[ ] DataSheets of Purchased Components
-[ ] Weekly Reports (Only 13 Needed) 
-[ ] Executive Summaries - Jonathan's Done
+[DONE] Team Poster (Refer to Project Poster Assignment for Details)
+[DONE] Source Code Documents Created
+[DONE] DataSheets of Purchased Components
+[DONE] Weekly Reports (Only 13 Needed) 
+[ ] Executive Summaries - Jonathan's and Austin's Done 
 	    Title and Name
 	    Technical Contributions
 	    Team Contributions
