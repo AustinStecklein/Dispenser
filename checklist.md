@@ -20,7 +20,7 @@ TODO
 [DONE] Source Code Documents Created
 [DONE] DataSheets of Purchased Components
 [DONE] Weekly Reports (Only 13 Needed) 
-[DO] Executive Summaries - Jonathan, Dale, Austin done
+[DON] Executive Summaries - Jonathan, Dale, Austin, Colby
 	    Title and Name
 	    Technical Contributions
 	    Team Contributions
